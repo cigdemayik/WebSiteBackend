@@ -36,7 +36,9 @@ namespace WebSiteBackend.WebApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            return Ok(_blogService.GetById(id));
+            var response = _blogService.GetById(id);
+            
+            return Ok();
 
         }
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {}
+    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
+    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
         "projectName": "WebSiteBackend.DataAccess",
-        "projectPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
-                "projectPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
+              "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+                "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
               }
             }
           }
@@ -88,17 +88,17 @@
         }
       }
     },
-    "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
         "projectName": "WebSiteBackend.Entities",
-        "projectPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
-        "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
+        "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Concrete.Generic;
@@ -7,6 +8,7 @@ using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
 using WebSiteBackend.Helpers.ServiceHelpers.Abstract;
+using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
@@ -21,9 +23,9 @@ namespace WebSiteBackend.Business.Concrete
             _serviceResponseHelper = serviceResponseHelper;
         }
 
-        public Blog GetById(int id)
+        public ServiceResponse<Blog> GetById(int id)
         {
-            return _unitOfWork.Blogs.GetByFilter(x => x.Id == id);
+            return _serviceResponseHelper.SetSuccess(_unitOfWork.Blogs.GetByFilter(x => x.Id == id), HttpStatusCode.OK);
         }
     }
 }

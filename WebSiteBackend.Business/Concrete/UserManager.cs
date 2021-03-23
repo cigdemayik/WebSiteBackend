@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Concrete.Generic;
@@ -7,6 +8,7 @@ using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
 using WebSiteBackend.Helpers.ServiceHelpers.Abstract;
+using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
@@ -19,12 +21,19 @@ namespace WebSiteBackend.Business.Concrete
         {
             _unitOfWork = unitOfWork;
             _serviceResponseHelper = serviceResponseHelper;
-            _serviceResponseHelper = serviceResponseHelper;
         }
 
-        public User GetById(int id)
+        public ServiceResponse<User> GetById(int id)
         {
-            return _unitOfWork.Users.GetByFilter(x => x.Id==id);
+            var data = _unitOfWork.Users.GetByFilter(x => x.Id == id);
+            if (data == null)
+            {
+                return _serviceResponseHelper.SetError<User>(data, "Product Bulunamadı", HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return _serviceResponseHelper.SetSuccess(data, HttpStatusCode.OK);
+            }
         }
     }
 }

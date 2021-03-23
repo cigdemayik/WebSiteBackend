@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Burcu\\.nuget\\packages\\": {}
+    "C:\\Users\\alper\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebUI\\WebSiteBackend.WebUI.csproj",
+      "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebUI\\WebSiteBackend.WebUI.csproj",
       "projectName": "WebSiteBackend.WebUI",
-      "projectPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebUI\\WebSiteBackend.WebUI.csproj",
-      "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebUI\\obj\\",
+      "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebUI\\WebSiteBackend.WebUI.csproj",
+      "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
