@@ -28,3 +28,18 @@ C:\Users\alper\source\repos\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\n
 C:\Users\alper\source\repos\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
 C:\Users\alper\source\repos\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 C:\Users\alper\source\repos\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.genruntimeconfig.cache
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.deps.json
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.runtimeconfig.json
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.runtimeconfig.dev.json
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csprojAssemblyReference.cache
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.AssemblyInfo.cs
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CopyComplete
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
+C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.genruntimeconfig.cache

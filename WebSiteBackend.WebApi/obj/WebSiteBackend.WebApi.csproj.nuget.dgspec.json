@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj": {}
+    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
+    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj",
+        "projectUniqueName": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj",
         "projectName": "WebSiteBackend.Business",
-        "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj",
-        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Business\\obj\\",
+        "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj",
+        "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj"
+              "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj"
               },
-              "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
-                "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj"
+              "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
+                "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj"
               }
             }
           }
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
+    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
         "projectName": "WebSiteBackend.DataAccess",
-        "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,8 +89,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
-                "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
+              "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+                "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
               }
             }
           }
@@ -145,21 +145,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
         "projectName": "WebSiteBackend.Entities",
-        "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
-        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
+        "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -199,21 +199,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
+    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
+        "projectUniqueName": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
         "projectName": "WebSiteBackend.Helpers",
-        "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
-        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Helpers\\obj\\",
+        "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
+        "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Helpers\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -253,21 +253,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj": {
+    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
         "projectName": "WebSiteBackend.WebApi",
-        "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
-        "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.WebApi\\obj\\",
+        "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
+        "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -281,8 +281,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
-                "projectPath": "C:\\Users\\alper\\source\\repos\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj"
+              "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
+                "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj"
               }
             }
           }
@@ -328,7 +328,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
