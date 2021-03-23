@@ -1,0 +1,16 @@
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Business.deps.json
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Business.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Business.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csprojAssemblyReference.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.AssemblyInfoInputs.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.AssemblyInfo.cs
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csproj.CoreCompileInputs.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csproj.CopyComplete

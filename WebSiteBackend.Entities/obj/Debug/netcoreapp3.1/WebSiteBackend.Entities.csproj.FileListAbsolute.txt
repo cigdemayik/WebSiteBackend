@@ -1,0 +1,9 @@
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.deps.json
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csprojAssemblyReference.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.AssemblyInfoInputs.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.AssemblyInfo.cs
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb

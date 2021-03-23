@@ -1,0 +1,9 @@
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.deps.json
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csprojAssemblyReference.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfoInputs.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfo.cs
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.CoreCompileInputs.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
