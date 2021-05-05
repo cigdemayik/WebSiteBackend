@@ -21,6 +21,7 @@ namespace WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic
         List<TEntity> GetAllWithFilter(Expression<Func<TEntity, bool>> filter );
         List<TEntity> GetAll();
         TEntity GetByFilter(Expression<Func<TEntity, bool>> filter);
+        TEntity GetByFilterAsNoTracking(Expression<Func<TEntity, bool>> filter);
         #endregion
 
         #region Async

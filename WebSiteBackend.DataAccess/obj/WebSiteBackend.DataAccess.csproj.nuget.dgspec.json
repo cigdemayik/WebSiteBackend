@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {}
+    "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
+    "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
         "projectName": "WebSiteBackend.DataAccess",
-        "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+        "projectPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
-                "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
+              "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+                "projectPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
               }
             }
           }
@@ -46,27 +46,31 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.5, )"
             }
           },
           "imports": [
@@ -84,18 +88,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+    "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
         "projectName": "WebSiteBackend.Entities",
-        "projectPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "projectPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
         "packagesPath": "C:\\Users\\Burcu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burcu\\Documents\\Visual Studio 2019\\Yeni klasör\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
+        "outputPath": "C:\\Users\\Burcu\\source\\repos\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Burcu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -123,6 +127,26 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.Extensions.FileProviders.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -138,7 +162,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

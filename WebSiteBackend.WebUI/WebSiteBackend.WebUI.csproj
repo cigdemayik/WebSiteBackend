@@ -4,4 +4,25 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebSiteBackend.Business\WebSiteBackend.Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ApiServices\CarouselApiService\" />
+    <Folder Include="ApiServices\CategoryApiService\" />
+    <Folder Include="ApiServices\BlogApiService\" />
+    <Folder Include="ApiServices\UserApiService\" />
+    <Folder Include="ApiServices\ProductApiService\" />
+    <Folder Include="wwwroot\lib\NewFolder\" />
+  </ItemGroup>
+
 </Project>

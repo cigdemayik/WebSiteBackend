@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
 using WebSiteBackend.Business.Concrete.Generic;
 using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
@@ -31,6 +32,19 @@ namespace WebSiteBackend.Business.Concrete
         public ServiceResponse<Carousel> GetById(int id)
         {
             var data = _unitOfWork.Carousels.GetByFilter(x => x.Id == id);
+            if (data == null)
+            {
+                return _serviceResponseHelper.SetError<Carousel>(data, "Carousel Bulunamadı", HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return _serviceResponseHelper.SetSuccess(data, HttpStatusCode.OK);
+            }
+        }
+
+        public ServiceResponse<Carousel> GetByIdAsNoTracking(int id)
+        {
+            var data = _unitOfWork.Carousels.GetByFilterAsNoTracking(x => x.Id == id);
             if (data == null)
             {
                 return _serviceResponseHelper.SetError<Carousel>(data, "Carousel Bulunamadı", HttpStatusCode.NotFound);

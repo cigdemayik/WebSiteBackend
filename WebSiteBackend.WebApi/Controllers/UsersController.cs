@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
+using WebSiteBackend.Business.Dtos.UserDtos;
 using WebSiteBackend.Entities.Concrete;
 
 namespace WebSiteBackend.WebApi.Controllers
@@ -21,11 +23,27 @@ namespace WebSiteBackend.WebApi.Controllers
              _userService= userService;
         }
 
-      
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            return Ok(_userService.GetById(id));
+            var response = _userService.GetById(id);
+            return Ok();
+        }
+
+        [AllowAnonymous]
+        [HttpPost("[action]")]
+        public IActionResult SignIn(UserLoginDto dto)
+        {
+            var response = _userService.SignIn(dto);
+            if (response.StatusCode==System.Net.HttpStatusCode.Created)
+            {
+                return Created("", response.Result);
+            }
+            else
+            {
+                return NotFound(response.ErrorMessage);
+            }
         }
     }
 }

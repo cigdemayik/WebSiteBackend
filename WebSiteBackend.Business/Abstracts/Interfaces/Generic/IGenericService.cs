@@ -30,7 +30,7 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces.Generic
         Task<ServiceResponse>UpdateAsync(TEntity entity);
         Task<ServiceResponse> DeleteAsync(int id);
         Task<ServiceResponse<List<TEntity>>> GetAllWithFilterAsync(Expression<Func<TEntity, bool>> filter);
-        Task<ServiceResponse<TEntity>> GetAllAsync();
+        Task<ServiceResponse<List<TEntity>>> GetAllAsync();
         Task<ServiceResponse<TEntity>> GetByFilterAsync(Expression<Func<TEntity, bool>> filter);
 
         #endregion

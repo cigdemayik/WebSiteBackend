@@ -10,5 +10,7 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     public interface IBlogService:IGenericService<Blog>
     {
         ServiceResponse<Blog> GetById(int id);
+
+        ServiceResponse<Blog> GetByIdAsNoTracking(int id);
     }
 }

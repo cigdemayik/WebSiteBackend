@@ -39,6 +39,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
 
 
 
+
             builder.HasOne(x => x.Category)
                 .WithMany(x => x.Blogs)
                 .HasForeignKey(x => x.CategoryId)

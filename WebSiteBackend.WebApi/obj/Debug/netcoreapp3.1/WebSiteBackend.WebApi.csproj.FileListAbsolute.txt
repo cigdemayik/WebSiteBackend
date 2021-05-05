@@ -220,3 +220,17 @@ C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteB
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.dll
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.pdb
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.genruntimeconfig.cache
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\System.IO.FileSystem.AccessControl.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.IO.FileSystem.AccessControl.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll

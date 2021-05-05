@@ -221,10 +221,5 @@ namespace WebSiteBackend.Business.Concrete.Generic
                 return _serviceResponseHelper.SetError(ex.Message, HttpStatusCode.NotFound);
             }
         }
-
-        Task<ServiceResponse<TEntity>> IGenericService<TEntity>.GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

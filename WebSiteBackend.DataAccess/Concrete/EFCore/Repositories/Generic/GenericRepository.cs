@@ -72,6 +72,11 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic
             return this.context.Set<TEntity>().FirstOrDefault(filter);
         }
 
+        public TEntity GetByFilterAsNoTracking(Expression<Func<TEntity, bool>> filter)
+        {
+            return this.context.Set<TEntity>().AsNoTracking().FirstOrDefault(filter);
+        }
+
         public async Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter)
         {
             return await this.context.Set<TEntity>().FirstOrDefaultAsync(filter);

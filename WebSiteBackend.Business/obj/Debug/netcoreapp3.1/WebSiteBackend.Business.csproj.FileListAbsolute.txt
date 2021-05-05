@@ -46,3 +46,6 @@ C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteB
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csproj.CopyComplete
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.dll
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.pdb
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Business.runtimeconfig.json
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\bin\Debug\netcoreapp3.1\WebSiteBackend.Business.runtimeconfig.dev.json
+C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.genruntimeconfig.cache

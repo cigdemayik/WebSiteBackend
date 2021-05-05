@@ -17,7 +17,10 @@ namespace WebSiteBackend.Business.Concrete
         private readonly IUnitOfWork _unitOfWork;
         private readonly IServiceResponseHelper _serviceResponseHelper;
 
-        public BlogManager(IUnitOfWork unitOfWork, IGenericRepository<Blog> generic, IServiceResponseHelper serviceResponseHelper) : base(unitOfWork, generic, serviceResponseHelper)
+        public BlogManager(IUnitOfWork unitOfWork,
+            IGenericRepository<Blog> generic, 
+            IServiceResponseHelper serviceResponseHelper) : 
+            base(unitOfWork, generic, serviceResponseHelper)
         {
             _unitOfWork = unitOfWork;
             _serviceResponseHelper = serviceResponseHelper;
@@ -26,6 +29,19 @@ namespace WebSiteBackend.Business.Concrete
         public ServiceResponse<Blog> GetById(int id)
         {
             return _serviceResponseHelper.SetSuccess(_unitOfWork.Blogs.GetByFilter(x => x.Id == id), HttpStatusCode.OK);
+        }
+
+        public ServiceResponse<Blog> GetByIdAsNoTracking(int id)
+        {
+            var data = _unitOfWork.Blogs.GetByFilterAsNoTracking(x => x.Id == id);
+            if (data == null)
+            {
+                return _serviceResponseHelper.SetError<Blog>(data, "Carousel Bulunamadı", HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return _serviceResponseHelper.SetSuccess(data, HttpStatusCode.OK);
+            }
         }
     }
 }
