@@ -43,3 +43,18 @@ C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteB
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.genruntimeconfig.cache
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.deps.json
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.runtimeconfig.json
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.runtimeconfig.dev.json
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csprojAssemblyReference.cache
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.AssemblyInfoInputs.cache
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.AssemblyInfo.cs
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CoreCompileInputs.cache
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CopyComplete
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.genruntimeconfig.cache

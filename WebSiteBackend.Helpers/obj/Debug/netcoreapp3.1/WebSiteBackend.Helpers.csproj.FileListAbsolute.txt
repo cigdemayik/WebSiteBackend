@@ -26,3 +26,15 @@ C:\Users\Burcu\Documents\Visual Studio 2019\Yeni klasör\WebSiteBackend\WebSiteB
 C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.runtimeconfig.json
 C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.runtimeconfig.dev.json
 C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.genruntimeconfig.cache
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.deps.json
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.runtimeconfig.json
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.runtimeconfig.dev.json
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csprojAssemblyReference.cache
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfoInputs.cache
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfo.cs
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.CoreCompileInputs.cache
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.genruntimeconfig.cache
