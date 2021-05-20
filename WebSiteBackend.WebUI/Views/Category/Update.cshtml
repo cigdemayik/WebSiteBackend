@@ -1,0 +1,42 @@
+﻿@using WebSiteBackend.Entities.Concrete;
+@model Category
+
+@{
+
+    Layout = "~/Views/Private/_AdminLayout.cshtml";
+}
+<body class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Kategori Düzenle</h3></div>
+                                <div class="card-body">
+                                    @using (Html.BeginForm("Update", "Category", FormMethod.Post))
+                                    {
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(x => x.Id, default, new { @class = "form-control col-md-8", @id = "Id", @placeholder = "Bir Id Adı Giriniz" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(x => x.Name, "Kategori Adı:", new { @class = "col-md-4 text-left  text text-muted" })
+                                            @Html.TextBoxFor(x => x.Name, default, new { @class = "form-control col-md-8", @id = "Name", @placeholder = "Bir Kategori Adı Giriniz" })
+                                        </div>
+                                        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger form-text" })
+                                        <div>
+                                            <button class="btn btn-info" type="submit">Düzenle</button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+

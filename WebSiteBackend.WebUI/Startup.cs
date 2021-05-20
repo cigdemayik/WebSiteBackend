@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebSiteBackend.Business.DependecyResolver;
+using WebSiteBackend.DataAccess.Concrete.EFCore.Context;
 
 namespace WebSiteBackend.WebUI
 {
@@ -23,7 +25,15 @@ namespace WebSiteBackend.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<WebSiteContext>();
+
+            services.AddControllers();
+
+            services.AddDependencies();
+
             services.AddControllersWithViews();
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
