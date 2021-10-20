@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebSiteBackend.DataAccess\WebSiteBackend.DataAccess.csproj" />
-    <ProjectReference Include="..\WebSiteBackend.Helpers\WebSiteBackend.Helpers.csproj" />
   </ItemGroup>
 
 </Project>

@@ -15,8 +15,8 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.UserName).IsRequired();
-            builder.Property(x => x.UserName).HasMaxLength(64);
+            builder.Property(x => x.Username).IsRequired();
+            builder.Property(x => x.Username).HasMaxLength(64);
 
             builder.Property(x => x.Password).IsRequired();
             builder.Property(x => x.Password).HasMaxLength(128);
@@ -26,14 +26,14 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
 
             builder.Property(x => x.UpdateTime).IsRequired(false);
 
-            builder.Property(x => x.Deleted).IsRequired();
-            builder.Property(x => x.Deleted).HasDefaultValue(0);
+            builder.Property(x => x.Active).IsRequired();
+            builder.Property(x => x.Active).HasDefaultValue(0);
 
 
             builder.HasData(new User()
             {
                 Id=1,
-                UserName = "admin",
+                Username = "admin",
                 Password="123456"
             }) ;
 

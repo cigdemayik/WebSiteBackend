@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
-using WebSiteBackend.Entities.Concrete;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebSiteBackend.Business.Dtos.BlogDtos;
+using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Abstracts.Interfaces
 {
-    public interface IBlogService:IGenericService<Blog>
+    public interface IBlogService
     {
-        ServiceResponse<Blog> GetById(int id);
-
-        ServiceResponse<Blog> GetByIdAsNoTracking(int id);
+        Task<ServiceResponse<BlogDto>> GetById(int id);
+        Task<ServiceResponse<List<BlogDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<int>> Create(BlogCreateDto dto);
+        Task<ServiceResponse<bool>> Update(BlogUpdateDto dto);
     }
 }

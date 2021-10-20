@@ -31,10 +31,13 @@ D:\SideProjects\WebSite\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteB
 D:\SideProjects\WebSite\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.runtimeconfig.dev.json
 D:\SideProjects\WebSite\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
 D:\SideProjects\WebSite\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
-D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csprojAssemblyReference.cache
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.AssemblyInfo.cs
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csproj.CoreCompileInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.genruntimeconfig.cache
+D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csproj.AssemblyReference.cache
+D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\SideProjects\WebSite\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+D:\SideProjects\WebSite\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb

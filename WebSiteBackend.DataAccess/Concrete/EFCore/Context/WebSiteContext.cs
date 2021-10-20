@@ -9,10 +9,9 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
 {
     public class WebSiteContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public WebSiteContext(DbContextOptions<WebSiteContext> options) : base(options)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=DESKTOP-FJCC0E2;Database=WebSiteDb;Trusted_Connection=True;");
+
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

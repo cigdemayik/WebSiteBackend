@@ -25,8 +25,13 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
 
             builder.Property(x => x.UpdateTime).IsRequired(false);
 
-            builder.Property(x => x.Deleted).IsRequired();
-            builder.Property(x => x.Deleted).HasDefaultValue(0);
+            builder.Property(x => x.Active).IsRequired();
+            builder.Property(x => x.Active).HasDefaultValue(0);
+
+            builder.Property(x => x.Language).IsRequired();
+
+            builder.Property(x => x.ImageUrl).IsRequired(false);
+            builder.Property(x => x.ImageUrl).HasMaxLength(512);
 
 
         }

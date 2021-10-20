@@ -1,47 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
+using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
-using WebSiteBackend.Business.Concrete.Generic;
-using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
+using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
-using WebSiteBackend.Entities.Concrete;
+using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Abstract;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
-    public class BlogManager : GenericManager<Blog>, IBlogService
+    public class BlogManager : IBlogService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IServiceResponseHelper _serviceResponseHelper;
 
-        public BlogManager(IUnitOfWork unitOfWork,
-            IGenericRepository<Blog> generic, 
-            IServiceResponseHelper serviceResponseHelper) : 
-            base(unitOfWork, generic, serviceResponseHelper)
+        public BlogManager(IUnitOfWork unitOfWork, IServiceResponseHelper serviceResponseHelper)
         {
-            _unitOfWork = unitOfWork;
-            _serviceResponseHelper = serviceResponseHelper;
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
         }
 
-        public ServiceResponse<Blog> GetById(int id)
+        public Task<ServiceResponse<int>> Create(BlogCreateDto dto)
         {
-            return _serviceResponseHelper.SetSuccess(_unitOfWork.Blogs.GetByFilter(x => x.Id == id), HttpStatusCode.OK);
+            throw new NotImplementedException();
         }
 
-        public ServiceResponse<Blog> GetByIdAsNoTracking(int id)
+        public Task<ServiceResponse<List<BlogDto>>> GetAllByLanguage(LanguageEnum language)
         {
-            var data = _unitOfWork.Blogs.GetByFilterAsNoTracking(x => x.Id == id);
-            if (data == null)
-            {
-                return _serviceResponseHelper.SetError<Blog>(data, "Carousel Bulunamadı", HttpStatusCode.NotFound);
-            }
-            else
-            {
-                return _serviceResponseHelper.SetSuccess(data, HttpStatusCode.OK);
-            }
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResponse<BlogDto>> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResponse<bool>> Update(BlogUpdateDto dto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

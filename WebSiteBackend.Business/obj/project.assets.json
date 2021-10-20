@@ -1578,7 +1578,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "5.0.5",
           "Microsoft.EntityFrameworkCore.Abstractions": "5.0.5",
-          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0"
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
+          "WebSiteBackend.Helpers": "1.0.0"
         },
         "compile": {
           "bin/placeholder/WebSiteBackend.Entities.dll": {}
@@ -5961,8 +5962,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore.Abstractions >= 5.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.5",
-      "WebSiteBackend.DataAccess >= 1.0.0",
-      "WebSiteBackend.Helpers >= 1.0.0"
+      "WebSiteBackend.DataAccess >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5994,7 +5994,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/alperenayas/_packaging/alperenayas/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -6002,9 +6003,6 @@
           "projectReferences": {
             "D:\\SideProjects\\WebSite\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj": {
               "projectPath": "D:\\SideProjects\\WebSite\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj"
-            },
-            "D:\\SideProjects\\WebSite\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
-              "projectPath": "D:\\SideProjects\\WebSite\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj"
             }
           }
         }
@@ -6045,7 +6043,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

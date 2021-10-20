@@ -298,7 +298,6 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBack
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csprojAssemblyReference.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.AssemblyInfo.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.CoreCompileInputs.cache
@@ -332,3 +331,7 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Private\_AdminLayout.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.AssemblyReference.cache
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.GeneratedMSBuildEditorConfig.editorconfig
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Index.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs

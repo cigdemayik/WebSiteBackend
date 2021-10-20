@@ -1,0 +1,50 @@
+﻿@{
+    @model WebSiteBackend.Business.Dtos.UserDtos.UserLoginDto;
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/LogIn.css" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="~/assets/image/userlogin.png" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            @using (Html.BeginForm("Index", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken();
+                @Html.ValidationSummary(true);
+                
+                @Html.LabelFor(x=>x.Username);
+                @Html.TextBoxFor(x=>x.Username,new{ @class="fadeIn second",@placeholder="User Name" });
+                @Html.ValidationMessageFor(x=>x.Username);
+                
+                
+                @Html.PasswordFor(x=>x.Password,new{ @class="fadeIn third",@placeholder="Password" });
+                @Html.ValidationMessageFor(x=>x.Password);
+                <input type="submit" class="fadeIn fourth" value="Log In" />
+
+                if (@ViewBag.Message != null)
+                {
+                    <div class="text-danger m-t-3">
+                        @ViewBag.Message
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</body>
+</html>

@@ -8,6 +8,7 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Entities.Concrete;
 
 namespace WebSiteBackend.WebApi.Controllers
@@ -36,9 +37,9 @@ namespace WebSiteBackend.WebApi.Controllers
 
         [HttpPost]
         [DisableRequestSizeLimit]
-        public async Task<IActionResult> Create([FromForm] Carousel entity)
+        public async Task<IActionResult> Create([FromForm] CarouselCreateDto dto)
         {
-            if (entity.Image.Length > 0)
+            if (dto.Image.Length > 0)
             {
                 try
                 {
@@ -48,15 +49,15 @@ namespace WebSiteBackend.WebApi.Controllers
                        
                         
                     }
-                    var fileName = DateTime.Now.ToLongDateString() + "_" + entity.Image.FileName;
+                    var fileName = DateTime.Now.ToLongDateString() + "_" + dto.Image.FileName;
                     var path = Path.Combine(_environment.WebRootPath , "carousels/" + fileName);
 
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
-                        await entity.Image.CopyToAsync(stream);
+                        await dto.Image.CopyToAsync(stream);
                     }
-                    entity.ImageUrl = path;
-                    var response = _carouselService.Create(entity);
+                    dto.ImageUrl = path;
+                    var response = await _carouselService.Create(dto);
                     if (response.IsSuccessful == true)
                     {
                         return Created("", response.Result);
@@ -79,36 +80,24 @@ namespace WebSiteBackend.WebApi.Controllers
             }
             return BadRequest("Seçili Bir Dosya Yok İşlem Gerçekleştirilemez!!");
         }
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var response = _carouselService.GetAll();
-            if (response.IsSuccessful == true)
-            {
-                return Ok(response.Result);
-            }
-            else
-            {
-                return BadRequest(response.ErrorMessage);
-            }
-        }
+
 
         [HttpPut]
         [DisableRequestSizeLimit]
-        public async Task<IActionResult> Update([FromForm]Carousel entity)
+        public async Task<IActionResult> Update([FromForm]CarouselUpdateDto dto)
         {
-            if (entity.Image!=null && entity.Image.Length > 0)
+            if (dto.Image!=null && dto.Image.Length > 0)
             {
                 
-                var fileName = DateTime.Now.ToLongDateString() + "_" + entity.Image.FileName;
+                var fileName = DateTime.Now.ToLongDateString() + "_" + dto.Image.FileName;
                 var path = Path.Combine(_environment.WebRootPath, "carousels/" + fileName);
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
-                    await entity.Image.CopyToAsync(stream);
+                    await dto.Image.CopyToAsync(stream);
                 }
-                entity.ImageUrl = path;
-                var response = _carouselService.Update(entity);
+                dto.ImageUrl = path;
+                var response = await _carouselService.Update(dto);
                 if (response.IsSuccessful == true)
                 {
                     return NoContent();
@@ -124,9 +113,8 @@ namespace WebSiteBackend.WebApi.Controllers
             }
             else
             {
-                entity.UpdateTime = DateTime.Now;
-                entity.ImageUrl = _carouselService.GetByIdAsNoTracking(entity.Id).Result.ImageUrl;
-                var response = _carouselService.Update(entity);
+                dto.UpdateTime = DateTime.Now;
+                var response = await _carouselService.Update(dto);
                 if (response.IsSuccessful == true)
                 {
                     return NoContent();
@@ -135,20 +123,6 @@ namespace WebSiteBackend.WebApi.Controllers
                 {
                     return BadRequest(response.ErrorMessage);
                 }
-            }
-        }
-
-        [HttpDelete]
-        public IActionResult Delete(int id)
-        {
-            var response = _carouselService.Delete(id);
-            if (response.IsSuccessful == true)
-            {
-                return NoContent();
-            }
-            else
-            {
-                return BadRequest(response.ErrorMessage);
             }
         }
     }

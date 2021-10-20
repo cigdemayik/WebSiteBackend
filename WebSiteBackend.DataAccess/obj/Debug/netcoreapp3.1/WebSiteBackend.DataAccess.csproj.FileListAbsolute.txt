@@ -50,11 +50,13 @@ D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSit
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
-D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csprojAssemblyReference.cache
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.AssemblyInfo.cs
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CoreCompileInputs.cache
-D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CopyComplete
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.genruntimeconfig.cache
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.AssemblyReference.cache
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb

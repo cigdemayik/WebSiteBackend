@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
-using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
 using WebSiteBackend.Business.Dtos.UserDtos;
 using WebSiteBackend.Entities.Concrete;
 
@@ -13,12 +8,12 @@ namespace WebSiteBackend.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : BaseController<User>
+    public class UsersController : ControllerBase
     {
    
         private readonly IUserService _userService;
 
-        public UsersController (IUserService userService, IGenericService<User> genericService):base(genericService)
+        public UsersController (IUserService userService)
         {
              _userService= userService;
         }

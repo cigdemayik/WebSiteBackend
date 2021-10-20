@@ -308,7 +308,6 @@ D:\SideProjects\WebSite\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\WebSiteBac
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
-D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.csprojAssemblyReference.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.AssemblyInfo.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.csproj.CoreCompileInputs.cache
@@ -322,3 +321,5 @@ D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBac
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.genruntimeconfig.cache
+D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.csproj.AssemblyReference.cache
+D:\SideProjects\WebSite\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.GeneratedMSBuildEditorConfig.editorconfig

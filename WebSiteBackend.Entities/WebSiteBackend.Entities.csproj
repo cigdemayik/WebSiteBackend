@@ -14,4 +14,8 @@
     <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebSiteBackend.Helpers\WebSiteBackend.Helpers.csproj" />
+  </ItemGroup>
+
 </Project>

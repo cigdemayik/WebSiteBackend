@@ -4,55 +4,34 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using WebSiteBackend.DataAccess.Abstracts.Interfaces;
+using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Context;
+using WebSiteBackend.Entities.Concrete.BaseModel;
 
 namespace WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly WebSiteContext context;
-
-        private UserRepository _userRepository;
-
-        private BlogRepository _blogRepository;
-
-        private ProductRepository _productRepository;
-
-        private CarouselRepository _carouselRepository;
-
-        private CategoryRepository _categoryRepository;
-
-        public IUserRepository Users => _userRepository = _userRepository ?? new UserRepository(context);
-        public IBlogRepository Blogs => _blogRepository = _blogRepository ?? new BlogRepository(context);
-        public IProductRepository Products => _productRepository = _productRepository ?? new ProductRepository(context);
-        public ICarouselRepository Carousels => _carouselRepository = _carouselRepository ?? new CarouselRepository(context);
-        public ICategoryRepository Categories => _categoryRepository = _categoryRepository ?? new CategoryRepository(context);
-
+        private readonly WebSiteContext _context;
 
         public UnitOfWork(WebSiteContext context)
         {
-            this.context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        public IGenericRepository<T> GetRepository<T>() where T : BaseEntity
+        {
+            return new GenericRepository<T>(_context);
+        }
 
         public void SaveChanges()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
-        public Task SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
-            return context.SaveChangesAsync();
-        }
-
-        public int complete()
-        {
-            return context.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            context.Dispose();
+            await _context.SaveChangesAsync();
         }
     }
 }

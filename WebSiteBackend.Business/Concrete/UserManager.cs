@@ -1,12 +1,10 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
 using WebSiteBackend.Business.Abstracts.Interfaces;
-using WebSiteBackend.Business.Concrete.Generic;
 using WebSiteBackend.Business.Dtos.UserDtos;
 using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
@@ -16,12 +14,12 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
-    public class UserManager : GenericManager<User>, IUserService
+    public class UserManager : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IServiceResponseHelper _serviceResponseHelper;
 
-        public UserManager(IUnitOfWork unitOfWork, IGenericRepository<User> generic, IServiceResponseHelper serviceResponseHelper) : base(unitOfWork, generic, serviceResponseHelper)
+        public UserManager(IUnitOfWork unitOfWork, IServiceResponseHelper serviceResponseHelper)
         {
             _unitOfWork = unitOfWork;
             _serviceResponseHelper = serviceResponseHelper;
@@ -29,7 +27,7 @@ namespace WebSiteBackend.Business.Concrete
 
         public ServiceResponse<User> GetById(int id)
         {
-            var data = _unitOfWork.Users.GetByFilter(x => x.Id == id);
+            var data = _unitOfWork.GetRepository<User>().GetByFilter(x => x.Id == id);
             if (data == null)
             {
                 return _serviceResponseHelper.SetError<User>(data, "Product Bulunamadı", HttpStatusCode.NotFound);
@@ -42,7 +40,7 @@ namespace WebSiteBackend.Business.Concrete
 
         public ServiceResponse<UserLoginResponseDto> SignIn(UserLoginDto dto)
         {
-            var user = _unitOfWork.Users.GetByFilter(x => x.UserName == dto.UserName && x.Password == dto.Password);
+            var user = _unitOfWork.GetRepository<User>().GetByFilter(x => x.Username == dto.Username && x.Password == dto.Password);
 
             if (user != null)
             {
@@ -67,7 +65,7 @@ namespace WebSiteBackend.Business.Concrete
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                         new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                        new Claim(ClaimTypes.Name, user.UserName)
+                        new Claim(ClaimTypes.Name, user.Username)
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
 

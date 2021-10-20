@@ -22,8 +22,8 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.CreateTime).IsRequired();
             builder.Property(x => x.CreateTime).HasDefaultValueSql("GetDate()");
 
-            builder.Property(x => x.Deleted).IsRequired();
-            builder.Property(x => x.Deleted).HasDefaultValueSql("0");
+            builder.Property(x => x.Active).IsRequired();
+            builder.Property(x => x.Active).HasDefaultValueSql("0");
 
             builder.Property(x => x.Header).IsRequired();
             builder.Property(x => x.Header).HasMaxLength(256);
@@ -31,11 +31,15 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.ImageUrl).IsRequired(false);
             builder.Property(x => x.ImageUrl).HasMaxLength(512);
 
-            builder.Property(x => x.ReleaseTime).IsRequired();
+            builder.Property(x => x.PublishStartDate).IsRequired();
+
+            builder.Property(x => x.PublishEndDate).IsRequired();
 
             builder.Property(x => x.UpdateTime).IsRequired(false);
 
             builder.Property(x => x.UserId).IsRequired();
+
+            builder.Property(x => x.Language).IsRequired();
 
 
 

@@ -1,58 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Text;
+using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
-using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
-using WebSiteBackend.Business.Concrete.Generic;
-using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
+using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
-using WebSiteBackend.Entities.Concrete;
+using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Abstract;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
-    public class CarouselManager : GenericManager<Carousel>, ICarouselService
+    public class CarouselManager : ICarouselService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IServiceResponseHelper _serviceResponseHelper;
 
-        public CarouselManager(
-            IUnitOfWork unitOfWork,
-            IGenericRepository<Carousel> generic,
-            IServiceResponseHelper serviceResponseHelper
-            )
-            : base(unitOfWork, generic,serviceResponseHelper)
+        public CarouselManager(IUnitOfWork unitOfWork, IServiceResponseHelper serviceResponseHelper)
         {
-            _unitOfWork = unitOfWork;
-            _serviceResponseHelper = serviceResponseHelper;
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
         }
 
-        public ServiceResponse<Carousel> GetById(int id)
+        public Task<ServiceResponse<int>> Create(CarouselCreateDto dto)
         {
-            var data = _unitOfWork.Carousels.GetByFilter(x => x.Id == id);
-            if (data == null)
-            {
-                return _serviceResponseHelper.SetError<Carousel>(data, "Carousel Bulunamadı", HttpStatusCode.NotFound);
-            }
-            else
-            {
-                return _serviceResponseHelper.SetSuccess(data, HttpStatusCode.OK);
-            }
+            throw new System.NotImplementedException();
         }
 
-        public ServiceResponse<Carousel> GetByIdAsNoTracking(int id)
+        public Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(LanguageEnum language)
         {
-            var data = _unitOfWork.Carousels.GetByFilterAsNoTracking(x => x.Id == id);
-            if (data == null)
-            {
-                return _serviceResponseHelper.SetError<Carousel>(data, "Carousel Bulunamadı", HttpStatusCode.NotFound);
-            }
-            else
-            {
-                return _serviceResponseHelper.SetSuccess(data, HttpStatusCode.OK);
-            }
+            throw new System.NotImplementedException();
+        }
+
+        public Task<ServiceResponse<CarouselDto>> GetById(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<ServiceResponse<bool>> Update(CarouselUpdateDto dto)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
-using WebSiteBackend.Entities.Concrete;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebSiteBackend.Business.Dtos.ProductDtos;
+using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Abstracts.Interfaces
 {
-    public interface IProductService:IGenericService<Product>
+    public interface IProductService
     {
-        ServiceResponse<Product> GetById(int id);
+        Task<ServiceResponse<ProductDto>> GetById(int id);
+        Task<ServiceResponse<List<ProductDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<int>> Create(ProductCreateDto dto);
+        Task<ServiceResponse<bool>> Update(ProductUpdateDto dto);
     }
 }

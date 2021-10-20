@@ -8,90 +8,144 @@ using System.Threading.Tasks;
 using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Context;
 using WebSiteBackend.Entities.Abstracts.Interfaces;
+using WebSiteBackend.Entities.Concrete.BaseModel;
 
 namespace WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity>
-       where TEntity : class, ITable, new()
+       where TEntity : BaseEntity
     {
-        private readonly WebSiteContext context;
+        private readonly WebSiteContext _context;
         
         
 
         public GenericRepository(WebSiteContext context)
         {
-            this.context = context;
+            _context = context;
         }
-
-        public void Create(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
-            this.context.Add(entity);
-
+            _context.Set<TEntity>().Add(entity);
+            return entity;
         }
 
-        public async Task CreateAsync(TEntity entity)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
-            await this.context.AddAsync(entity);
+            await _context.Set<TEntity>().AddAsync(entity);
+            return entity;
         }
 
-        public void Delete(int id)
+        public bool Delete(TEntity entity)
         {
-            var operationData = this.context.Set<TEntity>().Find(id);
-            this.context.Remove(operationData);
+            bool value = false;
+            try
+            {
+                _context.Set<TEntity>().Remove(entity);
+                value = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return value;
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(TEntity entity)
         {
-            var operationData = await this.context.Set<TEntity>().FindAsync(id);
-            await Task.Run(() => this.context.Remove(id));
+            bool value = false;
+            try
+            {
+                await Task.Run(() => _context.Set<TEntity>().Remove(entity));
+                value = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return value;
         }
 
-
-        public List<TEntity> GetAll()
+        public IQueryable<TEntity> GetAllByFilter(Expression<Func<TEntity, bool>> filter = null, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.NoTracking)
         {
-            return this.context.Set<TEntity>().ToList();
+            var operationData = _context.Set<TEntity>().AsTracking(isTracking);
+            if (includes != null)
+            {
+                operationData = includes.Aggregate(operationData, (current, include) => current.Include(include));
+            }
+            if (filter != null)
+            {
+                operationData = operationData.Where(filter);
+            }
+            return operationData;
         }
 
-        public async Task<List<TEntity>> GetAllAsync()
+        public async Task<IQueryable<TEntity>> GetAllByFilterAsync(Expression<Func<TEntity, bool>> filter = null, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.NoTracking)
         {
-            return await this.context.Set<TEntity>().ToListAsync();
+            var operationData = _context.Set<TEntity>().AsTracking(isTracking);
+            if (includes != null)
+            {
+                operationData = includes.Aggregate(operationData, (current, include) => current.Include(include));
+            }
+            if (filter != null)
+            {
+                operationData = await Task.Run(() => operationData.Where(filter));
+            }
+            return operationData;
         }
 
-        public List<TEntity> GetAllWithFilter(Expression<Func<TEntity, bool>> filter)
+        public TEntity GetByFilter(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.TrackAll)
         {
-            return this.context.Set<TEntity>().Where(filter).ToList();
+            var operationData = _context.Set<TEntity>().AsTracking(isTracking);
+            if (includes != null)
+            {
+                operationData = includes.Aggregate(operationData, (current, include) => current.Include(include));
+            }
+
+            return operationData.FirstOrDefault(filter);
         }
 
-        public async Task<List<TEntity>> GetAllWithFilterAsync(Expression<Func<TEntity, bool>> filter)
+        public async Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.TrackAll)
         {
-            return await this.context.Set<TEntity>().Where(filter).ToListAsync();
+            var operationData = _context.Set<TEntity>().AsTracking(isTracking);
+            if (includes != null)
+            {
+                operationData = includes.Aggregate(operationData, (current, include) => current.Include(include));
+            }
+
+            return await operationData.FirstOrDefaultAsync(filter);
         }
 
-        public TEntity GetByFilter(Expression<Func<TEntity, bool>> filter)
+        public bool Update(TEntity entity)
         {
-            return this.context.Set<TEntity>().FirstOrDefault(filter);
+            bool value = false;
+            try
+            {
+                var updatedEntity = _context.Set<TEntity>().Find(entity.Id);
+                _context.Entry(updatedEntity).CurrentValues.SetValues(entity);
+                value = true;
+            }
+            catch (Exception)
+            {
+
+            }
+            return value;
         }
 
-        public TEntity GetByFilterAsNoTracking(Expression<Func<TEntity, bool>> filter)
+        public async Task<bool> UpdateAsync(TEntity entity)
         {
-            return this.context.Set<TEntity>().AsNoTracking().FirstOrDefault(filter);
+            bool value = false;
+            try
+            {
+                var updatedEntity = await _context.Set<TEntity>().FindAsync(entity.Id);
+                await Task.Run(() => _context.Entry(updatedEntity).CurrentValues.SetValues(entity));
+                value = true;
+            }
+            catch (Exception)
+            {
+
+            }
+            return value;
         }
 
-        public async Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter)
-        {
-            return await this.context.Set<TEntity>().FirstOrDefaultAsync(filter);
-        }
-
-        public void Update(TEntity entity)
-        {
-            this.context.Update(entity);
-        }
-
-        public async Task UpdateAsync(TEntity entity)
-        {
-            await Task.Run(()=> this.context.Update(entity));
-        }
-
- 
     }
 }

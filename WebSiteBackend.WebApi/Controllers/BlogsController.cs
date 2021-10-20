@@ -6,14 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
-using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
+using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.Entities.Concrete;
 
 namespace WebSiteBackend.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogsController:ControllerBase
+    public class BlogsController: ControllerBase
 
     {
         private readonly IBlogService _blogService;
@@ -38,9 +38,9 @@ namespace WebSiteBackend.WebApi.Controllers
 
         [HttpPost]
         [DisableRequestSizeLimit]
-        public async Task<IActionResult> Create([FromForm] Blog entity)
+        public async Task<IActionResult> Create([FromForm] BlogCreateDto dto)
         {
-            if (entity.Image.Length > 0)
+            if (dto.Image.Length > 0)
             {
                 try
                 {
@@ -48,15 +48,15 @@ namespace WebSiteBackend.WebApi.Controllers
                     {
                         Directory.CreateDirectory(_environment.WebRootPath + "\\blogs\\");
                     }
-                    var fileName = DateTime.Now.ToLongDateString()+"_" + entity.Image.FileName;
+                    var fileName = DateTime.Now.ToLongDateString()+"_" + dto.Image.FileName;
                     var path = Path.Combine(_environment.WebRootPath, "blogs/" + fileName);
 
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
-                        await entity.Image.CopyToAsync(stream);
+                        await dto.Image.CopyToAsync(stream);
                     }
-                    entity.ImageUrl = path;
-                    var response = _blogService.Create(entity);
+                    dto.ImageUrl = path;
+                    var response = await _blogService.Create(dto);
                     if (response.IsSuccessful == true)
                     {
                         return Created("", response.Result);
@@ -83,9 +83,10 @@ namespace WebSiteBackend.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var response = _blogService.GetAll();
+
+            var response = await _blogService.GetAllByLanguage(Helpers.Enums.LanguageEnum.Türkçe);
             if (response.IsSuccessful == true)
             {
                 return Ok(response.Result);
@@ -98,19 +99,19 @@ namespace WebSiteBackend.WebApi.Controllers
 
         [HttpPut]
         [DisableRequestSizeLimit]
-        public async Task<IActionResult> Update([FromForm]Blog entity)
+        public async Task<IActionResult> Update([FromForm]BlogUpdateDto dto)
         {
-            if(entity.Image!=null && entity.Image.Length > 0)
+            if(dto.Image!=null && dto.Image.Length > 0)
             {
-                var fileName = DateTime.Now.ToLongDateString() + "_" + entity.Image.FileName;
+                var fileName = DateTime.Now.ToLongDateString() + "_" + dto.Image.FileName;
                 var path = Path.Combine(_environment.WebRootPath, "blogs/" + fileName);
 
                 using(var stream= new FileStream(path, FileMode.Create))
                 {
-                    await entity.Image.CopyToAsync(stream);
+                    await dto.Image.CopyToAsync(stream);
                 }
-                entity.ImageUrl = path;
-                var response = _blogService.Update(entity);
+                dto.ImageUrl = path;
+                var response = await _blogService.Update(dto);
                 if (response.IsSuccessful == true)
                 {
                     return NoContent();
@@ -126,9 +127,8 @@ namespace WebSiteBackend.WebApi.Controllers
             }
             else
             {
-                entity.UpdateTime = DateTime.Now;
-                entity.ImageUrl = _blogService.GetByIdAsNoTracking(entity.Id).Result.ImageUrl;
-                var response = _blogService.Update(entity);
+                dto.UpdateTime = DateTime.Now;
+                var response = await _blogService.Update(dto);
                 if (response.IsSuccessful == true)
                 {
                     return NoContent();
@@ -139,18 +139,6 @@ namespace WebSiteBackend.WebApi.Controllers
                 }
             }
         }
-        [HttpDelete]
-        public IActionResult Delete(int id)
-        {
-            var response = _blogService.Delete(id);
-            if (response.IsSuccessful == true)
-            {
-                return NoContent();
-            }
-            else
-            {
-                return BadRequest(response.ErrorMessage);
-            }
-        }
+
     }
 }

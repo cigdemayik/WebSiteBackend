@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WebSiteBackend.Business.Abstracts.Interfaces.Generic;
-using WebSiteBackend.Entities.Concrete;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebSiteBackend.Business.Dtos.CarouselDtos;
+using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Abstracts.Interfaces
 {
-    public interface ICarouselService:IGenericService<Carousel>
+    public interface ICarouselService
     {
-        ServiceResponse<Carousel> GetById(int id);
-        ServiceResponse<Carousel> GetByIdAsNoTracking(int id);
+        Task<ServiceResponse<CarouselDto>> GetById(int id);
+        Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<int>> Create(CarouselCreateDto dto);
+        Task<ServiceResponse<bool>> Update(CarouselUpdateDto dto);
     }
 }
