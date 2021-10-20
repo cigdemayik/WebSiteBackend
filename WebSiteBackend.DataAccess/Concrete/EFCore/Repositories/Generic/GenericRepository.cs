@@ -52,14 +52,9 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic
 
         public async Task<bool> DeleteAsync(TEntity entity)
         {
-            bool value = false;
-            try
-            {
-                await Task.Run(() => _context.Set<TEntity>().Remove(entity));
-                value = true;
-            }
-            catch (Exception ex)
-            {
+            var operationData = await this.context.Set<TEntity>().FindAsync(id);
+            await Task.Run(() => this.context.Remove(id));
+        }
 
             }
             return value;
