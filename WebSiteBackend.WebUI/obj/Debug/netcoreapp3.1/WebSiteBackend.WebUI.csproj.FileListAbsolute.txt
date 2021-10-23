@@ -164,6 +164,7 @@ C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcor
 C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\appsettings.json
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\bundleconfig.json
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.WebUI.exe
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.WebUI.deps.json
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.WebUI.runtimeconfig.json
@@ -173,6 +174,8 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBack
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.WebUI.Views.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.WebUI.Views.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Mapster.dll
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Mapster.Core.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
@@ -298,6 +301,8 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBack
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.AssemblyReference.cache
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.GeneratedMSBuildEditorConfig.editorconfig
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.AssemblyInfo.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.CoreCompileInputs.cache
@@ -310,8 +315,15 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\scopedcss\b
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.TagHelpers.input.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.TagHelpers.output.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.RazorCoreGenerate.cache
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Index.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_Layout.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Private\_AdminLayout.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -324,15 +336,3 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBack
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.pdb
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.genruntimeconfig.cache
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\bundleconfig.json
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_Layout.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Private\_AdminLayout.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.AssemblyReference.cache
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.GeneratedMSBuildEditorConfig.editorconfig
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Index.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Mapster.dll
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Mapster.Core.dll

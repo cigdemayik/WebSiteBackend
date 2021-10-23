@@ -1665,7 +1665,6 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Mapster": "7.2.0",
-          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.5",
           "WebSiteBackend.DataAccess": "1.0.0"
         },
         "compile": {
@@ -1697,7 +1696,6 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "5.0.5",
-          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.5",
           "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
           "WebSiteBackend.Helpers": "1.0.0"
         },
@@ -1711,9 +1709,6 @@
       "WebSiteBackend.Helpers/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.5"
-        },
         "compile": {
           "bin/placeholder/WebSiteBackend.Helpers.dll": {}
         },
@@ -6266,40 +6261,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\alper\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Source\\Repos\\cigdemayik\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
+      "projectUniqueName": "D:\\SideProjects\\WebSite\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
       "projectName": "WebSiteBackend.WebApi",
-      "projectPath": "C:\\Users\\ÇİĞDEM\\Source\\Repos\\cigdemayik\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
-      "packagesPath": "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ÇİĞDEM\\Source\\Repos\\cigdemayik\\WebSiteBackend\\WebSiteBackend.WebApi\\obj\\",
+      "projectPath": "D:\\SideProjects\\WebSite\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
+      "packagesPath": "C:\\Users\\alper\\.nuget\\packages\\",
+      "outputPath": "D:\\SideProjects\\WebSite\\WebSiteBackend.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ÇİĞDEM\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/alperenayas/_packaging/alperenayas/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ÇİĞDEM\\Source\\Repos\\cigdemayik\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
-              "projectPath": "C:\\Users\\ÇİĞDEM\\Source\\Repos\\cigdemayik\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj"
+            "D:\\SideProjects\\WebSite\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
+              "projectPath": "D:\\SideProjects\\WebSite\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj"
             }
           }
         }
@@ -6363,7 +6361,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

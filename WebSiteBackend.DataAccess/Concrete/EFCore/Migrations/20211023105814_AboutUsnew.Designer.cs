@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Context;
 
 namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
 {
     [DbContext(typeof(WebSiteContext))]
-    partial class WebSiteContextModelSnapshot : ModelSnapshot
+    [Migration("20211023105814_AboutUsnew")]
+    partial class AboutUsnew
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

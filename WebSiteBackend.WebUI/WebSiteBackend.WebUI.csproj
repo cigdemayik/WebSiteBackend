@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebSiteBackend.Business\WebSiteBackend.Business.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="ApiServices\CarouselApiService\" />
     <Folder Include="ApiServices\CategoryApiService\" />
     <Folder Include="ApiServices\BlogApiService\" />
@@ -34,6 +30,10 @@
     <Folder Include="wwwroot\lib\jquery\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
     <Folder Include="wwwroot\lib\NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebSiteBackend.Business\WebSiteBackend.Business.csproj" />
   </ItemGroup>
 
 </Project>

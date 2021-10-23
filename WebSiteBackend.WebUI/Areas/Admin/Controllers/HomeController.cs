@@ -29,7 +29,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _carouselService = carouselService ?? throw new ArgumentNullException(nameof(carouselService));
             _blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
-            _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService);
+            _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService));
         }
 
         public IActionResult Index()

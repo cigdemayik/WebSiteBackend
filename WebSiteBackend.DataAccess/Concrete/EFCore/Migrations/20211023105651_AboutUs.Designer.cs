@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Context;
 
 namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
 {
     [DbContext(typeof(WebSiteContext))]
-    partial class WebSiteContextModelSnapshot : ModelSnapshot
+    [Migration("20211023105651_AboutUs")]
+    partial class AboutUs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                     b.Property<bool>("Active")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasDefaultValueSql("1");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -86,7 +88,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                     b.Property<bool>("Active")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasDefaultValueSql("1");
 
                     b.Property<DateTime>("CreateTime")
                         .ValueGeneratedOnAdd()
@@ -132,7 +134,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                     b.Property<bool>("Active")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasDefaultValueSql("1");
 
                     b.Property<DateTime>("CreateTime")
                         .ValueGeneratedOnAdd()
@@ -165,7 +167,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                     b.Property<bool>("Active")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasDefaultValueSql("1");
 
                     b.Property<string>("Content")
                         .IsRequired()
