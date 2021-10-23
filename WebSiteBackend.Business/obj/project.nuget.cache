@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "w5LE/ogc0wt0crBzqDUFbnBr6xUrr9w8xE65r9PCI5WUnmzeR0O/OhcKBFsyShQhimdAy1WBu08SqLRM6cYBgg==",
+  "dgSpecHash": "TkMp+PJ11u+ZlKV3vSP2npo/oLDSm73C8g+ZpOPZQkE8/qUTVbVVkx5z2VoHhCbAX1NjhWHDvXUnZbtsf9hjNQ==",
   "success": true,
   "projectFilePath": "D:\\SideProjects\\WebSite\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alper\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\alper\\.nuget\\packages\\mapster\\7.2.0\\mapster.7.2.0.nupkg.sha512",
+    "C:\\Users\\alper\\.nuget\\packages\\mapster.core\\1.2.0\\mapster.core.1.2.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.5\\microsoft.aspnetcore.http.features.5.0.5.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

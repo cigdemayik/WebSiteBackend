@@ -18,11 +18,8 @@ namespace WebSiteBackend.WebApi.Controllers
              _userService= userService;
         }
 
-        [Authorize]
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult Index()
         {
-            var response = _userService.GetById(id);
             return Ok();
         }
 

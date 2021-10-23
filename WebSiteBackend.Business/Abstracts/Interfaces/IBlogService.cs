@@ -10,7 +10,10 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     {
         Task<ServiceResponse<BlogDto>> GetById(int id);
         Task<ServiceResponse<List<BlogDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<List<BlogDto>>> GetAll();
         Task<ServiceResponse<int>> Create(BlogCreateDto dto);
         Task<ServiceResponse<bool>> Update(BlogUpdateDto dto);
+        Task<ServiceResponse<bool>> ChangeStatus(int id);
+        Task<ServiceResponse<bool>> Delete(int id);
     }
 }

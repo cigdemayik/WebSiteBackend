@@ -46,12 +46,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             var userPrincipal = new ClaimsPrincipal(new[] { identity });
 
             await HttpContext.SignInAsync(userPrincipal);
-
+            
             return RedirectToAction("Index", "Home");
         }
         public IActionResult LogOut()
         {
             HttpContext.Response.Cookies.Delete("WebSite.Cookie");
+            HttpContext.SignOutAsync();
 
             return RedirectToAction("Index", "Account");
         }

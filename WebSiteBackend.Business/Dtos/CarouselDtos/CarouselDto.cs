@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using WebSiteBackend.Helpers.Enums;
 
 namespace WebSiteBackend.Business.Dtos.CarouselDtos
 {
@@ -15,5 +16,6 @@ namespace WebSiteBackend.Business.Dtos.CarouselDtos
         public DateTime PublishStartDate { get; set; }
         public DateTime PublishEndDate { get; set; }
         public bool Active { get; set; }
+        public LanguageEnum Language { get; set; }
     }
 }

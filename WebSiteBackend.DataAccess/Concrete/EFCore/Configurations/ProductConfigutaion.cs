@@ -26,7 +26,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.UpdateTime).IsRequired(false);
 
             builder.Property(x => x.Active).IsRequired();
-            builder.Property(x => x.Active).HasDefaultValue(0);
+            builder.Property(x => x.Active).HasDefaultValueSql("1");
 
             builder.Property(x => x.Language).IsRequired();
 

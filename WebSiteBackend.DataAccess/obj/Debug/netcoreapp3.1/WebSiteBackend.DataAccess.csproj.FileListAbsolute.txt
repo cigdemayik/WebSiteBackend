@@ -60,3 +60,4 @@ D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSit
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
 D:\SideProjects\WebSite\WebSiteBackend.DataAccess\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+D:\SideProjects\WebSite\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CopyComplete

@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hmkhJFRaKdkVC9Ha8nI1C99pXNrHnInTAL1pXqhNZ++OIHGqetkbII6U564drFA18p6Zrx/7ISGNAUAlMUGjBA==",
+  "dgSpecHash": "YH/gex674VZzCLDoAYPb8Mm6j8taSRCoXTcfRUTXoqIDVXZO3RopjrP5AlVhzorvBCRVx+COaX5dXuAAoTYq0Q==",
   "success": true,
   "projectFilePath": "D:\\SideProjects\\WebSite\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alper\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\alper\\.nuget\\packages\\mapster\\7.2.0\\mapster.7.2.0.nupkg.sha512",
+    "C:\\Users\\alper\\.nuget\\packages\\mapster.core\\1.2.0\\mapster.core.1.2.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.0\\microsoft.aspnetcore.authentication.jwtbearer.3.1.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.5\\microsoft.aspnetcore.http.features.5.0.5.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

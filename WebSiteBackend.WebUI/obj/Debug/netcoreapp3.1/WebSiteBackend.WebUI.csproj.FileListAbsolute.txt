@@ -330,8 +330,9 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Private\_AdminLayout.cshtml.g.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.AssemblyReference.cache
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.GeneratedMSBuildEditorConfig.editorconfig
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Index.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Mapster.dll
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Mapster.Core.dll

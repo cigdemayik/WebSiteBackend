@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
+using WebSiteBackend.Helpers.Enums;
 
 namespace WebSiteBackend.Business.Dtos.BlogDtos
 {
@@ -13,5 +14,6 @@ namespace WebSiteBackend.Business.Dtos.BlogDtos
         public int UserId { get; set; } = 1;
         public int CategoryId { get; set; }
         public CategoryDto Category { get; set; }
+        public LanguageEnum Language { get; set; }
     }
 }

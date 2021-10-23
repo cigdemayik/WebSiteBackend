@@ -1,6 +1,8 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq.Expressions;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
@@ -27,6 +29,8 @@ namespace WebSiteBackend.Business.Concrete
 
         public ServiceResponse<User> GetById(int id)
         {
+            var includes = new List<Expression<Func<User, object>>>();
+            includes.Add(x => x.Blogs);
             var data = _unitOfWork.GetRepository<User>().GetByFilter(x => x.Id == id);
             if (data == null)
             {

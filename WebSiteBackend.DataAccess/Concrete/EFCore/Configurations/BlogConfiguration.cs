@@ -23,7 +23,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.CreateTime).HasDefaultValueSql("GetDate()");
 
             builder.Property(x => x.Active).IsRequired();
-            builder.Property(x => x.Active).HasDefaultValueSql("0");
+            builder.Property(x => x.Active).HasDefaultValueSql("1");
 
             builder.Property(x => x.Header).IsRequired();
             builder.Property(x => x.Header).HasMaxLength(256);

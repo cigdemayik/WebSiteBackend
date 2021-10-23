@@ -10,7 +10,10 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     {
         Task<ServiceResponse<CarouselDto>> GetById(int id);
         Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<List<CarouselDto>>> GetAll();
         Task<ServiceResponse<int>> Create(CarouselCreateDto dto);
         Task<ServiceResponse<bool>> Update(CarouselUpdateDto dto);
+        Task<ServiceResponse<bool>> ChangeStatus(int id);
+        Task<ServiceResponse<bool>> Delete(int id);
     }
 }
