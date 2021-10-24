@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    @model Web.Models.AboutUsModels.AboutUsUpdateModel;
+    @model WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels.AboutUsUpdateModel;
 }
 
 @using (Html.BeginForm("AboutUsUpdate","Home",FormMethod.Post))
@@ -21,12 +21,12 @@
                 @Html.ValidationMessageFor(m=>m.Content)
             </div>
             <div class="form-group row">
-                @Html.LabelFor(m=>m.Content,new {@class="col-sm-3"})
-                @Html.DropDownListFor(m=>m.LanguageId,new List<SelectListItem>{
+                @Html.LabelFor(m=>m.Language,new {@class="col-sm-3"})
+                @Html.DropDownListFor(m=>((int)m.Language),new List<SelectListItem>{
                 new SelectListItem {Text="Türkçe",Value="1"},
                 new SelectListItem {Text="İngilizce",Value="2"}
             },new {@class="form-control form-control-user col-sm-9"})
-            @Html.ValidationMessageFor(m=>m.LanguageId)
+            @Html.ValidationMessageFor(m=>((int)m.Language))
             </div>
             <input type="submit" value="Güncelle" class="btn btn-primary"/>
         </div>

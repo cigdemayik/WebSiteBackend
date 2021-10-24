@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    @model List<Web.Models.AboutUsModels.AboutUsListModel>;
+    @model List<WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels.AboutUsModel>;
 }
 <div class="container-fluid">
 
@@ -30,7 +30,7 @@
                             <tr>
                                 <td>@item.Content</td>
 
-                                @if (item.LanguageId == 1)
+                                @if (((int)item.Language) == 1)
                                 {
                                     <td>Türkçe</td>
                                 }
@@ -39,7 +39,7 @@
                                     <td>İngilizce</td>
                                 }
                                 <td>
-                                    @Html.ActionLink("Güncelle", "AboutUsUpdate", "Home", new{ id = item.LanguageId}, new { @class= "btn btn-warning"} )
+                                    @Html.ActionLink("Güncelle", "AboutUsUpdate", "Home", new{ id = ((int)item.Language)}, new { @class= "btn btn-warning"} )
                                 </td>
                             </tr>
                         }

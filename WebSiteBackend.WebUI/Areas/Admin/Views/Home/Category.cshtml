@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    @model List<Web.Models.CategoryModels.CategoryListModel>;
+    @model List<WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels.CategoryModel>;
 }
 <div class="container-fluid">
 
@@ -29,9 +29,9 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Header</td>
+                                <td>@item.Name</td>
 
-                                @if (item.LanguageId == 1)
+                                @if (((int)item.Language) == 1)
                                 {
                                     <td>"Türkçe"</td>
                                 }

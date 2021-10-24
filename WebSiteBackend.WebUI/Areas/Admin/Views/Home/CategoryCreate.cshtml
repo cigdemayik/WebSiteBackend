@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    @model Web.Models.CategoryModels.CategoryCreateModel;
+    @model WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels.CategoryCreateModel;
 }
 
 @using (Html.BeginForm("CategoryCreate","Home",FormMethod.Post))
@@ -14,15 +14,15 @@
         <div class="card-body">
             
             <div class="form-group">
-                @Html.TextBoxFor(m=>m.Header,new {@class="form-control form-control-user"})
-                @Html.ValidationMessageFor(m=>m.Header)
+                @Html.TextBoxFor(m=>m.Name,new {@class="form-control form-control-user"})
+                @Html.ValidationMessageFor(m=>m.Name)
             </div>
             <div class="form-group">
-                @Html.DropDownListFor(m=>m.LanguageId,new List<SelectListItem>{
+                @Html.DropDownListFor(m=>m.Language,new List<SelectListItem>{
                 new SelectListItem {Text="Türkçe",Value="1"},
                 new SelectListItem {Text="İngilizce",Value="2"}
             },new {@class="form-control form-control-user"})
-            @Html.ValidationMessageFor(m=>m.LanguageId)
+            @Html.ValidationMessageFor(m=>m.Language)
             </div>
             <input type="submit" value="Kaydet" class="btn btn-primary"/>
         </div>

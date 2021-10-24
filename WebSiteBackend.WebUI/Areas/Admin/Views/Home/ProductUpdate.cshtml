@@ -1,0 +1,40 @@
+﻿@{ Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    @model WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels.ProductUpdateModel;
+}
+
+@using (Html.BeginForm("ProductUpdate", "Home", FormMethod.Post))
+{
+@Html.ValidationSummary(true)
+
+                <div class="card">
+                    <div class="card-header">
+                        Konu
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" value="@Model.Id" />
+                        </div>
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.Name)
+                        </div>
+                        <div>
+                            @Html.LabelFor(m => m.Active, new { @class = "col-sm-3" })
+                            @Html.DropDownListFor(m => m.Active, new List<SelectListItem>{
+                new SelectListItem {Text="Evet",Value="1"},
+                new SelectListItem {Text="Hayır",Value="0"}
+            }, new { @class = "form-control form-control-user col-sm-9" })
+                            @Html.ValidationMessageFor(m => m.Active)
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Content, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.Content)
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.ImageUrl)
+                        </div>
+                        <input type="submit" value="Güncelle" class="btn btn-primary" />
+                    </div>
+                </div>}

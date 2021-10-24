@@ -1,0 +1,29 @@
+﻿@{ Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+@model WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels.CarouselCreateModel;
+}
+
+@using (Html.BeginForm("CarouselCreate", "Home", FormMethod.Post))
+{
+@Html.ValidationSummary(true)
+
+                <div class="card">
+                    <div class="card-header">
+                        Carousel
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Header, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.Header)
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.ImageUrl)
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Detail, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.Detail)
+                        </div>
+                        <input type="submit" value="Kaydet" class="btn btn-primary" />
+                    </div>
+                </div>}

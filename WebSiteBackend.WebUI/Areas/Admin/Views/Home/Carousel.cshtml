@@ -1,0 +1,64 @@
+﻿@{ Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+@model List<WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels.CarouselModel>;
+}
+<div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            Carousel Tablosu
+            @Html.ActionLink("Ekle", "CarouselCreate", "Home", null, new { @class = "btn btn-primary float-right" })
+        </div>
+        @if (Model.Count <= 0)
+        {
+<p class="text-center">Hiç Veri Yok</p> }
+            else
+            {
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>İmage Url</th>
+                    <th>Detay</th>
+                    <th>Yayınlama Başlangıç Tarihi</th>
+                    <th>Yayınlama Bitiş Tarihi</th>
+                    <th>Aktif Mi?</th>
+                    <th>Dil</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+<tr>
+    <td>@item.Header</td>
+    <td>@item.ImageUrl</td>
+    <td>@item.Detail</td>
+    <td>@item.PublishStartDate</td>
+    <td>@item.PublishEndDate</td>
+    <td>@item.Active</td>
+
+    @if (((int)item.Language) == 1)
+    {
+        <td>"Türkçe"</td>
+    }
+    else
+    {
+        <td>"İngilizce";</td>
+        }
+            <td>
+        @Html.ActionLink("Güncelle", "CarouselUpdate", "Home", new { id = item.Id }, new { @class = "btn btn-warning" })
+        @Html.ActionLink("Sil", "CarouselDelete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+        }
+
+                    </tbody>
+                </table>
+                </div>
+            </div>            
+        }
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+﻿@{ Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    @model List<WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels.ProductModel>;
+}
+<div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            Konu Tablosu
+            @Html.ActionLink("Ekle", "ProductCreate", "Home", null, new { @class = "btn btn-primary float-right" })
+        </div>
+        @if (Model.Count <= 0)
+        {
+<p class="text-center">Hiç Veri Yok</p> }
+            else
+            {
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Konu</th>
+                    <th>Aktif</th>
+                    <th>Image Url</th>
+                    <th>Dil</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+<tr>
+    <td>@item.Name</td>
+    <td>@item.Content</td>
+    <td>@item.Active</td>
+    <td>@item.ImageUrl</td>
+
+    @if (((int)item.Language) == 1)
+    {
+<td>"Türkçe"</td> }
+                    else
+                    {
+<td>"İngilizce";</td>}
+    <td>
+        @Html.ActionLink("Güncelle", "ProductUpdate", "Home", new { id = item.Id }, new { @class = "btn btn-warning" })
+        @Html.ActionLink("Sil", "ProductDelete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })
+    </td>
+</tr>}
+
+            </tbody>
+        </table>
+    </div>
+</div>}
+
+
+
+    </div>
+
+</div>
