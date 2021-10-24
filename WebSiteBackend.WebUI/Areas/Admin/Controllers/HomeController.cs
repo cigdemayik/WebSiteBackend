@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,11 @@ using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
 using WebSiteBackend.Business.Dtos.ProductDtos;
+using WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 {
@@ -46,17 +52,18 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<List<CategoryDto>>());
         }
 
         public async Task<IActionResult> CategoryCreate()
         {
-            return View(new CategoryCreateDto());
+            return View(new CategoryCreateModel());
         }
         [HttpPost]
-        public async Task<IActionResult> CategoryCreate(CategoryCreateDto dto)
+        public async Task<IActionResult> CategoryCreate(CategoryCreateModel model)
         {
-            var response = await _categoryService.Create(dto);
+            var mappedData = model.Adapt<CategoryCreateDto>();
+            var response = await _categoryService.Create(mappedData);
             if(response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -71,12 +78,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<CategoryUpdateDto>());
         }
         [HttpPost]
-        public async Task<IActionResult> CategoryUpdate(CategoryUpdateDto dto)
+        public async Task<IActionResult> CategoryUpdate(CategoryUpdateModel model)
         {
-            var response = await _categoryService.Update(dto);
+            var mappedData = model.Adapt<CategoryUpdateDto>();
+            var response = await _categoryService.Update(mappedData);
             if(response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -112,17 +120,18 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<List<BlogDto>>());
         }
 
         public async Task<IActionResult> BlogCreate()
         {
-            return View(new BlogCreateDto());
+            return View(new BlogCreateModel());
         }
         [HttpPost]
-        public async Task<IActionResult> BlogCreate(BlogCreateDto dto)
+        public async Task<IActionResult> BlogCreate(BlogCreateModel model)
         {
-            var response = await _blogService.Create(dto);
+            var mappedData = model.Adapt<BlogCreateDto>();
+            var response = await _blogService.Create(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -137,12 +146,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<BlogUpdateDto>());
         }
         [HttpPost]
-        public async Task<IActionResult> BlogUpdate(BlogUpdateDto dto)
+        public async Task<IActionResult> BlogUpdate(BlogUpdateModel model)
         {
-            var response = await _blogService.Update(dto);
+            var mappedData = model.Adapt<BlogUpdateDto>();
+            var response = await _blogService.Update(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -179,7 +189,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<List<CarouselDto>>());
         }
 
         public async Task<IActionResult> CarouselCreate()
@@ -187,9 +197,10 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return View(new CarouselCreateDto());
         }
         [HttpPost]
-        public async Task<IActionResult> CarouselCreate(CarouselCreateDto dto)
+        public async Task<IActionResult> CarouselCreate(CarouselCreateModel model)
         {
-            var response = await _carouselService.Create(dto);
+            var mappedData = model.Adapt<CarouselCreateDto>();
+            var response = await _carouselService.Create(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -204,12 +215,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<CarouselUpdateDto>());
         }
         [HttpPost]
-        public async Task<IActionResult> CarouselUpdate(CarouselUpdateDto dto)
+        public async Task<IActionResult> CarouselUpdate(CarouselUpdateModel model)
         {
-            var response = await _carouselService.Update(dto);
+            var mappedData = model.Adapt<CarouselUpdateDto>();
+            var response = await _carouselService.Update(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -246,17 +258,18 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<List<ProductDto>>()); ;
         }
 
         public async Task<IActionResult> ProductCreate()
         {
-            return View(new ProductCreateDto());
+            return View(new ProductCreateModel());
         }
         [HttpPost]
-        public async Task<IActionResult> ProductCreate(ProductCreateDto dto)
+        public async Task<IActionResult> ProductCreate(ProductCreateModel model)
         {
-            var response = await _productService.Create(dto);
+            var mappedData = model.Adapt<ProductCreateDto>();
+            var response = await _productService.Create(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -271,12 +284,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<List<ProductUpdateDto>>());
         }
         [HttpPost]
-        public async Task<IActionResult> ProductUpdate(ProductUpdateDto dto)
+        public async Task<IActionResult> ProductUpdate(ProductUpdateModel model)
         {
-            var response = await _productService.Update(dto);
+            var mappedData = model.Adapt<ProductUpdateDto>();
+            var response = await _productService.Update(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -313,7 +327,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<List<AboutUsDto>>());
         }
 
         public async Task<IActionResult> AboutUsUpdate(int id)
@@ -323,12 +337,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<List<AboutUsDto>>());
         }
         [HttpPost]
-        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateDto dto)
+        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateModel model)
         {
-            var response = await _aboutUsService.Update(dto);
+            var mappedData = model.Adapt<AboutUsUpdateDto>();
+            var response = await _aboutUsService.Update(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
