@@ -12,7 +12,6 @@ namespace WebSiteBackend.Business.Dtos.ProductDtos
         public string Name { get; set; }
         public string Content { get; set; }
         public string ImageUrl { get; set; }
-        public IFormFile Image { get; set; }
         public DateTime UpdateTime { get; set; }
     }
 }
