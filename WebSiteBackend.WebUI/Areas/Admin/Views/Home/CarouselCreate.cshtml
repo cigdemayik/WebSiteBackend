@@ -2,7 +2,7 @@
 @model WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels.CarouselCreateModel;
 }
 
-@using (Html.BeginForm("CarouselCreate", "Home", FormMethod.Post))
+@using (Html.BeginForm("CarouselCreate", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 @Html.ValidationSummary(true)
 
@@ -13,16 +13,26 @@
                     <div class="card-body">
 
                         <div class="form-group">
+                            @Html.LabelFor(m => m.Header, new { @class = "col-sm-3" })
                             @Html.TextBoxFor(m => m.Header, new { @class = "form-control form-control-user" })
                             @Html.ValidationMessageFor(m => m.Header)
                         </div>
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control form-control-user" })
-                            @Html.ValidationMessageFor(m => m.ImageUrl)
+                            @Html.LabelFor(m => m.Image, new { @class = "col-sm-3" })
+                            @Html.EditorFor(m => m.Image, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.Image)
                         </div>
                         <div class="form-group">
+                            @Html.LabelFor(m => m.Detail, new { @class = "col-sm-3" })
                             @Html.TextBoxFor(m => m.Detail, new { @class = "form-control form-control-user" })
                             @Html.ValidationMessageFor(m => m.Detail)
+                        </div>
+                        <div class="form-group">
+                            @Html.DropDownListFor(m => m.Language, new List<SelectListItem>{
+                new SelectListItem {Text="Türkçe",Value="1"},
+                new SelectListItem {Text="İngilizce",Value="2"}
+            }, new { @class = "form-control form-control-user" })
+                            @Html.ValidationMessageFor(m => m.Language)
                         </div>
                         <input type="submit" value="Kaydet" class="btn btn-primary" />
                     </div>

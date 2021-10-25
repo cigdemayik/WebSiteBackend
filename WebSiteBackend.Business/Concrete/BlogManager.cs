@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Dtos.BlogDtos;
@@ -82,7 +83,9 @@ namespace WebSiteBackend.Business.Concrete
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Blog>().GetAllByFilterAsync();
+                var includes = new List<Expression<Func<Blog, object>>>();
+                includes.Add(x => x.Category);
+                var data = await _unitOfWork.GetRepository<Blog>().GetAllByFilterAsync(null, includes.ToArray());
                 var mappedData = data.ToList().Adapt<List<BlogDto>>();
                 if (mappedData != null)
                     return _serviceResponseHelper.SetSuccess<List<BlogDto>>(mappedData, System.Net.HttpStatusCode.OK);

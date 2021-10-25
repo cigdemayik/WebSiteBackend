@@ -31,10 +31,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.ImageUrl).IsRequired(false);
             builder.Property(x => x.ImageUrl).HasMaxLength(512);
 
-            builder.Property(x => x.PublishStartDate).IsRequired();
-
-            builder.Property(x => x.PublishEndDate).IsRequired();
-
             builder.Property(x => x.UpdateTime).IsRequired(false);
 
             builder.Property(x => x.UserId).IsRequired();

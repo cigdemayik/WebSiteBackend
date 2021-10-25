@@ -15,5 +15,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels
         public string ImageUrl { get; set; }
         public IFormFile Image { get; set; }
         public DateTime UpdateTime { get; set; }
+        public int Language { get; set; }
     }
 }

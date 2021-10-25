@@ -11,7 +11,7 @@ using WebSiteBackend.Helpers.Enums;
 
 namespace WebSiteBackend.Entities.Concrete
 {
-    public class Carousel : BasePublishEntity, ITable
+    public class Carousel : BaseEntity, ITable
     {
         public string Header { get; set; }
         public string ImageUrl { get; set; }

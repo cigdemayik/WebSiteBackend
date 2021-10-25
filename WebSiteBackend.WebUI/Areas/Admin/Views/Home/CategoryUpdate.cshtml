@@ -20,6 +20,13 @@
                 @Html.TextBoxFor(m=>m.Name,new {@class="form-control form-control-user"})
                 @Html.ValidationMessageFor(m=>m.Name)
             </div>
+            <div class="form-group">
+                @Html.DropDownListFor(m => m.Language, new List<SelectListItem>{
+                new SelectListItem {Text="Türkçe",Value="1"},
+                new SelectListItem {Text="İngilizce",Value="2"}
+            }, new { @class = "form-control form-control-user" })
+                @Html.ValidationMessageFor(m => m.Language)
+            </div>
             <input type="submit" value="Güncelle" class="btn btn-primary"/>
         </div>
     </div>

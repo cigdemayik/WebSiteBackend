@@ -1,9 +1,12 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
@@ -17,6 +20,7 @@ using WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels;
+using WebSiteBackend.WebUI.Extensions;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 {
@@ -78,11 +82,12 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> CategoryUpdate(int id)
         {
             var response = await _categoryService.GetById(id);
+
             if(response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            return View(response.Result.Adapt<CategoryUpdateModel>());
         }
         [HttpPost]
         public async Task<IActionResult> CategoryUpdate(CategoryUpdateModel model)
@@ -129,11 +134,23 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> BlogCreate()
         {
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
             return View(new BlogCreateModel());
         }
         [HttpPost]
         public async Task<IActionResult> BlogCreate(BlogCreateModel model)
         {
+
+            var savePath = "\\uploads\\blog";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
             var mappedData = model.Adapt<BlogCreateDto>();
             var response = await _blogService.Create(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -145,6 +162,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> BlogUpdate(int id)
         {
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
             var response = await _blogService.GetById(id);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
@@ -155,6 +179,9 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> BlogUpdate(BlogUpdateModel model)
         {
+            var savePath = "\\uploads\\blog";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
             var mappedData = model.Adapt<BlogUpdateDto>();
             var response = await _blogService.Update(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -203,6 +230,9 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CarouselCreate(CarouselCreateModel model)
         {
+            var savePath = "\\uploads\\carousel";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
             var mappedData = model.Adapt<CarouselCreateDto>();
             var response = await _carouselService.Create(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -224,6 +254,9 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CarouselUpdate(CarouselUpdateModel model)
         {
+            var savePath = "\\uploads\\carousel";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
             var mappedData = model.Adapt<CarouselUpdateDto>();
             var response = await _carouselService.Update(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -272,6 +305,10 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> ProductCreate(ProductCreateModel model)
         {
+            var savePath = "\\uploads\\product";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+
             var mappedData = model.Adapt<ProductCreateDto>();
             var response = await _productService.Create(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -293,6 +330,10 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> ProductUpdate(ProductUpdateModel model)
         {
+            var savePath = "\\uploads\\product";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+
             var mappedData = model.Adapt<ProductUpdateDto>();
             var response = await _productService.Update(mappedData);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -355,6 +396,28 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return RedirectToAction("AboutUs");
         }
 
+        #endregion
+        #region Editor Upload
+
+
+        [HttpPost]
+        public async Task<IActionResult> UploadImage(List<IFormFile> files)
+        {
+            var filePath = "";
+
+            foreach (var photo in Request.Form.Files)
+            {
+                var newName = Guid.NewGuid().ToString();
+                var fileExtension = Path.GetExtension(photo.FileName);
+                var serverMapPath = Path.Combine(_webHostEnvironment.WebRootPath, "EditorImage", newName + fileExtension);
+                using (var stream = new FileStream(serverMapPath, FileMode.Create))
+                {
+                    await photo.CopyToAsync(stream);
+                }
+                filePath = "\\EditorImage\\" + newName + fileExtension;
+            }
+            return Json(new { url = filePath });
+        }
         #endregion
     }
 }

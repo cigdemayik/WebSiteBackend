@@ -111,7 +111,7 @@ namespace WebSiteBackend.Business.Concrete
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Category>().GetByFilterAsync(x => x.Id == id);
+                var data = await _unitOfWork.GetRepository<Carousel>().GetByFilterAsync(x => x.Id == id);
                 var dto = data.Adapt<CarouselDto>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<CarouselDto>(dto, System.Net.HttpStatusCode.OK);

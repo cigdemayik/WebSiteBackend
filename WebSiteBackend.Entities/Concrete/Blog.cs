@@ -11,7 +11,7 @@ using WebSiteBackend.Helpers.Enums;
 
 namespace WebSiteBackend.Entities.Concrete
 {
-    public class Blog : BasePublishEntity, ITable
+    public class Blog : BaseEntity, ITable
     {
         public string Header { get; set; }
         public string Content { get; set; }

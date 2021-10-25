@@ -11,5 +11,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels
         public bool Active { get; set; }
         public string Name { get; set; }
         public DateTime UpdateTime { get; set; }
+        public int Language { get; set; }
     }
 }

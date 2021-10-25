@@ -13,5 +13,6 @@ namespace WebSiteBackend.Business.Dtos.ProductDtos
         public string Content { get; set; }
         public string ImageUrl { get; set; }
         public DateTime UpdateTime { get; set; }
+        public int Language { get; set; }
     }
 }

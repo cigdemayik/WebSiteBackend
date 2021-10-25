@@ -12,5 +12,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels
         public string ImageUrl { get; set; }
         public IFormFile Image { get; set; }
         public string Detail { get; set; }
+        public int Language { get; set; }
     }
 }
