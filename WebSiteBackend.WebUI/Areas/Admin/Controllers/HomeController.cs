@@ -1,5 +1,6 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -29,13 +30,16 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         private readonly IBlogService _blogService;
         private readonly IAboutUsService _aboutUsService;
 
-        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService, IWebHostEnvironment webHostEnvironment)
         {
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _carouselService = carouselService ?? throw new ArgumentNullException(nameof(carouselService));
             _blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
             _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService));
+            _webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
         }
 
         public IActionResult Index()
@@ -52,7 +56,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<List<CategoryDto>>());
+            return View(response.Result.Adapt<List<CategoryModel>>());
         }
 
         public async Task<IActionResult> CategoryCreate()
@@ -62,9 +66,9 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CategoryCreate(CategoryCreateModel model)
         {
-            var mappedData = model.Adapt<CategoryCreateDto>();
-            var response = await _categoryService.Create(mappedData);
-            if(response.StatusCode != System.Net.HttpStatusCode.OK)
+            var mappeddata = model.Adapt<CategoryCreateDto>();
+            var response = await _categoryService.Create(mappeddata);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
             }
@@ -78,7 +82,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<CategoryUpdateDto>());
+            return View(response.Result);
         }
         [HttpPost]
         public async Task<IActionResult> CategoryUpdate(CategoryUpdateModel model)
@@ -120,7 +124,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<List<BlogDto>>());
+           return View(response.Result.Adapt<List<BlogModel>>());
         }
 
         public async Task<IActionResult> BlogCreate()
@@ -146,7 +150,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<BlogUpdateDto>());
+            return View(response.Result.Adapt<BlogUpdateModel>());
         }
         [HttpPost]
         public async Task<IActionResult> BlogUpdate(BlogUpdateModel model)
@@ -189,12 +193,12 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<List<CarouselDto>>());
+            return View(response.Result.Adapt<List<CarouselModel>>());
         }
 
         public async Task<IActionResult> CarouselCreate()
         {
-            return View(new CarouselCreateDto());
+            return View(new CarouselCreateModel());
         }
         [HttpPost]
         public async Task<IActionResult> CarouselCreate(CarouselCreateModel model)
@@ -215,7 +219,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<CarouselUpdateDto>());
+            return View(response.Result.Adapt<CarouselUpdateModel>());
         }
         [HttpPost]
         public async Task<IActionResult> CarouselUpdate(CarouselUpdateModel model)
@@ -258,7 +262,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<List<ProductDto>>()); ;
+            return View(response.Result.Adapt<List<ProductModel>>());
         }
 
         public async Task<IActionResult> ProductCreate()
@@ -284,7 +288,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<List<ProductUpdateDto>>());
+            return View(response.Result.Adapt<ProductUpdateModel>());
         }
         [HttpPost]
         public async Task<IActionResult> ProductUpdate(ProductUpdateModel model)
@@ -327,7 +331,8 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<List<AboutUsDto>>());
+
+            return View(response.Result.Adapt<List<AboutUsModel>>());
         }
 
         public async Task<IActionResult> AboutUsUpdate(int id)
@@ -337,13 +342,12 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<List<AboutUsDto>>());
+            return View(response.Result.Adapt<AboutUsUpdateModel>());
         }
         [HttpPost]
-        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateModel model)
+        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateDto dto)
         {
-            var mappedData = model.Adapt<AboutUsUpdateDto>();
-            var response = await _aboutUsService.Update(mappedData);
+            var response = await _aboutUsService.Update(dto);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
@@ -354,3 +358,8 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         #endregion
     }
 }
+
+//var savePath = "\\uploads\\article";
+//var filePath = _webHostEnvironment.WebRootPath + savePath;
+
+//mappedModel.ImagePath = await this.UploadFileAsync(model.File, filePath, savePath);

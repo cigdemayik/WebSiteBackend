@@ -35,7 +35,7 @@ namespace WebSiteBackend.Business.Concrete
                     return _serviceResponseHelper.SetSuccess<List<AboutUsDto>>(mappedData, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<List<AboutUsDto>>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return _serviceResponseHelper.SetError<List<AboutUsDto>>(null, "Hakkımızda kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);

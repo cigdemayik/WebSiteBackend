@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Mapster;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -45,44 +46,16 @@ namespace WebSiteBackend.Business.Concrete
         public ServiceResponse<UserLoginResponseDto> SignIn(UserLoginDto dto)
         {
             var user = _unitOfWork.GetRepository<User>().GetByFilter(x => x.Username == dto.Username && x.Password == dto.Password);
-
+            var mappedData = user.Adapt<UserLoginResponseDto>();
             if (user != null)
             {
-
-                var tokenresponse= GenerateToken(user);
                 
 
-                return _serviceResponseHelper.SetSuccess(tokenresponse, HttpStatusCode.Created);
+                return _serviceResponseHelper.SetSuccess(mappedData, HttpStatusCode.Created);
 
             }
             return _serviceResponseHelper.SetError<UserLoginResponseDto>(null,"Kullanıcı Adı ve Şifre Eşleşmemektedir"
                 , HttpStatusCode.NotFound);
-        }
-        private UserLoginResponseDto GenerateToken(User user)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("BANAYALANSOYLEDILER!soylediler");
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Audience = "Application",
-                Issuer = "WebSiteDemo",
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                        new Claim(ClaimTypes.Name, user.Username)
-                }),
-                Expires = DateTime.UtcNow.AddDays(7),
-
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
-            var userLoginResponseDto = new UserLoginResponseDto()
-            {
-                Token = tokenString,
-                UserId = user.Id
-            };
-            return userLoginResponseDto;
         }
     }
 }

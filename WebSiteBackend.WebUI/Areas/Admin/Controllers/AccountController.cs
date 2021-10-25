@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using WebSiteBackend.Business.Dtos.UserDtos;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
@@ -18,12 +20,12 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         {
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(new UserLoginDto());
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Index(UserLoginDto dto)
         {
@@ -37,7 +39,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             var claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.NameIdentifier,response.Result.UserId.ToString()),
-                    new Claim(ClaimTypes.Role, response.Result.Token.ToString()),
                     new Claim(ClaimTypes.Name, response.Result.Username.ToString())
                 };
 

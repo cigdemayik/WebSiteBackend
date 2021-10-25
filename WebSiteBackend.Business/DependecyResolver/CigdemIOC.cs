@@ -18,7 +18,7 @@ namespace WebSiteBackend.Business.DependecyResolver
         {
             services.AddDbContext<WebSiteContext>(opt =>
             {
-                opt.UseSqlServer(configuration.GetConnectionString("AlpTest"));
+                opt.UseSqlServer(configuration.GetConnectionString("CigdemTest"));
             }, ServiceLifetime.Transient);
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -36,6 +36,8 @@ namespace WebSiteBackend.Business.DependecyResolver
             services.AddScoped<IProductService, ProductManager>();
 
             services.AddScoped<IUserService, UserManager>();
+
+            services.AddScoped<IAboutUsService, AboutUsManager>();
 
             services.AddScoped<IServiceResponseHelper, ServiceResponseHelper>();
         }
