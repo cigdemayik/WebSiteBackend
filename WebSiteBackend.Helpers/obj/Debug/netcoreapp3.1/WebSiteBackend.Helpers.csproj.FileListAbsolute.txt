@@ -29,7 +29,6 @@ C:\Users\Burcu\source\repos\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netc
 D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.deps.json
 D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
 D:\SideProjects\WebSite\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
-D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.AssemblyReference.cache
 D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.GeneratedMSBuildEditorConfig.editorconfig
 D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfo.cs

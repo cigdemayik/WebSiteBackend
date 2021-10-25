@@ -82,6 +82,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<AboutUs>();
                 var data = await _unitOfWork.GetRepository<AboutUs>().UpdateAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<bool>(data, "Hakkımızda güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);

@@ -63,7 +63,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Product>();
                 var result = await _unitOfWork.GetRepository<Product>().AddAsync(mappedData);
-
+                await _unitOfWork.SaveChangesAsync();
                 if (result != null)
                     return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<int>(-1, "Ürün ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
@@ -135,6 +135,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Product>();
                 var data = await _unitOfWork.GetRepository<Product>().UpdateAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<bool>(data, "Ürün güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);
