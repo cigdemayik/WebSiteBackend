@@ -9,7 +9,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels
     public class AboutUsUpdateModel
     {
         public int Id { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
         public string Content { get; set; }
     }
 }

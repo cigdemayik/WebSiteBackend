@@ -20,6 +20,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfigutaion());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new AboutUsConfiguration());
         }
 
 

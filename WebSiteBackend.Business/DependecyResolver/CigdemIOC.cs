@@ -38,6 +38,8 @@ namespace WebSiteBackend.Business.DependecyResolver
             services.AddScoped<IUserService, UserManager>();
 
             services.AddScoped<IServiceResponseHelper, ServiceResponseHelper>();
+
+            services.AddScoped<IAboutUsService, AboutUsManager>();
         }
     }
 }

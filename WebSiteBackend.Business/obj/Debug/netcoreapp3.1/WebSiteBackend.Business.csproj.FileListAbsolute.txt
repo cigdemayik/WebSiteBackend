@@ -63,6 +63,5 @@ D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteB
 D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.AssemblyInfo.cs
 D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csproj.CoreCompileInputs.cache
-D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csproj.CopyComplete
 D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.dll
 D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.pdb

@@ -67,7 +67,7 @@ namespace WebSiteBackend.Business.Concrete
                 var category = await _unitOfWork.GetRepository<Category>().GetByFilterAsync(x => x.Id == dto.CategoryId);
                 mappedData.Language = category.Language;
                 var result = await _unitOfWork.GetRepository<Blog>().AddAsync(mappedData);
-
+                await _unitOfWork.SaveChangesAsync();
                 if (result != null)
                     return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<int>(-1, "Blog ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
@@ -135,6 +135,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Blog>();
                 var data = await _unitOfWork.GetRepository<Blog>().UpdateAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<bool>(data, "Blog güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);

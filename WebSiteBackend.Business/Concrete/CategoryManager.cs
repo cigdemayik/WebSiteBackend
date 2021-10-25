@@ -64,7 +64,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Category>();
                 var result = await _unitOfWork.GetRepository<Category>().AddAsync(mappedData);
-
+                await _unitOfWork.SaveChangesAsync();
                 if (result != null)
                     return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<int>(-1, "Kategori ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
@@ -132,6 +132,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Category>();
                 var data = await _unitOfWork.GetRepository<Category>().UpdateAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<bool>(data, "Kategori güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);

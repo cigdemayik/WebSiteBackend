@@ -62,7 +62,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Carousel>();
                 var result = await _unitOfWork.GetRepository<Carousel>().AddAsync(mappedData);
-
+                await _unitOfWork.SaveChangesAsync();
                 if (result != null)
                     return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<int>(-1, "Carousel ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
@@ -130,6 +130,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Carousel>();
                 var data = await _unitOfWork.GetRepository<Carousel>().UpdateAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<bool>(data, "Carousel güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);

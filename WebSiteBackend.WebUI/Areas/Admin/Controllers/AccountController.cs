@@ -10,6 +10,7 @@ using WebSiteBackend.Business.Dtos.UserDtos;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
@@ -37,7 +38,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             var claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.NameIdentifier,response.Result.UserId.ToString()),
-                    new Claim(ClaimTypes.Role, response.Result.Token.ToString()),
                     new Claim(ClaimTypes.Name, response.Result.Username.ToString())
                 };
 

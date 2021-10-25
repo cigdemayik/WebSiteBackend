@@ -80,7 +80,8 @@ namespace WebSiteBackend.Business.Concrete
             var userLoginResponseDto = new UserLoginResponseDto()
             {
                 Token = tokenString,
-                UserId = user.Id
+                UserId = user.Id,
+                Username = user.Username
             };
             return userLoginResponseDto;
         }

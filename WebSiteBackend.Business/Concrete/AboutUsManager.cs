@@ -35,7 +35,7 @@ namespace WebSiteBackend.Business.Concrete
                     return _serviceResponseHelper.SetSuccess<List<AboutUsDto>>(mappedData, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<List<AboutUsDto>>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return _serviceResponseHelper.SetError<List<AboutUsDto>>(null, "Hakkımızda kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
@@ -82,6 +82,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<AboutUs>();
                 var data = await _unitOfWork.GetRepository<AboutUs>().UpdateAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
                 return _serviceResponseHelper.SetError<bool>(data, "Hakkımızda güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);

@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Mapster;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
@@ -10,6 +14,7 @@ using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
 using WebSiteBackend.Business.Dtos.ProductDtos;
+using WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 {
@@ -22,14 +27,16 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         private readonly ICarouselService _carouselService;
         private readonly IBlogService _blogService;
         private readonly IAboutUsService _aboutUsService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService)
+        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService, IWebHostEnvironment webHostEnvironment)
         {
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _carouselService = carouselService ?? throw new ArgumentNullException(nameof(carouselService));
             _blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
             _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService));
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -313,7 +320,8 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            var mappedResponse = response.Result.Adapt<List<AboutUsModel>>();
+            return View(mappedResponse);
         }
 
         public async Task<IActionResult> AboutUsUpdate(int id)
@@ -323,11 +331,13 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
-            return View(response.Result);
+            var mappedResponse = response.Result.Adapt<AboutUsUpdateModel>();
+            return View(mappedResponse);
         }
         [HttpPost]
-        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateDto dto)
+        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateModel model)
         {
+            var dto = model.Adapt<AboutUsUpdateDto>();
             var response = await _aboutUsService.Update(dto);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
@@ -336,6 +346,29 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return RedirectToAction("AboutUs");
         }
 
+        #endregion
+
+        #region Editor Upload
+
+
+        [HttpPost]
+        public async Task<IActionResult> UploadImage(List<IFormFile> files)
+        {
+            var filePath = "";
+            
+            foreach (var photo in Request.Form.Files)
+            {
+                var newName = Guid.NewGuid().ToString();
+                var fileExtension = Path.GetExtension(photo.FileName);
+                var serverMapPath = Path.Combine(_webHostEnvironment.WebRootPath, "EditorImage", newName + fileExtension);
+                using (var stream = new FileStream(serverMapPath, FileMode.Create))
+                {
+                    await photo.CopyToAsync(stream);
+                }
+                filePath ="\\EditorImage\\" + newName + fileExtension;
+            }
+            return Json(new { url = filePath });
+        }
         #endregion
     }
 }

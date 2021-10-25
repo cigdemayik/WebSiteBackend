@@ -30,6 +30,7 @@
     <Folder Include="wwwroot\lib\jquery\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
     <Folder Include="wwwroot\lib\NewFolder\" />
+    <Folder Include="wwwroot\EditorImage\" />
   </ItemGroup>
 
   <ItemGroup>
