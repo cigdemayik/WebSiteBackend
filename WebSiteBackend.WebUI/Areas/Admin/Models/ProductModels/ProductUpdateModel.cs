@@ -17,6 +17,5 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels
         [NotMapped]
         public IFormFile Image { get; set; }
         public DateTime UpdateTime { get; set; }
-        public IFormFile Image { get; set; }
     }
 }

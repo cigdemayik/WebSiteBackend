@@ -15,7 +15,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels
         [NotMapped]
         public IFormFile Image { get; set; }
         public string Detail { get; set; }
-        public IFormFile Image { get; set; }
         public DateTime PublishStartDate { get; set; }
         public DateTime PublishEndDate { get; set; }
         public bool Active { get; set; }
