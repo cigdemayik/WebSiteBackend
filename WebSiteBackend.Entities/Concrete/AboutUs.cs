@@ -10,6 +10,5 @@ namespace WebSiteBackend.Entities.Concrete
     {
         public LanguageEnum Language { get; set; }
         public string Content { get; set; }
-        public string Adress { get; set; }
     }
 }

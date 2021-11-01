@@ -11,12 +11,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Dtos.AboutUsDtos;
+using WebSiteBackend.Business.Dtos.AddressDtos;
 using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
 using WebSiteBackend.Business.Dtos.ProductDtos;
 using WebSiteBackend.Business.Dtos.VissionMissionDtos;
 using WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.AddressModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels;
@@ -36,9 +38,10 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         private readonly IBlogService _blogService;
         private readonly IAboutUsService _aboutUsService;
         private readonly IVissionMissionService _vissionMissionService;
+        private readonly IAddressService _addressService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService,IVissionMissionService vissionMissionService ,IWebHostEnvironment webHostEnvironment)
+        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService,IAddressService addressService ,IVissionMissionService vissionMissionService ,IWebHostEnvironment webHostEnvironment)
         {
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
@@ -46,6 +49,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             _blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
             _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService));
             _vissionMissionService = vissionMissionService ?? throw new ArgumentException(nameof(vissionMissionService));
+            _addressService = addressService ?? throw new ArgumentException(nameof(addressService));
             _webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
 
         }
@@ -453,6 +457,39 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
                 return BadRequest();
             }
             return RedirectToAction("VissionMission");
+        }
+        #endregion
+
+        #region Address
+        public async Task<IActionResult> Address()
+        {
+            var response = await _addressService.GetAll();
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+
+            return View(response.Result.Adapt<List<AddressModel>>());
+        }
+
+        public async Task<IActionResult> AddressUpdate(int id)
+        {
+            var response = await _addressService.GetById(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return View(response.Result.Adapt<AddressUpdateModel>());
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddressUpdate(AddressUpdateDto dto)
+        {
+            var response = await _addressService.Update(dto);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("Address");
         }
         #endregion
     }
