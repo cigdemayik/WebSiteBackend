@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using WebSiteBackend.Business.Dtos.VissionMissionDtos;
+using WebSiteBackend.Business.Dtos.VisionDtos;
 using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 

@@ -17,7 +17,7 @@ using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
 using WebSiteBackend.Business.Dtos.MissionDtos;
 using WebSiteBackend.Business.Dtos.ProductDtos;
-using WebSiteBackend.Business.Dtos.VissionMissionDtos;
+using WebSiteBackend.Business.Dtos.VisionDtos;
 using WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.AddressModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels;
@@ -433,7 +433,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         }
         #endregion
 
-        #region Vission
+        #region Vision
         public async Task<IActionResult> Vision()
         {
             var response = await _visionService.GetAll();

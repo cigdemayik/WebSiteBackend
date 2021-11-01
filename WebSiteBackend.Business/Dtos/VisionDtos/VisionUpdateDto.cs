@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WebSiteBackend.Business.Dtos.VissionMissionDtos
+namespace WebSiteBackend.Business.Dtos.VisionDtos
 {
     public class VisionUpdateDto
     {

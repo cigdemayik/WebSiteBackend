@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WebSiteBackend.Helpers.Enums;
 
-namespace WebSiteBackend.Business.Dtos.VissionMissionDtos
+namespace WebSiteBackend.Business.Dtos.VisionDtos
 {
     public class VisionDto
     {

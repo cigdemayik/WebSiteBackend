@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
-using WebSiteBackend.Business.Dtos.VissionMissionDtos;
+using WebSiteBackend.Business.Dtos.VisionDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
 using WebSiteBackend.Helpers.Enums;
