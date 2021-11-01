@@ -31,6 +31,10 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
+                    b.Property<string>("Adress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -55,6 +59,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         {
                             Id = 1,
                             Active = true,
+                            Adress = "Gaziantep",
                             Content = "Test Türkçe",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 1
@@ -63,6 +68,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         {
                             Id = 2,
                             Active = true,
+                            Adress = "İstanbul",
                             Content = "Test English",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 2
@@ -104,12 +110,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
 
                     b.Property<int>("Language")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("PublishEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("PublishStartDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -157,12 +157,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
 
                     b.Property<int>("Language")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("PublishEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("PublishStartDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -289,6 +283,38 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                             Password = "123456",
                             Username = "admin"
                         });
+                });
+
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.VisionMission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GetDate()");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VissionMission");
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Blog", b =>

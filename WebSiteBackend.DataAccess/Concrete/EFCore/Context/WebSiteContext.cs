@@ -21,6 +21,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
             modelBuilder.ApplyConfiguration(new ProductConfigutaion());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new AboutUsConfiguration());
+            modelBuilder.ApplyConfiguration(new VissionMissionCofiguration());
         }
 
 
@@ -29,5 +30,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
         public virtual DbSet<Carousel> Carousels { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<VisionMission> VisionMissions { get; set; }
     }
 }

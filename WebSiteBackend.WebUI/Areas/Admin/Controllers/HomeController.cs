@@ -15,11 +15,13 @@ using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
 using WebSiteBackend.Business.Dtos.ProductDtos;
+using WebSiteBackend.Business.Dtos.VissionMissionDtos;
 using WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.VissionMissionModels;
 using WebSiteBackend.WebUI.Extensions;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
@@ -33,17 +35,19 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         private readonly ICarouselService _carouselService;
         private readonly IBlogService _blogService;
         private readonly IAboutUsService _aboutUsService;
-
+        private readonly IVissionMissionService _vissionMissionService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService, IWebHostEnvironment webHostEnvironment)
+        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService,IVissionMissionService vissionMissionService ,IWebHostEnvironment webHostEnvironment)
         {
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _carouselService = carouselService ?? throw new ArgumentNullException(nameof(carouselService));
             _blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
             _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService));
+            _vissionMissionService = vissionMissionService ?? throw new ArgumentException(nameof(vissionMissionService));
             _webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
+
         }
 
         public IActionResult Index()
@@ -417,6 +421,38 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
                 filePath = "\\EditorImage\\" + newName + fileExtension;
             }
             return Json(new { url = filePath });
+        }
+        #endregion
+        #region VissionMission
+        public async Task<IActionResult> VissionMission()
+        {
+            var response = await _vissionMissionService.GetAll();
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+
+            return View(response.Result.Adapt<List<VissionMissionModel>>());
+        }
+
+        public async Task<IActionResult> VissionMissionUpdate(int id)
+        {
+            var response = await _vissionMissionService.GetById(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return View(response.Result.Adapt<VissionMissionUpdateModel>());
+        }
+        [HttpPost]
+        public async Task<IActionResult> VissionMissionUpdate(VissionMissionUpdateDto dto)
+        {
+            var response = await _vissionMissionService.Update(dto);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("VissionMission");
         }
         #endregion
     }

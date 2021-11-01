@@ -6,9 +6,10 @@ using WebSiteBackend.Helpers.Enums;
 
 namespace WebSiteBackend.Entities.Concrete
 {
-    public class AboutUs :BaseEntity
+    public class AboutUs : BaseEntity
     {
         public LanguageEnum Language { get; set; }
         public string Content { get; set; }
+        public string Adress { get; set; }
     }
 }
