@@ -15,6 +15,7 @@ using WebSiteBackend.Business.Dtos.AddressDtos;
 using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
+using WebSiteBackend.Business.Dtos.MissionDtos;
 using WebSiteBackend.Business.Dtos.ProductDtos;
 using WebSiteBackend.Business.Dtos.VissionMissionDtos;
 using WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels;
@@ -22,8 +23,9 @@ using WebSiteBackend.WebUI.Areas.Admin.Models.AddressModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.MissionModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels;
-using WebSiteBackend.WebUI.Areas.Admin.Models.VissionMissionModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.VisionModels;
 using WebSiteBackend.WebUI.Extensions;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
@@ -37,18 +39,20 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         private readonly ICarouselService _carouselService;
         private readonly IBlogService _blogService;
         private readonly IAboutUsService _aboutUsService;
-        private readonly IVissionMissionService _vissionMissionService;
+        private readonly IVisionService _visionService;
         private readonly IAddressService _addressService;
+        private readonly IMissionService _missionService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService,IAddressService addressService ,IVissionMissionService vissionMissionService ,IWebHostEnvironment webHostEnvironment)
+        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService, IMissionService missionService, IAddressService addressService ,IVisionService visionService ,IWebHostEnvironment webHostEnvironment)
         {
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _carouselService = carouselService ?? throw new ArgumentNullException(nameof(carouselService));
             _blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
             _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService));
-            _vissionMissionService = vissionMissionService ?? throw new ArgumentException(nameof(vissionMissionService));
+            _visionService = visionService ?? throw new ArgumentException(nameof(visionService));
+            _missionService = missionService ?? throw new ArgumentException(nameof(missionService));
             _addressService = addressService ?? throw new ArgumentException(nameof(addressService));
             _webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
 
@@ -405,6 +409,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         }
 
         #endregion
+
         #region Editor Upload
 
 
@@ -427,36 +432,37 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return Json(new { url = filePath });
         }
         #endregion
-        #region VissionMission
-        public async Task<IActionResult> VissionMission()
+
+        #region Vission
+        public async Task<IActionResult> Vision()
         {
-            var response = await _vissionMissionService.GetAll();
+            var response = await _visionService.GetAll();
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
             }
 
-            return View(response.Result.Adapt<List<VissionMissionModel>>());
+            return View(response.Result.Adapt<List<VisionModel>>());
         }
 
-        public async Task<IActionResult> VissionMissionUpdate(int id)
+        public async Task<IActionResult> VisionUpdate(int id)
         {
-            var response = await _vissionMissionService.GetById(id);
+            var response = await _visionService.GetById(id);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
             }
-            return View(response.Result.Adapt<VissionMissionUpdateModel>());
+            return View(response.Result.Adapt<VisionUpdateModel>());
         }
         [HttpPost]
-        public async Task<IActionResult> VissionMissionUpdate(VissionMissionUpdateDto dto)
+        public async Task<IActionResult> VisionUpdate(VisionUpdateDto dto)
         {
-            var response = await _vissionMissionService.Update(dto);
+            var response = await _visionService.Update(dto);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 return BadRequest();
             }
-            return RedirectToAction("VissionMission");
+            return RedirectToAction("Vision");
         }
         #endregion
 
@@ -490,6 +496,39 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
                 return BadRequest();
             }
             return RedirectToAction("Address");
+        }
+        #endregion
+
+        #region Mission
+        public async Task<IActionResult> Mission()
+        {
+            var response = await _missionService.GetAll();
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+
+            return View(response.Result.Adapt<List<MissionModel>>());
+        }
+
+        public async Task<IActionResult> MissionUpdate(int id)
+        {
+            var response = await _missionService.GetById(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return View(response.Result.Adapt<MissionUpdateModel>());
+        }
+        [HttpPost]
+        public async Task<IActionResult> MissionUpdate(MissionUpdateDto dto)
+        {
+            var response = await _missionService.Update(dto);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("Mission");
         }
         #endregion
     }

@@ -7,11 +7,11 @@ using WebSiteBackend.Entities.Concrete;
 
 namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
 {
-    public class VissionMissionCofiguration : IEntityTypeConfiguration<VisionMission>
+    public class VisionConfiguration : IEntityTypeConfiguration<Vision>
     {
-        public void Configure(EntityTypeBuilder<VisionMission> builder)
+        public void Configure(EntityTypeBuilder<Vision> builder)
         {
-            builder.ToTable("VissionMission");
+            builder.ToTable("Vision");
 
             builder.HasKey(x => x.Id);
 
@@ -26,6 +26,22 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.UpdateTime).IsRequired(false);
 
             builder.Property(x => x.Language).IsRequired();
+
+            builder.HasData(new List<Vision>()
+            {
+                new Vision(){
+                Id = 1,
+                Active = true,
+                Content = "Test Türkçe",
+                Language = Helpers.Enums.LanguageEnum.Türkçe
+           },
+                new Vision()
+                {
+                    Id=2,
+                    Active=true,
+                    Content = "Test English",
+                    Language = Helpers.Enums.LanguageEnum.English
+                } });
         }
     }
 }

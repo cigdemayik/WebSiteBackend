@@ -6,7 +6,7 @@ using WebSiteBackend.Helpers.Enums;
 
 namespace WebSiteBackend.Entities.Concrete
 {
-    public class VisionMission:BaseEntity
+    public class Mission:BaseEntity
     {
         public string Content { get; set; }
         public LanguageEnum Language { get; set; }

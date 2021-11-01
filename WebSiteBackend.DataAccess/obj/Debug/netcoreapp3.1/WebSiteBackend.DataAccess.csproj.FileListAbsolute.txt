@@ -94,4 +94,3 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.DataAccess\obj
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.dll
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.pdb
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.genruntimeconfig.cache
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.DataAccess\obj\Debug\netcoreapp3.1\WebSiteBackend.DataAccess.csproj.CopyComplete

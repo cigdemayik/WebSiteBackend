@@ -729,7 +729,9 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debu
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.pdb
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.genruntimeconfig.cache
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.CopyComplete
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\VissionMission.cshtml.g.cs
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\VissionMissionUpdate.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Address.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\AddressUpdate.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Vision.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\VisionUpdate.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Mission.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\MissionUpdate.cshtml.g.cs

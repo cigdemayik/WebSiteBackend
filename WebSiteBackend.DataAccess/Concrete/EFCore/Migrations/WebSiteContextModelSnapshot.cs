@@ -31,10 +31,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<string>("Adress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -59,7 +55,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            Adress = "Gaziantep",
                             Content = "Test Türkçe",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 1
@@ -68,11 +63,42 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            Adress = "İstanbul",
                             Content = "Test English",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 2
                         });
+                });
+
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GetDate()");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Address");
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Blog", b =>
@@ -199,6 +225,56 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Mission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GetDate()");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Mission");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            Content = "Test Türkçe",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            Content = "Test English",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 2
+                        });
+                });
+
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -285,7 +361,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.VisionMission", b =>
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Vision", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -314,7 +390,25 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("VissionMission");
+                    b.ToTable("Vission");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            Content = "Test Türkçe",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            Content = "Test English",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 2
+                        });
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Blog", b =>

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace WebSiteBackend.WebUI.Areas.Admin.Models.VissionMissionModels
+namespace WebSiteBackend.Business.Dtos.MissionDtos
 {
-    public class VissionMissionUpdateModel
+    public class MissionUpdateDto
     {
         public int Id { get; set; }
         public int Language { get; set; }
