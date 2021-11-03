@@ -19,10 +19,63 @@ namespace WebSiteBackend.Business.Concrete
         private readonly IUnitOfWork _unitOfWork;
         private readonly IServiceResponseHelper _serviceResponseHelper;
 
-        public MissionManager(IUnitOfWork unitOfWork,IServiceResponseHelper serviceResponseHelper)
+
+        public MissionManager(IUnitOfWork unitOfWork, IServiceResponseHelper serviceResponseHelper)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
+        }
+        public async Task<ServiceResponse<bool>> ChangeStatus(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Mission>().GetByFilterAsync(x => x.Id == id);
+                data.Active = !data.Active;
+                await _unitOfWork.SaveChangesAsync();
+                return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<bool>(false, "Misyon durumu değiştiriliyorken sorunla karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<int>> Create(MissionCreateDto dto)
+        {
+            try
+            {
+                var mappedData = dto.Adapt<Mission>();
+                var result = await _unitOfWork.GetRepository<Mission>().AddAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
+                if (result != null)
+                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<int>(-1, "Misyon ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return _serviceResponseHelper.SetError<int>(0, "Misyon Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+
+        }
+
+        public async Task<ServiceResponse<bool>> Delete(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Mission>().GetByFilterAsync(x => x.Id == id, null, Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking);
+                var operation = await _unitOfWork.GetRepository<Mission>().DeleteAsync(data);
+                await _unitOfWork.SaveChangesAsync();
+                if (operation)
+                    return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<bool>(false, "Misyon silinemedi", System.Net.HttpStatusCode.BadRequest);
+
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<bool>(false, "Misyon silinirken bir hata ile karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
         }
 
         public async Task<ServiceResponse<List<MissionDto>>> GetAll()
@@ -33,29 +86,29 @@ namespace WebSiteBackend.Business.Concrete
                 var mappedData = data.ToList().Adapt<List<MissionDto>>();
                 if (mappedData != null)
                     return _serviceResponseHelper.SetSuccess<List<MissionDto>>(mappedData, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<List<MissionDto>>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                return _serviceResponseHelper.SetError<List<MissionDto>>(null, "Hiç Misyon kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<List<MissionDto>>(null, "Hakkımızda kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<MissionDto>>(null, "Misyon kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
-        public async Task<ServiceResponse<MissionDto>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<MissionDto>>> GetAllByLanguage(LanguageEnum language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Mission>().GetByFilterAsync(x => x.Language == language);
-                var dto = data.Adapt<MissionDto>();
+                var data = await _unitOfWork.GetRepository<Mission>().GetAllByFilterAsync(x => x.Language == language);
+                var dto = data.ToList().Adapt<List<MissionDto>>();
                 if (dto != null)
-                    return _serviceResponseHelper.SetSuccess<MissionDto>(dto, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<MissionDto>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                    return _serviceResponseHelper.SetSuccess<List<MissionDto>>(dto, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<List<MissionDto>>(null, "Hiç Misyon kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<MissionDto>(null, "Hakkımızda kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<MissionDto>>(null, "Misyon kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
@@ -67,13 +120,14 @@ namespace WebSiteBackend.Business.Concrete
                 var dto = data.Adapt<MissionDto>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<MissionDto>(dto, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<MissionDto>(null, "Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                return _serviceResponseHelper.SetError<MissionDto>(null, "Misyon kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<MissionDto>(null, "Hakkımızda kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<MissionDto>(null, "Misyon kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
+
         }
 
         public async Task<ServiceResponse<bool>> Update(MissionUpdateDto dto)
@@ -85,12 +139,12 @@ namespace WebSiteBackend.Business.Concrete
                 await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<bool>(data, "Hakkımızda güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);
+                return _serviceResponseHelper.SetError<bool>(data, "Misyon güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<bool>(false, "Hakkımızda güncellenirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<bool>(false, "Misyon güncellenirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
     }

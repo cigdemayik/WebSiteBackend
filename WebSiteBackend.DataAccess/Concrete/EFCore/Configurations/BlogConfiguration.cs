@@ -38,8 +38,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.Language).IsRequired();
 
 
-
-
             builder.HasOne(x => x.Category)
                 .WithMany(x => x.Blogs)
                 .HasForeignKey(x => x.CategoryId)

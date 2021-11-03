@@ -46,6 +46,8 @@ namespace WebSiteBackend.Business.DependecyResolver
             services.AddScoped<IMissionService, MissionManager>();
 
             services.AddScoped<IAddressService, AddressManager>();
+
+            services.AddScoped<INewsService, NewsManager>();
         }
     }
 }

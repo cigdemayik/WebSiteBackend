@@ -1,8 +1,8 @@
-﻿using System;
-using Mapster;
+﻿using Mapster;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Dtos.VisionDtos;
@@ -24,8 +24,60 @@ namespace WebSiteBackend.Business.Concrete
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
         }
+        public async Task<ServiceResponse<bool>> ChangeStatus(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Vision>().GetByFilterAsync(x => x.Id == id);
+                data.Active = !data.Active;
+                await _unitOfWork.SaveChangesAsync();
+                return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+            }
+            catch (Exception)
+            {
 
-        public async Task<ServiceResponse<List<VisionDto>>> GetAll()
+                return _serviceResponseHelper.SetError<bool>(false, "Vizyon durumu değiştiriliyorken sorunla karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<int>> Create(VisionCreateDto dto)
+        {
+            try
+            {
+                var mappedData = dto.Adapt<Vision>();
+                var result = await _unitOfWork.GetRepository<Vision>().AddAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
+                if (result != null)
+                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<int>(-1, "Vizyon ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return _serviceResponseHelper.SetError<int>(0, "Vizyon Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+
+        }
+
+        public async Task<ServiceResponse<bool>> Delete(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Vision>().GetByFilterAsync(x => x.Id == id, null, Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking);
+                var operation = await _unitOfWork.GetRepository<Vision>().DeleteAsync(data);
+                await _unitOfWork.SaveChangesAsync();
+                if (operation)
+                    return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<bool>(false, "Vizyon silinemedi", System.Net.HttpStatusCode.BadRequest);
+
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<bool>(false, "Vizyon silinirken bir hata ile karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
+    }
+
+    public async Task<ServiceResponse<List<VisionDto>>> GetAll()
         {
             try
             {
@@ -33,29 +85,29 @@ namespace WebSiteBackend.Business.Concrete
                 var mappedData = data.ToList().Adapt<List<VisionDto>>();
                 if (mappedData != null)
                     return _serviceResponseHelper.SetSuccess<List<VisionDto>>(mappedData, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<List<VisionDto>>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                return _serviceResponseHelper.SetError<List<VisionDto>>(null, "Hiç Vizyon kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<List<VisionDto>>(null, "Hakkımızda kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<VisionDto>>(null, "Vizyon kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
-        public async Task<ServiceResponse<VisionDto>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<VisionDto>>> GetAllByLanguage(LanguageEnum language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Vision>().GetByFilterAsync(x => x.Language == language);
-                var dto = data.Adapt<VisionDto>();
+                var data = await _unitOfWork.GetRepository<Vision>().GetAllByFilterAsync(x => x.Language == language);
+                var dto = data.ToList().Adapt<List<VisionDto>>();
                 if (dto != null)
-                    return _serviceResponseHelper.SetSuccess<VisionDto>(dto, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<VisionDto>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                    return _serviceResponseHelper.SetSuccess<List<VisionDto>>(dto, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<List<VisionDto>>(null, "Hiç Vizyon kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<VisionDto>(null, "Hakkımızda kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<VisionDto>>(null, "Vizyon kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
@@ -67,12 +119,12 @@ namespace WebSiteBackend.Business.Concrete
                 var dto = data.Adapt<VisionDto>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<VisionDto>(dto, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<VisionDto>(null, "Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<VisionDto>(null, "Hakkımızda kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
@@ -85,13 +137,16 @@ namespace WebSiteBackend.Business.Concrete
                 await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<bool>(data, "Hakkımızda güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);
+                return _serviceResponseHelper.SetError<bool>(data, "Vizyon güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<bool>(false, "Hakkımızda güncellenirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<bool>(false, "Vizyon güncellenirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
     }
+
+        
 }
+

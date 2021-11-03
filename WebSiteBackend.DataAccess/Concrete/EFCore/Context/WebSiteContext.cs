@@ -24,6 +24,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
             modelBuilder.ApplyConfiguration(new VisionConfiguration());
             modelBuilder.ApplyConfiguration(new MissionConfiguration());
             modelBuilder.ApplyConfiguration(new AddressConfiguration());
+            modelBuilder.ApplyConfiguration(new NewsConfiguration());
         }
 
 
@@ -35,5 +36,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
         public virtual DbSet<Vision> Visions { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Mission> Missions { get; set; }
+        public virtual DbSet<News> News { get; set; }
     }
 }

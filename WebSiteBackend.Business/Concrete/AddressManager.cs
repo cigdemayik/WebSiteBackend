@@ -24,6 +24,58 @@ namespace WebSiteBackend.Business.Concrete
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
         }
+        public async Task<ServiceResponse<bool>> ChangeStatus(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Address>().GetByFilterAsync(x => x.Id == id);
+                data.Active = !data.Active;
+                await _unitOfWork.SaveChangesAsync();
+                return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+
+                return _serviceResponseHelper.SetError<bool>(false, "Adres durumu değiştiriliyorken sorunla karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<int>> Create(AddressCreateDto dto)
+        {
+            try
+            {
+                var mappedData = dto.Adapt<Address>();
+                var result = await _unitOfWork.GetRepository<Address>().AddAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
+                if (result != null)
+                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<int>(-1, "Adres ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return _serviceResponseHelper.SetError<int>(0, "Adres Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<bool>> Delete(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Address>().GetByFilterAsync(x => x.Id == id, null, Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking);
+                var operation = await _unitOfWork.GetRepository<Address>().DeleteAsync(data);
+                await _unitOfWork.SaveChangesAsync();
+                if (operation)
+                    return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<bool>(false, "Adres silinemedi", System.Net.HttpStatusCode.BadRequest);
+
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<bool>(false, "Adres silinirken bir hata ile karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
         public async Task<ServiceResponse<List<AddressDto>>> GetAll()
         {
             try
@@ -32,29 +84,30 @@ namespace WebSiteBackend.Business.Concrete
                 var mappedData = data.ToList().Adapt<List<AddressDto>>();
                 if (mappedData != null)
                     return _serviceResponseHelper.SetSuccess<List<AddressDto>>(mappedData, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<List<AddressDto>>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                return _serviceResponseHelper.SetError<List<AddressDto>>(null, "Hiç Adres kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<List<AddressDto>>(null, "Hakkımızda kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<AddressDto>>(null, "Adres kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
+
         }
 
-        public async Task<ServiceResponse<AddressDto>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<AddressDto>>> GetAllByLanguage(LanguageEnum language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Address>().GetByFilterAsync(x => x.Language == language);
-                var dto = data.Adapt<AddressDto>();
+                var data = await _unitOfWork.GetRepository<Address>().GetAllByFilterAsync(x => x.Language == language);
+                var dto = data.ToList().Adapt<List<AddressDto>>();
                 if (dto != null)
-                    return _serviceResponseHelper.SetSuccess<AddressDto>(dto, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<AddressDto>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                    return _serviceResponseHelper.SetSuccess<List<AddressDto>>(dto, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<List<AddressDto>>(null, "Hiç Adres kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<AddressDto>(null, "Hakkımızda kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<AddressDto>>(null, "Adres kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
@@ -66,12 +119,12 @@ namespace WebSiteBackend.Business.Concrete
                 var dto = data.Adapt<AddressDto>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<AddressDto>(dto, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<AddressDto>(null, "Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                return _serviceResponseHelper.SetError<AddressDto>(null, "Adres kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<AddressDto>(null, "Hakkımızda kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<AddressDto>(null, "Adres kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
@@ -84,12 +137,12 @@ namespace WebSiteBackend.Business.Concrete
                 await _unitOfWork.SaveChangesAsync();
                 if (data)
                     return _serviceResponseHelper.SetSuccess<bool>(data, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<bool>(data, "Hakkımızda güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);
+                return _serviceResponseHelper.SetError<bool>(data, "Adres güncelleme işlemi yapılamadı", System.Net.HttpStatusCode.BadRequest);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<bool>(false, "Hakkımızda güncellenirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<bool>(false, "Adres güncellenirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
     }

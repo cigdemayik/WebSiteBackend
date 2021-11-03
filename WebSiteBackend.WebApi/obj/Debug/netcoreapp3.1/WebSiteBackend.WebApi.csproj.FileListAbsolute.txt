@@ -505,5 +505,4 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebApi\obj\Deb
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebSiteBackend.WebApi.StaticWebAssets.xml
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebSiteBackend.WebApi.styles.css
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.RazorTargetAssemblyInfo.cache
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.csproj.CopyComplete
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebApi\obj\Debug\netcoreapp3.1\WebSiteBackend.WebApi.genruntimeconfig.cache

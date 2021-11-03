@@ -16,6 +16,7 @@ using WebSiteBackend.Business.Dtos.BlogDtos;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
 using WebSiteBackend.Business.Dtos.MissionDtos;
+using WebSiteBackend.Business.Dtos.NewsDtos;
 using WebSiteBackend.Business.Dtos.ProductDtos;
 using WebSiteBackend.Business.Dtos.VisionDtos;
 using WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels;
@@ -24,6 +25,7 @@ using WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.MissionModels;
+using WebSiteBackend.WebUI.Areas.Admin.Models.NewsModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels;
 using WebSiteBackend.WebUI.Areas.Admin.Models.VisionModels;
 using WebSiteBackend.WebUI.Extensions;
@@ -42,9 +44,10 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         private readonly IVisionService _visionService;
         private readonly IAddressService _addressService;
         private readonly IMissionService _missionService;
+        private readonly INewsService _newsService;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService, IMissionService missionService, IAddressService addressService ,IVisionService visionService ,IWebHostEnvironment webHostEnvironment)
+        public HomeController(ICategoryService categoryService, IProductService productService, ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService, INewsService newsService,IMissionService missionService, IAddressService addressService ,IVisionService visionService ,IWebHostEnvironment webHostEnvironment)
         {
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
@@ -53,6 +56,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             _aboutUsService = aboutUsService ?? throw new ArgumentNullException(nameof(aboutUsService));
             _visionService = visionService ?? throw new ArgumentException(nameof(visionService));
             _missionService = missionService ?? throw new ArgumentException(nameof(missionService));
+            _newsService = newsService ?? throw new ArgumentException(nameof(newsService));
             _addressService = addressService ?? throw new ArgumentException(nameof(addressService));
             _webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
 
@@ -388,6 +392,21 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return View(response.Result.Adapt<List<AboutUsModel>>());
         }
 
+        public async Task<IActionResult> AboutUsCreate()
+        {
+            return View(new AboutUsCreateModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> AboutUsCreate(AboutUsCreateModel model)
+        {
+            var mappeddata = model.Adapt<AboutUsCreateDto>();
+            var response = await _aboutUsService.Create(mappeddata);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("AboutUs");
+        }
         public async Task<IActionResult> AboutUsUpdate(int id)
         {
             var response = await _aboutUsService.GetById(id);
@@ -405,6 +424,14 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             {
                 return BadRequest();
             }
+            return RedirectToAction("AboutUs");
+        }
+        public async Task<IActionResult> AboutUsDelete(int id)
+        {
+            var response = await _aboutUsService.Delete(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                return BadRequest();
+
             return RedirectToAction("AboutUs");
         }
 
@@ -444,6 +471,21 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 
             return View(response.Result.Adapt<List<VisionModel>>());
         }
+        public async Task<IActionResult> VisionCreate()
+        {
+            return View(new VisionCreateModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> VisionCreate(VisionCreateModel model)
+        {
+            var mappeddata = model.Adapt<VisionCreateDto>();
+            var response = await _visionService.Create(mappeddata);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("Vision");
+        }
 
         public async Task<IActionResult> VisionUpdate(int id)
         {
@@ -464,6 +506,14 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             }
             return RedirectToAction("Vision");
         }
+        public async Task<IActionResult> VisionDelete(int id)
+        {
+            var response = await _visionService.Delete(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                return BadRequest();
+
+            return RedirectToAction("Vision");
+        }
         #endregion
 
         #region Address
@@ -476,6 +526,21 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             }
 
             return View(response.Result.Adapt<List<AddressModel>>());
+        }
+        public async Task<IActionResult> AddressCreate()
+        {
+            return View(new AddressCreateModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddressCreate(AddressCreateModel model)
+        {
+            var mappeddata = model.Adapt<AddressCreateDto>();
+            var response = await _addressService.Create(mappeddata);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("Address");
         }
 
         public async Task<IActionResult> AddressUpdate(int id)
@@ -497,6 +562,14 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             }
             return RedirectToAction("Address");
         }
+        public async Task<IActionResult> AddressDelete(int id)
+        {
+            var response = await _addressService.Delete(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                return BadRequest();
+
+            return RedirectToAction("Address");
+        }
         #endregion
 
         #region Mission
@@ -509,6 +582,21 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             }
 
             return View(response.Result.Adapt<List<MissionModel>>());
+        }
+        public async Task<IActionResult> MissionCreate()
+        {
+            return View(new MissionCreateModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> MissionCreate(MissionCreateModel model)
+        {
+            var mappeddata = model.Adapt<MissionCreateDto>();
+            var response = await _missionService.Create(mappeddata);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("Mission");
         }
 
         public async Task<IActionResult> MissionUpdate(int id)
@@ -529,6 +617,94 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
                 return BadRequest();
             }
             return RedirectToAction("Mission");
+        }
+        public async Task<IActionResult> MissionDelete(int id)
+        {
+            var response = await _missionService.Delete(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                return BadRequest();
+
+            return RedirectToAction("Mission");
+        }
+        #endregion
+
+        #region News
+        public async Task<IActionResult> News()
+        {
+            var response = await _newsService.GetAll();
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+
+            return View(response.Result.Adapt<List<NewsModel>>());
+        }
+        public async Task<IActionResult> NewsCreate()
+        {
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
+            return View(new NewsCreateModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> NewsCreate(NewsCreateModel model)
+        {
+
+            var savePath = "\\uploads\\News";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+            var mappedData = model.Adapt<NewsCreateDto>();
+            var response = await _newsService.Create(mappedData);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("News");
+        }
+
+        public async Task<IActionResult> NewsUpdate(int id)
+        {
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
+            var response = await _newsService.GetById(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return View(response.Result.Adapt<NewsUpdateModel>());
+        }
+        [HttpPost]
+        public async Task<IActionResult> NewsUpdate(NewsUpdateModel model)
+        {
+            var savePath = "\\uploads\\News";
+            var filePath = _webHostEnvironment.WebRootPath + savePath;
+
+            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+            var mappedData = model.Adapt<NewsUpdateDto>();
+            var response = await _newsService.Update(mappedData);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction("News");
+        }
+        public async Task<IActionResult> NewsDelete(int id)
+        {
+            var response = await _newsService.Delete(id);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                return BadRequest();
+
+            return RedirectToAction("News");
         }
         #endregion
     }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Context;
 
-namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
+namespace WebSiteBackend.DataAccess.Migrations
 {
     [DbContext(typeof(WebSiteContext))]
     partial class WebSiteContextModelSnapshot : ModelSnapshot
@@ -275,6 +275,47 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                         });
                 });
 
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.News", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GetDate()");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("News");
+                });
+
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -390,7 +431,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vission");
+                    b.ToTable("Vision");
 
                     b.HasData(
                         new
@@ -430,9 +471,22 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.News", b =>
+                {
+                    b.HasOne("WebSiteBackend.Entities.Concrete.Category", "Category")
+                        .WithMany("News")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Category", b =>
                 {
                     b.Navigation("Blogs");
+
+                    b.Navigation("News");
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.User", b =>

@@ -18,11 +18,61 @@ namespace WebSiteBackend.Business.Concrete
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IServiceResponseHelper _serviceResponseHelper;
-
         public AboutUsManager(IUnitOfWork unitOfWork, IServiceResponseHelper serviceResponseHelper)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
+        }
+        public async Task<ServiceResponse<bool>> ChangeStatus(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<AboutUs>().GetByFilterAsync(x => x.Id == id);
+                data.Active = !data.Active;
+                await _unitOfWork.SaveChangesAsync();
+                return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<bool>(false, "Hakkımızda durumu değiştiriliyorken sorunla karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<int>> Create(AboutUsCreateDto dto)
+        {
+            try
+            {
+                var mappedData = dto.Adapt<AboutUs>();
+                var result = await _unitOfWork.GetRepository<AboutUs>().AddAsync(mappedData);
+                await _unitOfWork.SaveChangesAsync();
+                if (result != null)
+                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<int>(-1, "Hakkımızda ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
+            }
+            catch (Exception ex)
+            {
+                return _serviceResponseHelper.SetError<int>(0, "Hakkımızda Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<bool>> Delete(int id)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<AboutUs>().GetByFilterAsync(x => x.Id == id, null, Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking);
+                var operation = await _unitOfWork.GetRepository<AboutUs>().DeleteAsync(data);
+                await _unitOfWork.SaveChangesAsync();
+                if (operation)
+                    return _serviceResponseHelper.SetSuccess<bool>(true, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<bool>(false, "Hakkımızda silinemedi", System.Net.HttpStatusCode.BadRequest);
+
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<bool>(false, "Hakkımızda silinirken bir hata ile karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
+            }
         }
 
         public async Task<ServiceResponse<List<AboutUsDto>>> GetAll()
@@ -42,20 +92,20 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<AboutUsDto>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<AboutUsDto>>> GetAllByLanguage(LanguageEnum language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<AboutUs>().GetByFilterAsync(x => x.Language == language);
-                var dto = data.Adapt<AboutUsDto>();
+                var data = await _unitOfWork.GetRepository<AboutUs>().GetAllByFilterAsync(x => x.Language == language);
+                var dto = data.ToList().Adapt<List<AboutUsDto>>();
                 if (dto != null)
-                    return _serviceResponseHelper.SetSuccess<AboutUsDto>(dto, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<AboutUsDto>(null, "Hiç Hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
+                    return _serviceResponseHelper.SetSuccess<List<AboutUsDto>>(dto, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<List<AboutUsDto>>(null, "Hiç hakkımızda kaydı bulunamadı", System.Net.HttpStatusCode.NotFound);
             }
             catch (Exception ex)
             {
 
-                return _serviceResponseHelper.SetError<AboutUsDto>(null, "Hakkımızda kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<AboutUsDto>>(null, "Hakkımızda kayıtları getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
