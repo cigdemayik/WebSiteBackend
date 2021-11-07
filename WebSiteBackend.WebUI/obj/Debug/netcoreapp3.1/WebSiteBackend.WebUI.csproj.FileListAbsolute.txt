@@ -742,3 +742,7 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debu
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\NewsCreate.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\NewsUpdate.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\VisionCreate.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.MvcApplicationPartsAssemblyInfo.cs

@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,11 +27,13 @@ namespace WebSiteBackend.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation(x=>x.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             services.AddDependencies(Configuration);
 
             services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+
+            services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
             services.Configure<RequestLocalizationOptions>(opt =>
             {
@@ -60,6 +63,7 @@ namespace WebSiteBackend.WebUI
                     return factory.Create(typeof(SharedResource));
                 };
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

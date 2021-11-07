@@ -86,13 +86,17 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CategoryCreate(CategoryCreateModel model)
         {
-            var mappeddata = model.Adapt<CategoryCreateDto>();
-            var response = await _categoryService.Create(mappeddata);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappeddata = model.Adapt<CategoryCreateDto>();
+                var response = await _categoryService.Create(mappeddata);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Category");
             }
-            return RedirectToAction("Category");
+            return View(model);
         }
 
         public async Task<IActionResult> CategoryUpdate(int id)
@@ -108,13 +112,17 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CategoryUpdate(CategoryUpdateModel model)
         {
-            var mappedData = model.Adapt<CategoryUpdateDto>();
-            var response = await _categoryService.Update(mappedData);
-            if(response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                return BadRequest();
+            if (ModelState.IsValid) 
+            { 
+                var mappedData = model.Adapt<CategoryUpdateDto>();
+                var response = await _categoryService.Update(mappedData);
+                if(response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Category");
             }
-            return RedirectToAction("Category");
+            return View(model);
         }
 
         public async Task<IActionResult> CategoryDelete(int id)
@@ -140,6 +148,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Blog()
         {
+            
             var response = await _blogService.GetAll();
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
@@ -162,19 +171,30 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> BlogCreate(BlogCreateModel model)
         {
-
-            var savePath = "\\uploads\\blog";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
-            var mappedData = model.Adapt<BlogCreateDto>();
-            var response = await _blogService.Create(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid) 
             {
-                return BadRequest();
+                var savePath = "\\uploads\\blog";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                var mappedData = model.Adapt<BlogCreateDto>();
+                var response = await _blogService.Create(mappedData);
+                    if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                    {
+                        return BadRequest();
+                    }
+                return RedirectToAction("Blog");
             }
-            return RedirectToAction("Blog");
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
+            return View(model);
         }
+        
 
         public async Task<IActionResult> BlogUpdate(int id)
         {
@@ -195,16 +215,27 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> BlogUpdate(BlogUpdateModel model)
         {
-            var savePath = "\\uploads\\blog";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
-            var mappedData = model.Adapt<BlogUpdateDto>();
-            var response = await _blogService.Update(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                return BadRequest();
+            if (ModelState.IsValid) 
+            { 
+                var savePath = "\\uploads\\blog";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                var mappedData = model.Adapt<BlogUpdateDto>();
+                var response = await _blogService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Blog");
             }
-            return RedirectToAction("Blog");
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
+            return View(model);
         }
 
         public async Task<IActionResult> BlogDelete(int id)
@@ -246,16 +277,20 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CarouselCreate(CarouselCreateModel model)
         {
-            var savePath = "\\uploads\\carousel";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
-            var mappedData = model.Adapt<CarouselCreateDto>();
-            var response = await _carouselService.Create(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                return BadRequest();
+            if (ModelState.IsValid) 
+            { 
+                var savePath = "\\uploads\\carousel";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                var mappedData = model.Adapt<CarouselCreateDto>();
+                var response = await _carouselService.Create(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Carousel");
             }
-            return RedirectToAction("Carousel");
+            return View(model);
         }
 
         public async Task<IActionResult> CarouselUpdate(int id)
@@ -270,16 +305,20 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CarouselUpdate(CarouselUpdateModel model)
         {
-            var savePath = "\\uploads\\carousel";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
-            var mappedData = model.Adapt<CarouselUpdateDto>();
-            var response = await _carouselService.Update(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                return BadRequest();
+            if (ModelState.IsValid) 
+            { 
+                var savePath = "\\uploads\\carousel";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                var mappedData = model.Adapt<CarouselUpdateDto>();
+                var response = await _carouselService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Carousel");
             }
-            return RedirectToAction("Carousel");
+            return View(model);
         }
 
         public async Task<IActionResult> CarouselDelete(int id)
@@ -321,17 +360,21 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> ProductCreate(ProductCreateModel model)
         {
-            var savePath = "\\uploads\\product";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+            if (ModelState.IsValid) 
+            { 
+                var savePath = "\\uploads\\product";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
 
-            var mappedData = model.Adapt<ProductCreateDto>();
-            var response = await _productService.Create(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                return BadRequest();
+                var mappedData = model.Adapt<ProductCreateDto>();
+                var response = await _productService.Create(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Product");
             }
-            return RedirectToAction("Product");
+            return View(model);
         }
 
         public async Task<IActionResult> ProductUpdate(int id)
@@ -346,18 +389,22 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> ProductUpdate(ProductUpdateModel model)
         {
-            var savePath = "\\uploads\\product";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
-
-            var mappedData = model.Adapt<ProductUpdateDto>();
-            var response = await _productService.Update(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var savePath = "\\uploads\\product";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+
+                var mappedData = model.Adapt<ProductUpdateDto>();
+                var response = await _productService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Product");
             }
-            return RedirectToAction("Product");
-        }
+            return View(model);
+            }
 
         public async Task<IActionResult> ProductDelete(int id)
         {
@@ -399,13 +446,17 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AboutUsCreate(AboutUsCreateModel model)
         {
-            var mappeddata = model.Adapt<AboutUsCreateDto>();
-            var response = await _aboutUsService.Create(mappeddata);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappeddata = model.Adapt<AboutUsCreateDto>();
+                var response = await _aboutUsService.Create(mappeddata);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("AboutUs");
             }
-            return RedirectToAction("AboutUs");
+            return View(model);
         }
         public async Task<IActionResult> AboutUsUpdate(int id)
         {
@@ -417,14 +468,19 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return View(response.Result.Adapt<AboutUsUpdateModel>());
         }
         [HttpPost]
-        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateDto dto)
+        public async Task<IActionResult> AboutUsUpdate(AboutUsUpdateModel model)
         {
-            var response = await _aboutUsService.Update(dto);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappedData = model.Adapt<AboutUsUpdateDto>();
+                var response = await _aboutUsService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("AboutUs");
             }
-            return RedirectToAction("AboutUs");
+            return View(model);
         }
         public async Task<IActionResult> AboutUsDelete(int id)
         {
@@ -478,13 +534,17 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> VisionCreate(VisionCreateModel model)
         {
-            var mappeddata = model.Adapt<VisionCreateDto>();
-            var response = await _visionService.Create(mappeddata);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappeddata = model.Adapt<VisionCreateDto>();
+                var response = await _visionService.Create(mappeddata);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Vision");
             }
-            return RedirectToAction("Vision");
+            return View(model);
         }
 
         public async Task<IActionResult> VisionUpdate(int id)
@@ -497,14 +557,19 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return View(response.Result.Adapt<VisionUpdateModel>());
         }
         [HttpPost]
-        public async Task<IActionResult> VisionUpdate(VisionUpdateDto dto)
+        public async Task<IActionResult> VisionUpdate(VisionUpdateModel model)
         {
-            var response = await _visionService.Update(dto);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappedData = model.Adapt<VisionUpdateDto>();
+                var response = await _visionService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Vision");
             }
-            return RedirectToAction("Vision");
+            return View(model);
         }
         public async Task<IActionResult> VisionDelete(int id)
         {
@@ -534,13 +599,17 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AddressCreate(AddressCreateModel model)
         {
-            var mappeddata = model.Adapt<AddressCreateDto>();
-            var response = await _addressService.Create(mappeddata);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappeddata = model.Adapt<AddressCreateDto>();
+                var response = await _addressService.Create(mappeddata);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Address");
             }
-            return RedirectToAction("Address");
+            return View(model);
         }
 
         public async Task<IActionResult> AddressUpdate(int id)
@@ -553,14 +622,19 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return View(response.Result.Adapt<AddressUpdateModel>());
         }
         [HttpPost]
-        public async Task<IActionResult> AddressUpdate(AddressUpdateDto dto)
+        public async Task<IActionResult> AddressUpdate(AddressUpdateModel model)
         {
-            var response = await _addressService.Update(dto);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappedData = model.Adapt<AddressUpdateDto>();
+                var response = await _addressService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Address");
             }
-            return RedirectToAction("Address");
+            return View(model);
         }
         public async Task<IActionResult> AddressDelete(int id)
         {
@@ -590,13 +664,17 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> MissionCreate(MissionCreateModel model)
         {
-            var mappeddata = model.Adapt<MissionCreateDto>();
-            var response = await _missionService.Create(mappeddata);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappeddata = model.Adapt<MissionCreateDto>();
+                var response = await _missionService.Create(mappeddata);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Mission");
             }
-            return RedirectToAction("Mission");
+            return View(model);
         }
 
         public async Task<IActionResult> MissionUpdate(int id)
@@ -609,14 +687,19 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return View(response.Result.Adapt<MissionUpdateModel>());
         }
         [HttpPost]
-        public async Task<IActionResult> MissionUpdate(MissionUpdateDto dto)
+        public async Task<IActionResult> MissionUpdate(MissionUpdateModel model)
         {
-            var response = await _missionService.Update(dto);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var mappedData = model.Adapt<MissionUpdateDto>();
+                var response = await _missionService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("Mission");
             }
-            return RedirectToAction("Mission");
+            return View(model);
         }
         public async Task<IActionResult> MissionDelete(int id)
         {
@@ -653,18 +736,29 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> NewsCreate(NewsCreateModel model)
         {
-
-            var savePath = "\\uploads\\News";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
-            var mappedData = model.Adapt<NewsCreateDto>();
-            var response = await _newsService.Create(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+
+                var savePath = "\\uploads\\News";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                var mappedData = model.Adapt<NewsCreateDto>();
+                var response = await _newsService.Create(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("News");
             }
-            return RedirectToAction("News");
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
+            return View(model);
         }
 
         public async Task<IActionResult> NewsUpdate(int id)
@@ -686,17 +780,28 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> NewsUpdate(NewsUpdateModel model)
         {
-            var savePath = "\\uploads\\News";
-            var filePath = _webHostEnvironment.WebRootPath + savePath;
-
-            model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
-            var mappedData = model.Adapt<NewsUpdateDto>();
-            var response = await _newsService.Update(mappedData);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return BadRequest();
+                var savePath = "\\uploads\\News";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                var mappedData = model.Adapt<NewsUpdateDto>();
+                var response = await _newsService.Update(mappedData);
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    return BadRequest();
+                }
+                return RedirectToAction("News");
             }
-            return RedirectToAction("News");
+            var categories = await _categoryService.GetAll();
+            var data = new List<SelectListItem>();
+            foreach (var item in categories.Result)
+            {
+                data.Add(new SelectListItem { Text = item.Name, Value = item.Id.ToString() });
+            }
+            ViewBag.Categories = data;
+            return View(model);
         }
         public async Task<IActionResult> NewsDelete(int id)
         {

@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "W5RXUSlMcKgpqvcWEPeaIevRvkL0jiXA0KAvmxw3Esqcxb3ZLWtduSMJZTrLlrDpOSDd4Y83t17isC+jZriAmQ==",
+  "dgSpecHash": "6eKJwnduubzbFRWX/ajF6U5q6/h/6Nj0lFXQJZmOKKmnG5jeukUQ5AxV3eFamyvtAzEnaBuyO27xxU18oZ520Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.WebUI\\WebSiteBackend.WebUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512",
+    "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.4\\fluentvalidation.aspnetcore.10.3.4.nupkg.sha512",
+    "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.4\\fluentvalidation.dependencyinjectionextensions.10.3.4.nupkg.sha512",
     "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\mapster\\7.2.0\\mapster.7.2.0.nupkg.sha512",
     "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\mapster.core\\1.2.0\\mapster.core.1.2.0.nupkg.sha512",

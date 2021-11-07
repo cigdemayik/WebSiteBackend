@@ -18,17 +18,17 @@
                         <div class="form-group">
                             @Html.LabelFor(m => m.Header, new { @class = "col-sm-3" })
                             @Html.TextBoxFor(m => m.Header, new { @class = "form-control form-control-user" })
-                            @Html.ValidationMessageFor(m => m.Header)
+                            @Html.ValidationMessageFor(m => m.Header, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(m => m.Image, new { @class = "col-sm-3" })
                             @Html.EditorFor(m => m.Image, new { @class = "form-control form-control-user" })
-                            @Html.ValidationMessageFor(m => m.Image)
+                            @Html.ValidationMessageFor(m => m.Image, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(m => m.Detail, new { @class = "col-sm-3" })
                             @Html.TextBoxFor(m => m.Detail, new { @class = "form-control form-control-user" })
-                            @Html.ValidationMessageFor(m => m.Detail)
+                            @Html.ValidationMessageFor(m => m.Detail, "", new { @class = "text-danger" })
                         </div>
                        
 

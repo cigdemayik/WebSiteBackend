@@ -18,14 +18,14 @@
 	  <div class="form-group row">
 				@Html.LabelFor(m=>m.Content,new {@class="col-sm-3"})
 				@Html.TextAreaFor(m=>m.Content,new {@class="form-control form-control-user col-sm-9"})
-				@Html.ValidationMessageFor(m=>m.Content)
+				@Html.ValidationMessageFor(m=>m.Content, "", new { @class = "text-danger" })
 	  </div>
       <div class="form-group">
           @Html.DropDownListFor(m => m.Language, new List<SelectListItem>{
           new SelectListItem {Text="Türkçe",Value="1"},
           new SelectListItem {Text="İngilizce",Value="2"}
       }, new { @class = "form-control form-control-user" })
-          @Html.ValidationMessageFor(m => m.Language)
+          @Html.ValidationMessageFor(m => m.Language, "", new { @class = "text-danger" })
       </div>
 	  <input type="submit" value="Güncelle" class="btn btn-primary" />
 	 </div>

@@ -15,17 +15,17 @@
                         <div class="form-group">
                             @Html.LabelFor(m => m.Name, new { @class = "col-sm-3" })
                             @Html.TextBoxFor(m => m.Name, new { @class = "form-control form-control-user" })
-                            @Html.ValidationMessageFor(m => m.Name)
+                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(m => m.Content, new { @class = "col-sm-3" })
                             @Html.TextAreaFor(m => m.Content, new { @class = "form-control form-control-user" })
-                            @Html.ValidationMessageFor(m => m.Content)
+                            @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(m => m.Image, new { @class = "col-sm-3" })
                             @Html.EditorFor(m => m.Image, new { @class = "form-control form-control-user" })
-                            @Html.ValidationMessageFor(m => m.Image)
+                            @Html.ValidationMessageFor(m => m.Image, "", new { @class = "text-danger" })
                         </div>
                         <input type="submit" value="Kaydet" class="btn btn-primary" />
                     </div>
