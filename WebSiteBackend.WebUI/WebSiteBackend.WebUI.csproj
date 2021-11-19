@@ -7,12 +7,20 @@
   <ItemGroup>
     <Compile Remove="ApiServices\**" />
     <Compile Remove="Data\**" />
+    <Compile Remove="wwwroot\lib\NewFolder\**" />
     <Content Remove="ApiServices\**" />
     <Content Remove="Data\**" />
+    <Content Remove="wwwroot\lib\NewFolder\**" />
     <EmbeddedResource Remove="ApiServices\**" />
     <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="wwwroot\lib\NewFolder\**" />
     <None Remove="ApiServices\**" />
     <None Remove="Data\**" />
+    <None Remove="wwwroot\lib\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\.vs\VSWorkspaceState.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="wwwroot\.vs\food-website-template\v16\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
     <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
@@ -34,8 +43,28 @@
     <Folder Include="wwwroot\lib\jquery-validation\dist\" />
     <Folder Include="wwwroot\lib\jquery\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
-    <Folder Include="wwwroot\lib\NewFolder\" />
     <Folder Include="wwwroot\EditorImage\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\.vs\food-website-template\config\applicationhost.config" />
+    <None Include="wwwroot\.vs\slnx.sqlite" />
+    <None Include="wwwroot\lib\easing\easing.js" />
+    <None Include="wwwroot\lib\easing\easing.min.js" />
+    <None Include="wwwroot\lib\flaticon\font\Flaticon.svg" />
+    <None Include="wwwroot\lib\flaticon\font\Flaticon.woff2" />
+    <None Include="wwwroot\lib\flaticon\font\_flaticon.scss" />
+    <None Include="wwwroot\lib\flaticon\license\license.pdf" />
+    <None Include="wwwroot\lib\owlcarousel\LICENSE" />
+    <None Include="wwwroot\lib\owlcarousel\owl.carousel.js" />
+    <None Include="wwwroot\lib\owlcarousel\owl.carousel.min.js" />
+    <None Include="wwwroot\lib\tempusdominus\js\moment-timezone.min.js" />
+    <None Include="wwwroot\lib\tempusdominus\js\moment.min.js" />
+    <None Include="wwwroot\lib\tempusdominus\js\tempusdominus-bootstrap-4.js" />
+    <None Include="wwwroot\lib\tempusdominus\js\tempusdominus-bootstrap-4.min.js" />
+    <None Include="wwwroot\mail\contact.js" />
+    <None Include="wwwroot\mail\contact.php" />
+    <None Include="wwwroot\mail\jqBootstrapValidation.min.js" />
   </ItemGroup>
 
   <ItemGroup>

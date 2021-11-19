@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WR1cnVzaIvALPgOgMZFAss3nG91ktpaudoWrga/kc/yiR/EulDfgkA58IMzPXz5s42KUiWWlALfV+SLXxJtgOw==",
+  "dgSpecHash": "ASCHmZgPn3meTBMMe79nFUxqa46vtYE/ffQNIQgH8vLU+Gk7gOfJswHWAHXsCEfuVCXQEMO/5HucfQ8adD1ooQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+  "projectFilePath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.5\\microsoft.aspnetcore.http.features.5.0.5.nupkg.sha512",
     "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {}
+    "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+    "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
         "projectName": "WebSiteBackend.Entities",
-        "projectPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
+        "projectPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
         "packagesPath": "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
+        "outputPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -33,8 +33,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
-                "projectPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj"
+              "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
+                "projectPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
+    "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
+        "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
         "projectName": "WebSiteBackend.Helpers",
-        "projectPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
+        "projectPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Helpers\\WebSiteBackend.Helpers.csproj",
         "packagesPath": "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Helpers\\obj\\",
+        "outputPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Helpers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -6267,11 +6267,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
       "projectName": "WebSiteBackend.WebApi",
-      "projectPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
+      "projectPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.WebApi\\WebSiteBackend.WebApi.csproj",
       "packagesPath": "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.WebApi\\obj\\",
+      "outputPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6293,8 +6293,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
-              "projectPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj"
+            "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj": {
+              "projectPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj"
             }
           }
         }
