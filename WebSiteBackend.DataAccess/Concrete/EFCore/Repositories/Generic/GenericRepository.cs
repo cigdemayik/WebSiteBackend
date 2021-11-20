@@ -104,15 +104,16 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic
             return operationData.FirstOrDefault(filter);
         }
 
-        public async Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.TrackAll)
+        public async Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.TrackAll, bool isFirst = true)
         {
             var operationData = _context.Set<TEntity>().AsTracking(isTracking);
             if (includes != null)
             {
                 operationData = includes.Aggregate(operationData, (current, include) => current.Include(include));
             }
-
-            return await operationData.FirstOrDefaultAsync(filter);
+            if(isFirst)
+                return await operationData.FirstOrDefaultAsync(filter);
+            return await operationData.OrderByDescending(x=>x.CreateTime).FirstOrDefaultAsync();
         }
 
         public bool Update(TEntity entity)

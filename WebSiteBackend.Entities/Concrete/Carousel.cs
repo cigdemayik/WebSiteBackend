@@ -16,6 +16,6 @@ namespace WebSiteBackend.Entities.Concrete
         public string Header { get; set; }
         public string ImageUrl { get; set; }
         public string Detail { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

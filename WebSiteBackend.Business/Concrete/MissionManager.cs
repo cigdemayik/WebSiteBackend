@@ -41,24 +41,6 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<int>> Create(MissionCreateDto dto)
-        {
-            try
-            {
-                var mappedData = dto.Adapt<Mission>();
-                var result = await _unitOfWork.GetRepository<Mission>().AddAsync(mappedData);
-                await _unitOfWork.SaveChangesAsync();
-                if (result != null)
-                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<int>(-1, "Misyon ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
-            }
-            catch (Exception ex)
-            {
-                return _serviceResponseHelper.SetError<int>(0, "Misyon Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
-            }
-
-        }
-
         public async Task<ServiceResponse<bool>> Delete(int id)
         {
             try
@@ -99,7 +81,7 @@ namespace WebSiteBackend.Business.Concrete
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Mission>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<Mission>().GetAllByFilterAsync(x => x.Language == (int)language);
                 var dto = data.ToList().Adapt<List<MissionDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<MissionDto>>(dto, System.Net.HttpStatusCode.OK);

@@ -15,6 +15,6 @@ namespace WebSiteBackend.Business.Dtos.BlogDtos
         public int UserId { get; set; } = 1;
         public int CategoryId { get; set; }
         public CategoryDto Category { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

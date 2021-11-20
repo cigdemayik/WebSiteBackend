@@ -24,7 +24,7 @@ namespace WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic
 
         #region Asyncronics
         Task<IQueryable<TEntity>> GetAllByFilterAsync(Expression<Func<TEntity, bool>> filter = null, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.NoTracking);
-        Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.TrackAll);
+        Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>[] includes = null, QueryTrackingBehavior isTracking = QueryTrackingBehavior.TrackAll,bool isFirst = true);
         Task<TEntity> AddAsync(TEntity entity);
         Task<bool> UpdateAsync(TEntity entity);
         Task<bool> DeleteAsync(TEntity entity);

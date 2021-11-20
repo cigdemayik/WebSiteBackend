@@ -33,14 +33,14 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
                 Id = 1,
                 Active = true,
                 Content = "Test Türkçe",
-                Language = Helpers.Enums.LanguageEnum.Türkçe
+                Language = 1
            },
                 new Mission()
                 {
                     Id=2,
                     Active=true,
                     Content = "Test English",
-                    Language = Helpers.Enums.LanguageEnum.English
+                    Language = 2
                 } });
         }
     }

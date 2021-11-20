@@ -39,24 +39,6 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<bool>(false, "Adres durumu değiştiriliyorken sorunla karşılaşıldı", System.Net.HttpStatusCode.InternalServerError);
             }
         }
-
-        public async Task<ServiceResponse<int>> Create(AddressCreateDto dto)
-        {
-            try
-            {
-                var mappedData = dto.Adapt<Address>();
-                var result = await _unitOfWork.GetRepository<Address>().AddAsync(mappedData);
-                await _unitOfWork.SaveChangesAsync();
-                if (result != null)
-                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<int>(-1, "Adres ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
-            }
-            catch (Exception ex)
-            {
-                return _serviceResponseHelper.SetError<int>(0, "Adres Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
-            }
-        }
-
         public async Task<ServiceResponse<bool>> Delete(int id)
         {
             try
@@ -98,7 +80,7 @@ namespace WebSiteBackend.Business.Concrete
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Address>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<Address>().GetAllByFilterAsync(x => x.Language == (int)language);
                 var dto = data.ToList().Adapt<List<AddressDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<AddressDto>>(dto, System.Net.HttpStatusCode.OK);
@@ -125,6 +107,25 @@ namespace WebSiteBackend.Business.Concrete
             {
 
                 return _serviceResponseHelper.SetError<AddressDto>(null, "Adres kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<AddressDto>> GetByLanguage(int language)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Address>().GetByFilterAsync(x => (int)x.Language == language);
+                var mappedData = data.Adapt<AddressDto>();
+                if (mappedData != null)
+                {
+                    return _serviceResponseHelper.SetSuccess<AddressDto>(mappedData, System.Net.HttpStatusCode.OK);
+                }
+                return _serviceResponseHelper.SetError<AddressDto>(null, "Adres Bulunamadı", System.Net.HttpStatusCode.NotFound);
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<AddressDto>(null, "Adres Getirilirken Bir Sorun ile Karşılaşıldı", System.Net.HttpStatusCode.BadRequest);
             }
         }
 

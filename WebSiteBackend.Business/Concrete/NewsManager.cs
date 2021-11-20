@@ -100,7 +100,7 @@ namespace WebSiteBackend.Business.Concrete
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<News>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<News>().GetAllByFilterAsync(x => x.Language == (int)language);
                 var dto = data.ToList().Adapt<List<NewsDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<NewsDto>>(dto, System.Net.HttpStatusCode.OK);

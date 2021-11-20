@@ -39,23 +39,6 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<int>> Create(AboutUsCreateDto dto)
-        {
-            try
-            {
-                var mappedData = dto.Adapt<AboutUs>();
-                var result = await _unitOfWork.GetRepository<AboutUs>().AddAsync(mappedData);
-                await _unitOfWork.SaveChangesAsync();
-                if (result != null)
-                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<int>(-1, "Hakkımızda ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
-            }
-            catch (Exception ex)
-            {
-                return _serviceResponseHelper.SetError<int>(0, "Hakkımızda Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
-            }
-        }
-
         public async Task<ServiceResponse<bool>> Delete(int id)
         {
             try
@@ -92,11 +75,11 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<List<AboutUsDto>>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<AboutUsDto>>> GetAllByLanguage(int language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<AboutUs>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<AboutUs>().GetAllByFilterAsync(x => (int)x.Language == language);
                 var dto = data.ToList().Adapt<List<AboutUsDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<AboutUsDto>>(dto, System.Net.HttpStatusCode.OK);
@@ -123,6 +106,23 @@ namespace WebSiteBackend.Business.Concrete
             {
 
                 return _serviceResponseHelper.SetError<AboutUsDto>(null, "Hakkımızda kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<AboutUsDto>> GetByLanguage(int language)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<AboutUs>().GetByFilterAsync(x => (int)x.Language == language);
+                var mappedData = data.Adapt<AboutUsDto>();
+                if (mappedData != null)
+                    return _serviceResponseHelper.SetSuccess<AboutUsDto>(mappedData, System.Net.HttpStatusCode.OK);
+                return _serviceResponseHelper.SetError<AboutUsDto>(null, "Bir Hakkımızda Bilgisi Bulunmamaktadır", System.Net.HttpStatusCode.NotFound);
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<AboutUsDto>(null, "Bir Hakkımızda Bilgisi Getirilirken Hata ile Karşılaşıldı", System.Net.HttpStatusCode.BadRequest);
             }
         }
 

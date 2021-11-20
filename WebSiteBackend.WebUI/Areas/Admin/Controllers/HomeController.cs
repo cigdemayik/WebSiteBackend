@@ -439,25 +439,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             return View(response.Result.Adapt<List<AboutUsModel>>());
         }
 
-        public async Task<IActionResult> AboutUsCreate()
-        {
-            return View(new AboutUsCreateModel());
-        }
-        [HttpPost]
-        public async Task<IActionResult> AboutUsCreate(AboutUsCreateModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var mappeddata = model.Adapt<AboutUsCreateDto>();
-                var response = await _aboutUsService.Create(mappeddata);
-                if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                {
-                    return BadRequest();
-                }
-                return RedirectToAction("AboutUs");
-            }
-            return View(model);
-        }
         public async Task<IActionResult> AboutUsUpdate(int id)
         {
             var response = await _aboutUsService.GetById(id);
@@ -482,15 +463,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             }
             return View(model);
         }
-        public async Task<IActionResult> AboutUsDelete(int id)
-        {
-            var response = await _aboutUsService.Delete(id);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                return BadRequest();
-
-            return RedirectToAction("AboutUs");
-        }
-
         #endregion
 
         #region Editor Upload
@@ -527,26 +499,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 
             return View(response.Result.Adapt<List<VisionModel>>());
         }
-        public async Task<IActionResult> VisionCreate()
-        {
-            return View(new VisionCreateModel());
-        }
-        [HttpPost]
-        public async Task<IActionResult> VisionCreate(VisionCreateModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var mappeddata = model.Adapt<VisionCreateDto>();
-                var response = await _visionService.Create(mappeddata);
-                if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                {
-                    return BadRequest();
-                }
-                return RedirectToAction("Vision");
-            }
-            return View(model);
-        }
-
+        
         public async Task<IActionResult> VisionUpdate(int id)
         {
             var response = await _visionService.GetById(id);
@@ -571,14 +524,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             }
             return View(model);
         }
-        public async Task<IActionResult> VisionDelete(int id)
-        {
-            var response = await _visionService.Delete(id);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                return BadRequest();
-
-            return RedirectToAction("Vision");
-        }
         #endregion
 
         #region Address
@@ -592,26 +537,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 
             return View(response.Result.Adapt<List<AddressModel>>());
         }
-        public async Task<IActionResult> AddressCreate()
-        {
-            return View(new AddressCreateModel());
-        }
-        [HttpPost]
-        public async Task<IActionResult> AddressCreate(AddressCreateModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var mappeddata = model.Adapt<AddressCreateDto>();
-                var response = await _addressService.Create(mappeddata);
-                if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                {
-                    return BadRequest();
-                }
-                return RedirectToAction("Address");
-            }
-            return View(model);
-        }
-
         public async Task<IActionResult> AddressUpdate(int id)
         {
             var response = await _addressService.GetById(id);
@@ -636,14 +561,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             }
             return View(model);
         }
-        public async Task<IActionResult> AddressDelete(int id)
-        {
-            var response = await _addressService.Delete(id);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                return BadRequest();
-
-            return RedirectToAction("Address");
-        }
         #endregion
 
         #region Mission
@@ -657,26 +574,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
 
             return View(response.Result.Adapt<List<MissionModel>>());
         }
-        public async Task<IActionResult> MissionCreate()
-        {
-            return View(new MissionCreateModel());
-        }
-        [HttpPost]
-        public async Task<IActionResult> MissionCreate(MissionCreateModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var mappeddata = model.Adapt<MissionCreateDto>();
-                var response = await _missionService.Create(mappeddata);
-                if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                {
-                    return BadRequest();
-                }
-                return RedirectToAction("Mission");
-            }
-            return View(model);
-        }
-
         public async Task<IActionResult> MissionUpdate(int id)
         {
             var response = await _missionService.GetById(id);
@@ -700,14 +597,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
                 return RedirectToAction("Mission");
             }
             return View(model);
-        }
-        public async Task<IActionResult> MissionDelete(int id)
-        {
-            var response = await _missionService.Delete(id);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                return BadRequest();
-
-            return RedirectToAction("Mission");
         }
         #endregion
 

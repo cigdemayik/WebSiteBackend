@@ -66,7 +66,7 @@ namespace WebSiteBackend.Business.Concrete
             {
                 var mappedData = dto.Adapt<Blog>();
                 var category = await _unitOfWork.GetRepository<Category>().GetByFilterAsync(x => x.Id == dto.CategoryId);
-                mappedData.Language = category.Language;
+                mappedData.Language = (int)category.Language;
                 var result = await _unitOfWork.GetRepository<Blog>().AddAsync(mappedData);
                 await _unitOfWork.SaveChangesAsync();
                 if (result != null)
@@ -102,7 +102,7 @@ namespace WebSiteBackend.Business.Concrete
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Blog>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<Blog>().GetAllByFilterAsync(x => x.Language == (int)language);
                 var dto = data.ToList().Adapt<List<BlogDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<BlogDto>>(dto, System.Net.HttpStatusCode.OK);
@@ -148,6 +148,35 @@ namespace WebSiteBackend.Business.Concrete
 
                 return _serviceResponseHelper.SetError<bool>(false, "Blog güncellenirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
+        }
+
+        public async Task<ServiceResponse<BlogDto>> GetByLanguage(int language)
+        {
+            try
+            {
+                var includes = new List<Expression<Func<Blog, object>>>();
+
+                includes.Add(x => x.Category);
+                
+                var data = await _unitOfWork.GetRepository<Blog>()
+                    .GetByFilterAsync(x => (int)x.Language == language && x.Active,
+                    includes.ToArray(),
+                    Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking,
+                    false);
+                var mappedData = data.Adapt<BlogDto>();
+                if (mappedData != null)
+                {
+                    return _serviceResponseHelper.SetSuccess<BlogDto>(mappedData, System.Net.HttpStatusCode.OK);
+                    
+                }
+                return _serviceResponseHelper.SetError<BlogDto>(null, "Blog Bulunamadı", System.Net.HttpStatusCode.NotFound);
+
+            }
+            catch (Exception ex)
+            {
+
+                return _serviceResponseHelper.SetError<BlogDto>(null, "Blog Getirilirken Bir Hata ile KArşılaşıldı", System.Net.HttpStatusCode.BadRequest);
+            };
         }
     }
 }

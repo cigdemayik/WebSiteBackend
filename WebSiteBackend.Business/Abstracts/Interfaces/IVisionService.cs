@@ -13,7 +13,6 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
         Task<ServiceResponse<VisionDto>> GetById(int id);
         Task<ServiceResponse<List<VisionDto>>> GetAllByLanguage(LanguageEnum language);
         Task<ServiceResponse<List<VisionDto>>> GetAll();
-        Task<ServiceResponse<int>> Create(VisionCreateDto dto);
         Task<ServiceResponse<bool>> Update(VisionUpdateDto dto);
         Task<ServiceResponse<bool>> ChangeStatus(int id);
         Task<ServiceResponse<bool>> Delete(int id);

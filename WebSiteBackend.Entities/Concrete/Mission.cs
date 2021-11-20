@@ -9,6 +9,6 @@ namespace WebSiteBackend.Entities.Concrete
     public class Mission:BaseEntity
     {
         public string Content { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }
