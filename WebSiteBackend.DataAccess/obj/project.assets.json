@@ -5986,11 +5986,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
       "projectName": "WebSiteBackend.DataAccess",
-      "projectPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
+      "projectPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.DataAccess\\WebSiteBackend.DataAccess.csproj",
       "packagesPath": "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6012,8 +6012,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
-              "projectPath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
+            "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj": {
+              "projectPath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj"
             }
           }
         }

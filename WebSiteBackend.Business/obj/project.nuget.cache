@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7YjfEIZ8KRqcnUOBJNfv+dKhy9I5QJKtJy3ZwKxZNkf5YvF4Lkzu4Z061r2aNL3mkkm0r7lTJV4FolCU3F4RZQ==",
+  "dgSpecHash": "c/a19tiwp/AvREwaJ1CyLVp/0tpEzX/bz8DqERUye26j9Du54wpwhckitrv2KOQ/mbHjUmOgTOspj31VmY4fmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ÇİĞDEM\\Desktop\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj",
+  "projectFilePath": "C:\\Users\\ÇİĞDEM\\Documents\\GitHub\\WebSiteBackend\\WebSiteBackend.Business\\WebSiteBackend.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\mapster\\7.2.0\\mapster.7.2.0.nupkg.sha512",
     "C:\\Users\\ÇİĞDEM\\.nuget\\packages\\mapster.core\\1.2.0\\mapster.core.1.2.0.nupkg.sha512",
