@@ -16,6 +16,6 @@ namespace WebSiteBackend.Business.Dtos.CarouselDtos
         public DateTime PublishStartDate { get; set; }
         public DateTime PublishEndDate { get; set; }
         public bool Active { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

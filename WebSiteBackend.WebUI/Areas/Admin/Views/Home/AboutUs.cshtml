@@ -21,6 +21,8 @@
                     <thead>
                         <tr>
                             <th>İçerik</th>
+                            <th>Resim</th>
+                            <th>Link</th>
                             <th>Dil</th>
                             <th>İşlem</th>
                         </tr>
@@ -30,6 +32,8 @@
                         {
                             <tr>
                                 <td>@item.Content</td>
+                                <td>@item.ImageUrl</td>
+                                <td>@item.Link</td>
 
                                 @if (((int)item.Language) == 1)
                                 {

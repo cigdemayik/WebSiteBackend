@@ -23,7 +23,6 @@
                             <th>Konu</th>
                             <th>Image</th>
                             <th>Kategori Adı</th>
-                            <th>Dil</th>
                             <th>İşlem</th>
                            </tr>
                         </thead>
@@ -35,16 +34,6 @@
                                 <td>@item.Content</td>
                                 <td>@item.ImageUrl</td>
                                 <td>@item.Category.Name</td>
-
-                                @if (((int)item.Language) == 1)
-                                      {
-                                        <td>"Türkçe"</td>
-                                      }
-
-                                 else
-                                      {
-                                         <td>"İngilizce"</td>
-                                      }
                                 <td>
                                     @Html.ActionLink("Güncelle", "BlogUpdate", "Home", new { id = item.Id }, new { @class = "btn btn-warning" })
                                     @Html.ActionLink("Sil", "BlogDelete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })

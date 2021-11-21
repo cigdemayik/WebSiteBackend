@@ -1,0 +1,18 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
+
+@{
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var displayName = culture.RequestCulture.UICulture.DisplayName;
+}
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        @(displayName=="Turkish"?"Türkçe":displayName)
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" asp-action="CultureManagement" asp-controller="Home" asp-route-culture="en" asp-route-returnUrl="@ViewBag.ReturnUrl">English</a>
+        <a class="dropdown-item" asp-action="CultureManagement" asp-controller="Home" asp-route-culture="tr" asp-route-returnUrl="@ViewBag.ReturnUrl">Türkçe</a>
+
+    </div>
+</li>

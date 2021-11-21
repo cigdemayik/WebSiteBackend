@@ -27,7 +27,7 @@
                         <div class="form-group">
                             @Html.LabelFor(m => m.CategoryId, new { @class = "col-sm-3" })
                             @Html.DropDownListFor(m => m.CategoryId, (IEnumerable<SelectListItem>)ViewBag.Categories,
-                                     new { @class = "form-control form-control-user" })
+                                          new { @class = "form-control form-control-user" })
                             @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
                         </div>
                         <input type="submit" value="Güncelle" class="btn btn-primary" />

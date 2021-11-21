@@ -11,7 +11,7 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     public interface INewsService
     {
         Task<ServiceResponse<NewsDto>> GetById(int id);
-        Task<ServiceResponse<List<NewsDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<List<NewsDto>>> GetAllByLanguage(int language);
         Task<ServiceResponse<List<NewsDto>>> GetAll();
         Task<ServiceResponse<int>> Create(NewsCreateDto dto);
         Task<ServiceResponse<bool>> Update(NewsUpdateDto dto);

@@ -77,7 +77,7 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<List<MissionDto>>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<MissionDto>>> GetAllByLanguage(int language)
         {
             try
             {
@@ -110,6 +110,25 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<MissionDto>(null, "Misyon kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
 
+        }
+
+        public async Task<ServiceResponse<MissionDto>> GetByLanguage(int language)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Mission>().GetByFilterAsync(x => (int)x.Language == language);
+                var mappedData = data.Adapt<MissionDto>();
+                if (mappedData != null)
+                {
+                    return _serviceResponseHelper.SetSuccess<MissionDto>(mappedData, System.Net.HttpStatusCode.OK);
+                }
+                return _serviceResponseHelper.SetError<MissionDto>(null, "Misyon Bulunamadı", System.Net.HttpStatusCode.NotFound);
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<MissionDto>(null, "Misyon Getirilirken Bir Sorun ile Karşılaşıldı", System.Net.HttpStatusCode.BadRequest);
+            }
         }
 
         public async Task<ServiceResponse<bool>> Update(MissionUpdateDto dto)

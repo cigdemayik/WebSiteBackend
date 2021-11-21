@@ -9,7 +9,7 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     public interface IBlogService
     {
         Task<ServiceResponse<BlogDto>> GetById(int id);
-        Task<ServiceResponse<List<BlogDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<List<BlogDto>>> GetAllByLanguage(int language);
         Task<ServiceResponse<List<BlogDto>>> GetAll();
         Task<ServiceResponse<BlogDto>> GetByLanguage(int language);
         Task<ServiceResponse<int>> Create(BlogCreateDto dto);

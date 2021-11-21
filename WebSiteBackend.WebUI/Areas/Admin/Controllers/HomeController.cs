@@ -453,6 +453,11 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var savePath = "\\uploads\\aboutUs";
+                var filePath = _webHostEnvironment.WebRootPath + savePath;
+                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+
                 var mappedData = model.Adapt<AboutUsUpdateDto>();
                 var response = await _aboutUsService.Update(mappedData);
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)

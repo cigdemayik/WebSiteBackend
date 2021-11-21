@@ -11,8 +11,9 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     public interface IMissionService
     {
         Task<ServiceResponse<MissionDto>> GetById(int id);
-        Task<ServiceResponse<List<MissionDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<List<MissionDto>>> GetAllByLanguage(int language);
         Task<ServiceResponse<List<MissionDto>>> GetAll();
+        Task<ServiceResponse<MissionDto>> GetByLanguage(int language);
         Task<ServiceResponse<bool>> Update(MissionUpdateDto dto);
         Task<ServiceResponse<bool>> ChangeStatus(int id);
         Task<ServiceResponse<bool>> Delete(int id);

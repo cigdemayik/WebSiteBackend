@@ -1,5 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model VisionMissionViewModel
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
 @{
+    Layout = "_Layout";
 }
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Vision & Mission</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Vision & Mission</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<div class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-content text-center">
+                    <div class="section-header">
+                        <h2>Vizyon</h2>
+                    </div>
+                    <div class="about-text">
+                        @Html.Raw(Model.Vision.Content)
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content text-center">
+                    <div class="section-header">
+                        <h2>Misyon</h2>
+                    </div>
+                    <div class="about-text">
+                        @Html.Raw(Model.Mission.Content)
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using WebSiteBackend.Helpers.Enums;
 
 namespace WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels
 {
@@ -26,5 +27,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels
         public DateTime PublishStartDate { get; set; }
         public DateTime PublishEndDate { get; set; }
         public bool Active { get; set; }
+        public int Language { get; set; }
     }
 }

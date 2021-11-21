@@ -63,4 +63,3 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Entities\obj\D
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csproj.CoreCompileInputs.cache
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csproj.CopyComplete

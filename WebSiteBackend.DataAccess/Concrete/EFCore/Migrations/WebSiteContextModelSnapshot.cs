@@ -40,8 +40,16 @@ namespace WebSiteBackend.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GetDate()");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Language")
                         .HasColumnType("int");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateTime")
                         .HasColumnType("datetime2");
@@ -57,7 +65,9 @@ namespace WebSiteBackend.DataAccess.Migrations
                             Active = true,
                             Content = "Test Türkçe",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Language = 1
+                            ImageUrl = "a",
+                            Language = 1,
+                            Link = "https://www.youtube.com/watch?v=TfiWIxFgIpI"
                         },
                         new
                         {
@@ -65,7 +75,9 @@ namespace WebSiteBackend.DataAccess.Migrations
                             Active = true,
                             Content = "Test English",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Language = 2
+                            ImageUrl = "a",
+                            Language = 2,
+                            Link = "https://www.youtube.com/watch?v=TfiWIxFgIpI"
                         });
                 });
 
@@ -99,6 +111,24 @@ namespace WebSiteBackend.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Address");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = false,
+                            Content = "Test Adres Tr",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = false,
+                            Content = "Test Adres En",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 2
+                        });
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Blog", b =>
@@ -150,6 +180,80 @@ namespace WebSiteBackend.DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Blog");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = false,
+                            CategoryId = 1,
+                            Content = "",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Header = "Test Blog1",
+                            ImageUrl = "a",
+                            Language = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = false,
+                            CategoryId = 1,
+                            Content = "",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Header = "Test Blog2",
+                            ImageUrl = "a",
+                            Language = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = false,
+                            CategoryId = 1,
+                            Content = "",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Header = "Test Blog3",
+                            ImageUrl = "a",
+                            Language = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Active = false,
+                            CategoryId = 1,
+                            Content = "",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Header = "Test Blog4",
+                            ImageUrl = "a",
+                            Language = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Active = false,
+                            CategoryId = 1,
+                            Content = "",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Header = "Test Blog5",
+                            ImageUrl = "a",
+                            Language = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Active = false,
+                            CategoryId = 1,
+                            Content = "",
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Header = "Test Blog6",
+                            ImageUrl = "a",
+                            Language = 1,
+                            UserId = 1
+                        });
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Carousel", b =>
@@ -223,6 +327,24 @@ namespace WebSiteBackend.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = false,
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 1,
+                            Name = "Test Kategori Tr"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = false,
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Language = 2,
+                            Name = "Test Kategori En"
+                        });
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Mission", b =>
@@ -261,7 +383,7 @@ namespace WebSiteBackend.DataAccess.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            Content = "Test Türkçe",
+                            Content = "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. tr",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 1
                         },
@@ -269,7 +391,7 @@ namespace WebSiteBackend.DataAccess.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            Content = "Test English",
+                            Content = "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. en",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 2
                         });
@@ -438,7 +560,7 @@ namespace WebSiteBackend.DataAccess.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            Content = "Test Türkçe",
+                            Content = "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. tr",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 1
                         },
@@ -446,7 +568,7 @@ namespace WebSiteBackend.DataAccess.Migrations
                         {
                             Id = 2,
                             Active = true,
-                            Content = "Test English",
+                            Content = "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. en",
                             CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Language = 2
                         });

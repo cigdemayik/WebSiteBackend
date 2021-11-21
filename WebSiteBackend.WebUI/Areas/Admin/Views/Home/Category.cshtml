@@ -21,6 +21,7 @@
                     <thead>
                         <tr>
                             <th>Başlık</th>
+                            <th>Aktif</th>
                             <th>Dil</th>
                             <th>İşlem</th>
                         </tr>
@@ -28,22 +29,30 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.Name</td>
+                        <tr>
+                            <td>@item.Name</td>
 
-                                @if (((int)item.Language) == 1)
-                                {
-                                    <td>"Türkçe"</td>
-                                }
-                                else
-                                {
-                                    <td>"İngilizce"</td>
-                                }
-                                <td>
-                                    @Html.ActionLink("Güncelle", "CategoryUpdate", "Home", new{ id = item.Id}, new { @class= "btn btn-warning"} )
-                                    @Html.ActionLink("Sil", "CategoryDelete", "Home",new{ id = item.Id}, new { @class= "btn btn-danger"} )
-                                </td>
-                            </tr>
+                            @if (((int)item.Language) == 1)
+                            {
+                        <td>"Türkçe"</td>
+ }
+                    else
+                    {
+                        <td>"İngilizce"</td>
+}
+                            @if ((item.Active) == true)
+                            {
+                        <td>"Aktif"</td>
+ }
+                    else
+                    {
+                        <td>"Pasif"</td>
+}
+                            <td>
+                                @Html.ActionLink("Güncelle", "CategoryUpdate", "Home", new { id = item.Id }, new { @class = "btn btn-warning" })
+                                @Html.ActionLink("Sil", "CategoryDelete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
                         }
 
                     </tbody>

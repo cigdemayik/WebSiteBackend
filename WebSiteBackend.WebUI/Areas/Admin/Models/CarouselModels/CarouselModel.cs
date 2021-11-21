@@ -12,7 +12,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels
         public string Header { get; set; }
         public string ImageUrl { get; set; }
         public string Detail { get; set; }
-        public DateTime PublishStartDate { get; set; }
+        public DateTime PublishStartDate { get; set; } = DateTime.Now;
         public DateTime PublishEndDate { get; set; }
         public bool Active { get; set; }
         public int Language { get; set; }

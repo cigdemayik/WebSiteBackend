@@ -16,5 +16,6 @@ namespace WebSiteBackend.Business.Dtos.BlogDtos
         public int CategoryId { get; set; }
         public CategoryDto Category { get; set; }
         public int Language { get; set; }
+        public DateTime CreateTime { get; set; }
     }
 }

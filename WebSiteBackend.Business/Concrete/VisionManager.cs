@@ -76,7 +76,7 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<List<VisionDto>>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<VisionDto>>> GetAllByLanguage(int language)
         {
             try
             {
@@ -107,6 +107,25 @@ namespace WebSiteBackend.Business.Concrete
             {
 
                 return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<VisionDto>> GetByLanguage(int language)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Vision>().GetByFilterAsync(x => (int)x.Language == language);
+                var mappedData = data.Adapt<VisionDto>();
+                if (mappedData != null)
+                {
+                    return _serviceResponseHelper.SetSuccess<VisionDto>(mappedData, System.Net.HttpStatusCode.OK);
+                }
+                return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon Bulunamadı", System.Net.HttpStatusCode.NotFound);
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon Getirilirken Bir Sorun ile Karşılaşıldı", System.Net.HttpStatusCode.BadRequest);
             }
         }
 

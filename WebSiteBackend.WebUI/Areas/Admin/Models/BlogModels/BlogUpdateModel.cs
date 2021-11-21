@@ -26,6 +26,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels
         [Required(ErrorMessage = "Lütfen Bir Kategori Seçiniz.")]
         public int CategoryId { get; set; }
         public DateTime UpdateTime { get; set; }
-        public int Language { get; set; }
+        public int Language { get; set; } = 1;
     }
 }

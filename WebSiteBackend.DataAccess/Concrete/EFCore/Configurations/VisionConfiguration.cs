@@ -32,14 +32,14 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
                 new Vision(){
                 Id = 1,
                 Active = true,
-                Content = "Test Türkçe",
+                Content = "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. tr",
                 Language = 1
            },
                 new Vision()
                 {
                     Id=2,
                     Active=true,
-                    Content = "Test English",
+                    Content = "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. en",
                     Language = 2
                 } });
         }

@@ -76,7 +76,7 @@ namespace WebSiteBackend.Business.Concrete
 
         }
 
-        public async Task<ServiceResponse<List<AddressDto>>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<AddressDto>>> GetAllByLanguage(int language)
         {
             try
             {

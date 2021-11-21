@@ -370,7 +370,7 @@ a:focus {
     margin-bottom: 45px;
     padding: 150px 0 90px 0;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/page-header.jpg);
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/kunefe1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1857,8 +1857,8 @@ a:focus {
 .footer .footer-contact h2::after,
 .footer .footer-link h2::after,
 .footer .footer-newsletter h2::after {
-    position: absolute;
-    content: "";
+    position: center;
+    content: "----";
     width: 45px;
     height: 2px;
     bottom: 0;

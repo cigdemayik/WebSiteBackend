@@ -11,7 +11,7 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     public interface IAddressService
     {
         Task<ServiceResponse<AddressDto>> GetById(int id);
-        Task<ServiceResponse<List<AddressDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<List<AddressDto>>> GetAllByLanguage(int language);
         Task<ServiceResponse<List<AddressDto>>> GetAll();
         Task<ServiceResponse<AddressDto>> GetByLanguage(int language);
         Task<ServiceResponse<bool>> Update(AddressUpdateDto dto);

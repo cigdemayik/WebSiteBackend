@@ -10,5 +10,7 @@ namespace WebSiteBackend.Business.Dtos.AboutUsDtos
         public int Id { get; set; }
         public LanguageEnum Language { get; set; }
         public string Content { get; set; }
+        public string Link { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
