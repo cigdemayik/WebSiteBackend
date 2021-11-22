@@ -11,5 +11,7 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.AboutUsModels
         public int Id { get; set; }
         public LanguageEnum Language { get; set; }
         public string Content { get; set; }
+        public string ImageUrl { get; set; }
+        public string Link { get; set; }
     }
 }

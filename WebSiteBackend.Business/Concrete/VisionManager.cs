@@ -40,24 +40,6 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<int>> Create(VisionCreateDto dto)
-        {
-            try
-            {
-                var mappedData = dto.Adapt<Vision>();
-                var result = await _unitOfWork.GetRepository<Vision>().AddAsync(mappedData);
-                await _unitOfWork.SaveChangesAsync();
-                if (result != null)
-                    return _serviceResponseHelper.SetSuccess<int>(result.Id, System.Net.HttpStatusCode.OK);
-                return _serviceResponseHelper.SetError<int>(-1, "Vizyon ekleme işlemi başarısız", System.Net.HttpStatusCode.BadRequest);
-            }
-            catch (Exception ex)
-            {
-                return _serviceResponseHelper.SetError<int>(0, "Vizyon Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
-            }
-
-        }
-
         public async Task<ServiceResponse<bool>> Delete(int id)
         {
             try
@@ -94,11 +76,11 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<List<VisionDto>>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<VisionDto>>> GetAllByLanguage(int language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Vision>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<Vision>().GetAllByFilterAsync(x => x.Language == (int)language);
                 var dto = data.ToList().Adapt<List<VisionDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<VisionDto>>(dto, System.Net.HttpStatusCode.OK);
@@ -125,6 +107,25 @@ namespace WebSiteBackend.Business.Concrete
             {
 
                 return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+            }
+        }
+
+        public async Task<ServiceResponse<VisionDto>> GetByLanguage(int language)
+        {
+            try
+            {
+                var data = await _unitOfWork.GetRepository<Vision>().GetByFilterAsync(x => (int)x.Language == language);
+                var mappedData = data.Adapt<VisionDto>();
+                if (mappedData != null)
+                {
+                    return _serviceResponseHelper.SetSuccess<VisionDto>(mappedData, System.Net.HttpStatusCode.OK);
+                }
+                return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon Bulunamadı", System.Net.HttpStatusCode.NotFound);
+            }
+            catch (Exception)
+            {
+
+                return _serviceResponseHelper.SetError<VisionDto>(null, "Vizyon Getirilirken Bir Sorun ile Karşılaşıldı", System.Net.HttpStatusCode.BadRequest);
             }
         }
 

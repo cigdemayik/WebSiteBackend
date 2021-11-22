@@ -90,11 +90,11 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(int language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<Carousel>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<Carousel>().GetAllByFilterAsync(x => (int)x.Language == language && x.Active);
                 var dto = data.ToList().Adapt<List<CarouselDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<CarouselDto>>(dto, System.Net.HttpStatusCode.OK);

@@ -5,7 +5,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            Konu Tablosu
+            Ürün Tablosu
             @Html.ActionLink("Ekle", "ProductCreate", "Home", null, new { @class = "btn btn-primary float-right" })
         </div>
         @if (Model.Count <= 0)
@@ -19,33 +19,40 @@
             <thead>
                 <tr>
                     <th>Ad</th>
-                    <th>Konu</th>
-                    <th>Aktif</th>
+                    <th>Ürün</th>
                     <th>Image Url</th>
                     <th>Dil</th>
+                    <th>Aktif</th>
                     <th>İşlem</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-<tr>
-    <td>@item.Name</td>
-    <td>@item.Content</td>
-    <td>@item.Active</td>
-    <td>@item.ImageUrl</td>
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Content</td>
+                    <td>@item.ImageUrl</td>
 
-    @if (((int)item.Language) == 1)
-    {
-<td>"Türkçe"</td> }
+                    @if (((int)item.Language) == 1)
+                    {
+                <td>"Türkçe"</td>
+ }
+            else
+            {
+                <td>"İngilizce";</td>
+}
+                    @if ((item.Active) == true)
+                    {
+                <td>"Aktif"</td> }
                     else
                     {
-<td>"İngilizce";</td>}
-    <td>
-        @Html.ActionLink("Güncelle", "ProductUpdate", "Home", new { id = item.Id }, new { @class = "btn btn-warning" })
-        @Html.ActionLink("Sil", "ProductDelete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })
-    </td>
-</tr>}
+                <td>"Pasif"</td>}
+                                        <td>
+                                            @Html.ActionLink("Güncelle", "ProductUpdate", "Home", new { id = item.Id }, new { @class = "btn btn-warning" })
+                                            @Html.ActionLink("Sil", "ProductDelete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })
+                                        </td>
+                                                            </tr>}
 
             </tbody>
         </table>

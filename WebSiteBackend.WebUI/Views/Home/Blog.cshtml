@@ -1,0 +1,59 @@
+﻿@model BlogViewModel
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
+@{
+    Layout = "_Layout";
+}
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Bloglar</h2>
+            </div>
+            <div class="col-12">
+                <a href="Index.cshtml">Anasayfa</a>
+                <a href="Blog.cshtml">Bloglar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Blog</p>
+            <h2>Son Yayınlanan Bloglar</h2>
+        </div>
+        <div class="row">
+            @if(Model.Blogs!=null)
+            @foreach (var blog in Model.Blogs)
+            {
+
+                <div class="col-md-6">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="@blog.ImageUrl" alt="Blog">
+                        </div>
+                        <div class="blog-content">
+                            <h2 class="blog-title">@blog.Header</h2>
+                            <div class="blog-meta">
+                                <p><i class="far fa-user"></i>Admin</p>
+                                <p><i class="far fa-list-alt"></i>@blog.Category.Name</p>
+                                <p><i class="far fa-calendar-alt"> @blog.CreateTime.ToShortDateString()</i></p>
+                            </div>
+                            <div class="blog-text">
+                                @Html.Raw(blog.Content)
+                                @*<a class="btn custom-btn" href="">Daha Fazla</a>*@
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Blog End -->

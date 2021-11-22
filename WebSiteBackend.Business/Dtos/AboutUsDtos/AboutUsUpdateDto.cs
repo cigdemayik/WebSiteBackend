@@ -10,5 +10,8 @@ namespace WebSiteBackend.Business.Dtos.AboutUsDtos
         public int Id { get; set; }
         public int Language { get; set; }
         public string Content { get; set; }
+        public bool Active { get; set; } = true;
+        public string Link { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

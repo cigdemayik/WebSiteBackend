@@ -9,7 +9,6 @@ namespace WebSiteBackend.Business.Dtos.NewsDtos
     public class NewsDto
     {
         public int Id { get; set; }
-        public LanguageEnum Language { get; set; }
         public string ImageUrl { get; set; }
         public string Content { get; set; }
         public int CategoryId { get; set; }

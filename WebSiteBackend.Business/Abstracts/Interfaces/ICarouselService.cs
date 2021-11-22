@@ -9,7 +9,7 @@ namespace WebSiteBackend.Business.Abstracts.Interfaces
     public interface ICarouselService
     {
         Task<ServiceResponse<CarouselDto>> GetById(int id);
-        Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(LanguageEnum language);
+        Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(int language);
         Task<ServiceResponse<List<CarouselDto>>> GetAll();
         Task<ServiceResponse<int>> Create(CarouselCreateDto dto);
         Task<ServiceResponse<bool>> Update(CarouselUpdateDto dto);

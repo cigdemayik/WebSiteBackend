@@ -15,6 +15,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels
         public string Name { get; set; }
         [DisplayName("Dil")]
         [Required(ErrorMessage = "Lütfen Bir Dil Seçiniz.")]
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

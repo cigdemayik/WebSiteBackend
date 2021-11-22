@@ -8,7 +8,9 @@ namespace WebSiteBackend.Entities.Concrete
 {
     public class AboutUs : BaseEntity
     {
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
         public string Content { get; set; }
+        public string ImageUrl { get; set; }
+        public string Link { get; set; }
     }
 }

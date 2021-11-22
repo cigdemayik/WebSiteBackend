@@ -11,6 +11,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CategoryModels
         public int Id { get; set; }
         public bool Active { get; set; }
         public string Name { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

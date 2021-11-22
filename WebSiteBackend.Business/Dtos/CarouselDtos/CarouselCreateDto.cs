@@ -11,6 +11,6 @@ namespace WebSiteBackend.Business.Dtos.CarouselDtos
         public string Header { get; set; }
         public string ImageUrl { get; set; }
         public string Detail { get; set; }
-        public int Language { get; set; }
+
     }
 }

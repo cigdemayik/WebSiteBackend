@@ -17,6 +17,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels
         public int UserId { get; set; } = 1;
         public int CategoryId { get; set; }
         public CategoryModel Category { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

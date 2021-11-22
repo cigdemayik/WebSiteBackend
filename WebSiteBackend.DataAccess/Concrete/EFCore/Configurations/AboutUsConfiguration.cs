@@ -27,6 +27,10 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
 
             builder.Property(x => x.Language).IsRequired();
 
+            builder.Property(x => x.ImageUrl).IsRequired();
+
+            builder.Property(x => x.Link).IsRequired();
+
             builder.HasData(new List<AboutUs>()
             { 
                 new AboutUs()
@@ -34,14 +38,18 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
                     Id=1,
                     Active=true,
                     Content = "Test Türkçe",
-                    Language = Helpers.Enums.LanguageEnum.Türkçe
+                    Language = 1,
+                    Link="https://www.youtube.com/watch?v=TfiWIxFgIpI",
+                    ImageUrl="a"
                 },
                 new AboutUs()
                 {
                     Id=2,
                     Active=true,
                     Content = "Test English",
-                    Language = Helpers.Enums.LanguageEnum.English
+                    Language = 2,
+                    Link="https://www.youtube.com/watch?v=TfiWIxFgIpI",
+                    ImageUrl="a"
                 }
             });
         }

@@ -10,6 +10,6 @@ namespace WebSiteBackend.Business.Dtos.CategoryDtos
         public int Id { get; set; }
         public bool Active { get; set; }
         public string Name { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

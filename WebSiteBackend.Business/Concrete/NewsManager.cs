@@ -96,11 +96,11 @@ namespace WebSiteBackend.Business.Concrete
             }
         }
 
-        public async Task<ServiceResponse<List<NewsDto>>> GetAllByLanguage(LanguageEnum language)
+        public async Task<ServiceResponse<List<NewsDto>>> GetAllByLanguage(int language)
         {
             try
             {
-                var data = await _unitOfWork.GetRepository<News>().GetAllByFilterAsync(x => x.Language == language);
+                var data = await _unitOfWork.GetRepository<News>().GetAllByFilterAsync(x => x.Language == (int)language);
                 var dto = data.ToList().Adapt<List<NewsDto>>();
                 if (dto != null)
                     return _serviceResponseHelper.SetSuccess<List<NewsDto>>(dto, System.Net.HttpStatusCode.OK);

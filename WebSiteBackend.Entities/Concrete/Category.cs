@@ -12,6 +12,6 @@ namespace WebSiteBackend.Entities.Concrete
         public string Name { get; set; }
         public ICollection<Blog> Blogs { get; set; }
         public ICollection<News> News { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }

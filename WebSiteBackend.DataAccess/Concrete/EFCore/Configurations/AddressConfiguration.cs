@@ -24,6 +24,22 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
             builder.Property(x => x.CreateTime).HasDefaultValueSql("GetDate()");
 
             builder.Property(x => x.Language).IsRequired();
+
+            builder.HasData(new List<Address>()
+            {
+                new Address()
+                {
+                    Id=1,
+                    Content="Test Adres Tr",
+                    Language=1
+                },
+                new Address()
+                {
+                    Id=2,
+                    Content="Test Adres En",
+                    Language=2
+                }
+            });
         }
     }
 }

@@ -715,7 +715,6 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debu
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.RazorTargetAssemblyInfo.cache
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.RazorTargetAssemblyInfo.cs
@@ -730,13 +729,9 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debu
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\VisionUpdate.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Mission.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\MissionUpdate.cshtml.g.cs
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\AboutUsCreate.cshtml.g.cs
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\AddressCreate.cshtml.g.cs
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\MissionCreate.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\News.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\NewsCreate.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\NewsUpdate.cshtml.g.cs
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\VisionCreate.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
@@ -942,3 +937,13 @@ C:\Users\ÇİĞDEM\Desktop\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcore
 C:\Users\ÇİĞDEM\Desktop\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.pdb
 C:\Users\ÇİĞDEM\Desktop\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.genruntimeconfig.cache
 C:\Users\ÇİĞDEM\Desktop\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.csproj.CopyComplete
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Blog.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\VisionMission.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Culture.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Footer.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\NotFound.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.config
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.dll

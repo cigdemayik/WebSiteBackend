@@ -27,7 +27,21 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Configurations
 
             builder.Property(x => x.Active).IsRequired();
             builder.Property(x => x.Active).HasDefaultValue(1);
-
-        }
+            builder.HasData(new List<Category>()
+            {
+                new Category()
+                {
+                    Id=1,
+                    Name="Test Kategori Tr",
+                    Language=1
+                },
+                new Category()
+                {
+                    Id=2,
+                    Name="Test Kategori En",
+                    Language=2
+                }
+            });
+                }
     }
 }

@@ -7,7 +7,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             Hakkımızda Tablosu
-            @Html.ActionLink("Ekle", "AboutUsCreate", "Home", null, new { @class = "btn btn-primary float-right" })
+            
         </div>
         @if (Model.Count<=0)
         {
@@ -21,6 +21,8 @@
                     <thead>
                         <tr>
                             <th>İçerik</th>
+                            <th>Resim</th>
+                            <th>Link</th>
                             <th>Dil</th>
                             <th>İşlem</th>
                         </tr>
@@ -30,6 +32,8 @@
                         {
                             <tr>
                                 <td>@item.Content</td>
+                                <td>@item.ImageUrl</td>
+                                <td>@item.Link</td>
 
                                 @if (((int)item.Language) == 1)
                                 {
@@ -41,8 +45,7 @@
                                 }
                             <td>
                                 @Html.ActionLink("Güncelle", "AboutUsUpdate", "Home", new { id = (item.Id) }, new { @class = "btn btn-warning" })
-                                @Html.ActionLink("Sil", "AboutUsDelete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })
-                            </td>
+                                
                             </tr>
                         }
 

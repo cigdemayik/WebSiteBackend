@@ -15,6 +15,5 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.NewsModels
         public string Content { get; set; }
         public int CategoryId { get; set; }
         public CategoryModel Category { get; set; }
-        public LanguageEnum Language { get; set; }
     }
 }
