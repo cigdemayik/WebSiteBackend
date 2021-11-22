@@ -943,3 +943,7 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debu
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Culture.cshtml.g.cs
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Footer.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\NotFound.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.config
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.dll

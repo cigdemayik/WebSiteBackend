@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.WebUI.Extensions;
 using WebSiteBackend.WebUI.Models;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace WebSiteBackend.WebUI.Controllers
 {
@@ -112,6 +114,18 @@ namespace WebSiteBackend.WebUI.Controllers
             returnUrl = "Index";
 
             return RedirectToAction(returnUrl);
+        }
+
+        public async Task<IActionResult> NotFound(int code)
+        {
+            ViewBag.Code = code;
+            return View();
+        }
+        [Route("/Error")]
+        public async Task<IActionResult> Error()
+        {
+        //    var errorInfo=HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+            return View();
         }
     }
 }

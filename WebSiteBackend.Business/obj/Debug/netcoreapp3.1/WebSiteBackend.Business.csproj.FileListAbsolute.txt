@@ -98,4 +98,3 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Business\obj\D
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.dll
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.pdb
 D:\SideProjects\WebSite\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csproj.CopyComplete
-C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Business\obj\Debug\netcoreapp3.1\WebSiteBackend.Business.csproj.CopyComplete

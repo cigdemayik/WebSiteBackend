@@ -94,7 +94,7 @@ namespace WebSiteBackend.Business.Concrete
             catch (Exception)
             {
 
-                return _serviceResponseHelper.SetError<List<BlogDto>>(null, "Blog Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
+                return _serviceResponseHelper.SetError<List<BlogDto>>(null, "Blog Getirme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
 
@@ -139,6 +139,8 @@ namespace WebSiteBackend.Business.Concrete
             try
             {
                 var mappedData = dto.Adapt<Blog>();
+                var category = await _unitOfWork.GetRepository<Category>().GetByFilterAsync(x => x.Id == dto.CategoryId);
+                mappedData.Language = (int)category.Language;
                 var data = await _unitOfWork.GetRepository<Blog>().UpdateAsync(mappedData);
                 await _unitOfWork.SaveChangesAsync();
                 if (data)

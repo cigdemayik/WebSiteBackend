@@ -80,6 +80,10 @@ namespace WebSiteBackend.WebUI
                 app.UseHsts();
             }
 
+            app.UseStatusCodePagesWithReExecute("/Home/NotFound", "?code{0}");
+
+            app.UseExceptionHandler("/Error");
+
             app.UseStaticFiles();
 
             app.UseRouting();
