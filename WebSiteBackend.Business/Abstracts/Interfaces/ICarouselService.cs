@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Autofac.Extras.DynamicProxy;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;

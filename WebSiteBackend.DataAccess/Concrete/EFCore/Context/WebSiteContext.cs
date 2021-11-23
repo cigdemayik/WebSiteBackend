@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,15 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
         {
 
         }
+        public WebSiteContext()
+        {
+               
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=DESKTOP-0B43VIL\\SQLEXPRESS;Database=Selam;Trusted_Connection=True;");
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BlogConfiguration());
@@ -25,6 +35,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
             modelBuilder.ApplyConfiguration(new MissionConfiguration());
             modelBuilder.ApplyConfiguration(new AddressConfiguration());
             modelBuilder.ApplyConfiguration(new NewsConfiguration());
+            modelBuilder.ApplyConfiguration(new ExceptionLogConfiguration());
         }
 
 
@@ -37,5 +48,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Mission> Missions { get; set; }
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<ExceptionLog> ExceptionLogs { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Text;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.UserDtos;
 using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
@@ -17,6 +18,7 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
+    [BusinessAspect]
     public class UserManager : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;

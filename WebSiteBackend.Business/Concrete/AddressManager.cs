@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.AddressDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
@@ -14,6 +15,7 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
+    [BusinessAspect]
     public class AddressManager : IAddressService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -75,7 +77,6 @@ namespace WebSiteBackend.Business.Concrete
             }
 
         }
-
         public async Task<ServiceResponse<List<AddressDto>>> GetAllByLanguage(int language)
         {
             try
@@ -109,7 +110,6 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<AddressDto>(null, "Adres kaydı getirilirken bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
-
         public async Task<ServiceResponse<AddressDto>> GetByLanguage(int language)
         {
             try

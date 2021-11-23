@@ -18,36 +18,36 @@ namespace WebSiteBackend.Business.DependecyResolver
         {
             services.AddDbContext<WebSiteContext>(opt =>
             {
-                opt.UseSqlServer(configuration.GetConnectionString("CigdemTest"));
+                opt.UseSqlServer(configuration.GetConnectionString("AlpTest"));
             }, ServiceLifetime.Transient);
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
-            services.AddScoped<IBlogService, BlogManager>();
+            //services.AddScoped<IBlogService, BlogManager>();
 
-            services.AddScoped<ICarouselService, CarouselManager>();
+            //services.AddScoped<ICarouselService, CarouselManager>();
 
-            services.AddScoped<ICategoryService, CategoryManager>();
+            //services.AddScoped<ICategoryService, CategoryManager>();
 
-            services.AddScoped<IProductService, ProductManager>();
+            //services.AddScoped<IProductService, ProductManager>();
 
-            services.AddScoped<IUserService, UserManager>();
+            //services.AddScoped<IUserService, UserManager>();
 
-            services.AddScoped<IAboutUsService, AboutUsManager>();
+            //services.AddScoped<IAboutUsService, AboutUsManager>();
 
-            services.AddScoped<IServiceResponseHelper, ServiceResponseHelper>();
+            //services.AddScoped<IServiceResponseHelper, ServiceResponseHelper>();
 
-            services.AddScoped<IVisionService, VisionManager>();
+            //services.AddScoped<IVisionService, VisionManager>();
 
-            services.AddScoped<IMissionService, MissionManager>();
+            //services.AddScoped<IMissionService, MissionManager>();
 
-            services.AddScoped<IAddressService, AddressManager>();
+            //services.AddScoped<IAddressService, AddressManager>();
 
-            services.AddScoped<INewsService, NewsManager>();
+            //services.AddScoped<INewsService, NewsManager>();
         }
     }
 }

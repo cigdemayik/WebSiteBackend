@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.VisionDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
@@ -14,6 +15,7 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
+    [BusinessAspect]
     public class VisionManager : IVisionService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -75,7 +77,6 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<List<VisionDto>>(null, "Vizyon kayıtları getirilirken sorunla karşılaşıldı sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
-
         public async Task<ServiceResponse<List<VisionDto>>> GetAllByLanguage(int language)
         {
             try

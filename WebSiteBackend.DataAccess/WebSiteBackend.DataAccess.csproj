@@ -23,4 +23,8 @@
     <ProjectReference Include="..\WebSiteBackend.Entities\WebSiteBackend.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Concrete\EFCore\Migrations\" />
+  </ItemGroup>
+
 </Project>

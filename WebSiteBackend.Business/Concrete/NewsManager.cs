@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.NewsDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
@@ -15,6 +16,7 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
+    [BusinessAspect]
     public class NewsManager : INewsService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -95,7 +97,6 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<List<NewsDto>>(null, "Haber Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
-
         public async Task<ServiceResponse<List<NewsDto>>> GetAllByLanguage(int language)
         {
             try

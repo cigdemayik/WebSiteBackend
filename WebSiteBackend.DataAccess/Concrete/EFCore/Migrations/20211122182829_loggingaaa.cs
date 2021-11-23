@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebSiteBackend.DataAccess.Migrations
+namespace WebSiteBackend.DataAccess.Concrete.EfCore.Migrations
 {
-    public partial class @new : Migration
+    public partial class loggingaaa : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,6 +15,8 @@ namespace WebSiteBackend.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Language = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GetDate()"),
                     UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
@@ -75,6 +77,24 @@ namespace WebSiteBackend.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ExceptionLogs",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InnerMessage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Method = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Layer = table.Column<int>(type: "int", nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Active = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExceptionLogs", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -155,6 +175,7 @@ namespace WebSiteBackend.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Language = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GetDate()"),
                     UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -203,11 +224,29 @@ namespace WebSiteBackend.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "AboutUs",
-                columns: new[] { "Id", "Active", "Content", "Language", "UpdateTime" },
+                columns: new[] { "Id", "Active", "Content", "ImageUrl", "Language", "Link", "UpdateTime" },
                 values: new object[,]
                 {
-                    { 1, true, "Test Türkçe", 1, null },
-                    { 2, true, "Test English", 2, null }
+                    { 1, true, "Test Türkçe", "a", 1, "https://www.youtube.com/watch?v=TfiWIxFgIpI", null },
+                    { 2, true, "Test English", "a", 2, "https://www.youtube.com/watch?v=TfiWIxFgIpI", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Address",
+                columns: new[] { "Id", "Content", "Language", "UpdateTime" },
+                values: new object[,]
+                {
+                    { 1, "Test Adres Tr", 1, null },
+                    { 2, "Test Adres En", 2, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Category",
+                columns: new[] { "Id", "Language", "Name", "UpdateTime" },
+                values: new object[,]
+                {
+                    { 1, 1, "Test Kategori Tr", null },
+                    { 2, 2, "Test Kategori En", null }
                 });
 
             migrationBuilder.InsertData(
@@ -215,8 +254,8 @@ namespace WebSiteBackend.DataAccess.Migrations
                 columns: new[] { "Id", "Active", "Content", "Language", "UpdateTime" },
                 values: new object[,]
                 {
-                    { 1, true, "Test Türkçe", 1, null },
-                    { 2, true, "Test English", 2, null }
+                    { 1, true, "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. tr", 1, null },
+                    { 2, true, "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. en", 2, null }
                 });
 
             migrationBuilder.InsertData(
@@ -229,8 +268,21 @@ namespace WebSiteBackend.DataAccess.Migrations
                 columns: new[] { "Id", "Active", "Content", "Language", "UpdateTime" },
                 values: new object[,]
                 {
-                    { 1, true, "Test Türkçe", 1, null },
-                    { 2, true, "Test English", 2, null }
+                    { 1, true, "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. tr", 1, null },
+                    { 2, true, "Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. en", 2, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Blog",
+                columns: new[] { "Id", "CategoryId", "Content", "Header", "ImageUrl", "Language", "UpdateTime", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1, "", "Test Blog1", "a", 1, null, 1 },
+                    { 2, 1, "", "Test Blog2", "a", 1, null, 1 },
+                    { 3, 1, "", "Test Blog3", "a", 1, null, 1 },
+                    { 4, 1, "", "Test Blog4", "a", 1, null, 1 },
+                    { 5, 1, "", "Test Blog5", "a", 1, null, 1 },
+                    { 6, 1, "", "Test Blog6", "a", 1, null, 1 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -262,6 +314,9 @@ namespace WebSiteBackend.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Carousel");
+
+            migrationBuilder.DropTable(
+                name: "ExceptionLogs");
 
             migrationBuilder.DropTable(
                 name: "Mission");

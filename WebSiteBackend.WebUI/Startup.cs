@@ -1,3 +1,4 @@
+using Autofac;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,11 +13,13 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.DependecyResolver;
+using WebSiteBackend.Business.DependecyResolver.AutoFac;
 
 namespace WebSiteBackend.WebUI
 {
     public class Startup
     {
+        public ILifetimeScope AutofacContainer { get; private set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -106,6 +109,11 @@ namespace WebSiteBackend.WebUI
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new BusinessModule());
         }
     }
 }

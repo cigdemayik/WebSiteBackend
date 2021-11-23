@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Context;
 
-namespace WebSiteBackend.DataAccess.Migrations
+namespace WebSiteBackend.DataAccess.Concrete.EfCore.Migrations
 {
     [DbContext(typeof(WebSiteContext))]
     partial class WebSiteContextModelSnapshot : ModelSnapshot
@@ -345,6 +345,40 @@ namespace WebSiteBackend.DataAccess.Migrations
                             Language = 2,
                             Name = "Test Kategori En"
                         });
+                });
+
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.ExceptionLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("InnerMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Layer")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Method")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ExceptionLogs");
                 });
 
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Mission", b =>

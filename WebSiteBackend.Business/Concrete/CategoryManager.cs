@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.CategoryDtos;
 using WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
@@ -15,6 +16,7 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
+    [BusinessAspect]
     public class CategoryManager : ICategoryService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -91,7 +93,6 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<List<CategoryDto>>(null, "Kategori Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
-
         public async Task<ServiceResponse<List<CategoryDto>>> GetAllByLanguage(int language)
         {
             try

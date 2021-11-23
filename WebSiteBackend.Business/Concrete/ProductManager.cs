@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.ProductDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
@@ -13,6 +14,7 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
+    [BusinessAspect]
     public class ProductManager : IProductService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -92,7 +94,6 @@ namespace WebSiteBackend.Business.Concrete
             }
 
         }
-
         public async Task<ServiceResponse<List<ProductDto>>> GetAllByLanguage(int language)
         {
             try

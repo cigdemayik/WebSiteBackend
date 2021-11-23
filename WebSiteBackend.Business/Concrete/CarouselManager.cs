@@ -1,18 +1,22 @@
-﻿using Mapster;
+﻿using Autofac.Extras.DynamicProxy;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
+using WebSiteBackend.Helpers.CrossCutttingConcerns;
 using WebSiteBackend.Helpers.Enums;
 using WebSiteBackend.Helpers.ServiceHelpers.Abstract;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
+    [BusinessAspect]
     public class CarouselManager : ICarouselService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -22,6 +26,7 @@ namespace WebSiteBackend.Business.Concrete
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
+
         }
         public async Task<ServiceResponse<bool>> Delete(int id)
         {
@@ -72,7 +77,6 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<int>(0, "Carousel Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
-
         public async Task<ServiceResponse<List<CarouselDto>>> GetAll()
         {
             try
@@ -89,7 +93,6 @@ namespace WebSiteBackend.Business.Concrete
                 return _serviceResponseHelper.SetError<List<CarouselDto>>(null, "Carousel Ekleme sırasında bir sorun ile karşılaşıldı.", System.Net.HttpStatusCode.InternalServerError);
             }
         }
-
         public async Task<ServiceResponse<List<CarouselDto>>> GetAllByLanguage(int language)
         {
             try

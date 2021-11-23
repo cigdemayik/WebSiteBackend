@@ -54,3 +54,4 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Helpers\obj\De
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.CoreCompileInputs.cache
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.AssemblyReference.cache
