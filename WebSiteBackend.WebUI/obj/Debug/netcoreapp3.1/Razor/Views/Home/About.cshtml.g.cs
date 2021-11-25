@@ -21,6 +21,13 @@ using WebSiteBackend.WebUI;
 #nullable disable
 #nullable restore
 #line 2 "D:\SideProjects\WebSite\WebSiteBackend.WebUI\Views\_ViewImports.cshtml"
+using WebSiteBackend.Business.Abstracts;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "D:\SideProjects\WebSite\WebSiteBackend.WebUI\Views\_ViewImports.cshtml"
 using WebSiteBackend.WebUI.Models;
 
 #line default
@@ -34,7 +41,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"62c2066d1ab9431604c1c2a41b287af8ba077feb", @"/Views/Home/About.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"82a3a3947bba1fab229491847e61ca530884a0f7", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"288eb7cd150c6fffb65bf68ba8b78299e034ea1d", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_About : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<AboutUsViewModel>
     {
         #pragma warning disable 1998

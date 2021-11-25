@@ -943,7 +943,6 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\obj\Debu
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.config
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\WebSiteBackend.WebUI.MvcApplicationPartsAssemblyInfo.cs
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.config
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Autofac.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Autofac.Extras.DynamicProxy.dll
@@ -951,7 +950,6 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Castle.Core
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
-D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\NLog.dll
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Address.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\AddressUpdate.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Home\Mission.cshtml.g.cs
@@ -968,3 +966,5 @@ D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\VisionMission.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Footer.cshtml.g.cs
 D:\SideProjects\WebSite\WebSiteBackend.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Culture.cshtml.g.cs
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Serilog.dll
+D:\SideProjects\WebSite\WebSiteBackend.WebUI\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll

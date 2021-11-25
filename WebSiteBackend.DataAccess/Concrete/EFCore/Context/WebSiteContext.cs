@@ -14,15 +14,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
         {
 
         }
-        public WebSiteContext()
-        {
-               
-        }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-0B43VIL\\SQLEXPRESS;Database=Selam;Trusted_Connection=True;");
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BlogConfiguration());
@@ -36,6 +28,7 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
             modelBuilder.ApplyConfiguration(new AddressConfiguration());
             modelBuilder.ApplyConfiguration(new NewsConfiguration());
             modelBuilder.ApplyConfiguration(new ExceptionLogConfiguration());
+            modelBuilder.ApplyConfiguration(new LocalizationResourceConfiguration());
         }
 
 

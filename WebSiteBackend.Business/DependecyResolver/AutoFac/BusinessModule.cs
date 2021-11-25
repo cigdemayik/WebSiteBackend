@@ -12,6 +12,9 @@ using WebSiteBackend.Helpers.CrossCutttingConcerns;
 using WebSiteBackend.Helpers.ServiceHelpers.Abstract;
 using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 using WebSiteBackend.Business.Aspect;
+using System.Linq;
+using WebSiteBackend.Business.Aspect.AspectMarker;
+using Serilog;
 
 namespace WebSiteBackend.Business.DependecyResolver.AutoFac
 {
@@ -23,7 +26,7 @@ namespace WebSiteBackend.Business.DependecyResolver.AutoFac
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>)).InstancePerLifetimeScope();
             #endregion
 
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerDependency();
 
             builder.RegisterType<ServiceResponseHelper>().As<IServiceResponseHelper>().InstancePerLifetimeScope();
 
@@ -37,13 +40,22 @@ namespace WebSiteBackend.Business.DependecyResolver.AutoFac
             builder.RegisterType<MissionManager>().As<IMissionService>().InstancePerLifetimeScope();
             builder.RegisterType<AddressManager>().As<IAddressService>().InstancePerLifetimeScope();
             builder.RegisterType<NewsManager>().As<INewsService>().InstancePerLifetimeScope();
-            builder.RegisterType<BusinessAspect>().InstancePerLifetimeScope();
 
+            builder.RegisterType<BusinessAspect>().As<BusinessAspect>().SingleInstance();
+            builder.RegisterType<BusinessLogAspect>().As<BusinessLogAspect>().SingleInstance();
+            
+            builder.Register<ILogger>((c, p) =>
+            {
+                return new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.File(path: AppDomain.CurrentDomain.BaseDirectory.ToString(), rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            }).SingleInstance();
+            
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
-
-            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
-                 
+            builder.RegisterAssemblyTypes(assembly)
+                .AsImplementedInterfaces()
                  .EnableInterfaceInterceptors(new Castle.DynamicProxy.ProxyGenerationOptions()
                  {
                      Selector = new AspectInterceptorSelector()

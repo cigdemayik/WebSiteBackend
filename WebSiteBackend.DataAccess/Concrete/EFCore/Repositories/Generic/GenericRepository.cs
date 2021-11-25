@@ -35,6 +35,12 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic
             return entity;
         }
 
+        public List<TEntity> AddBulk(List<TEntity> entities)
+        {
+            _context.Set<TEntity>().AddRange(entities.ToArray());
+            return entities;
+        }
+
         public bool Delete(TEntity entity)
         {
             bool value = false;

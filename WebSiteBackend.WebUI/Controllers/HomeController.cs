@@ -23,9 +23,13 @@ namespace WebSiteBackend.WebUI.Controllers
         private readonly IProductService _productService;
         private readonly IVisionService _visionService;
         private readonly IMissionService _missionService;
-        private IServiceProvider _provider;
+        private readonly ILocalizationResourceService _localization;
 
-        public HomeController(ICarouselService carouselService, IBlogService blogService, IAboutUsService aboutUsService, IProductService productService, IAddressService addressService, IMissionService missionService, IVisionService visionService, IServiceProvider provider)
+        public HomeController
+            (ICarouselService carouselService, IBlogService blogService, 
+            IAboutUsService aboutUsService, IProductService productService, 
+            IAddressService addressService, IMissionService missionService, 
+            IVisionService visionService)
         {
             _carouselService = carouselService ?? throw new ArgumentNullException(nameof(carouselService));
             _blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
@@ -34,7 +38,6 @@ namespace WebSiteBackend.WebUI.Controllers
             _addressService = addressService ?? throw new ArgumentNullException(nameof(addressService));
             _missionService = missionService ?? throw new ArgumentNullException(nameof(missionService));
             _visionService = visionService ?? throw new ArgumentNullException(nameof(visionService));
-            _provider = provider;
         }
         [HttpGet]
         public async Task<IActionResult> Index()

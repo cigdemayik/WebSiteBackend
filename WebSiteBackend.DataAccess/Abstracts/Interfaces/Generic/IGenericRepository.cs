@@ -20,6 +20,7 @@ namespace WebSiteBackend.DataAccess.Abstracts.Interfaces.Generic
         TEntity Add(TEntity entity);
         bool Update(TEntity entity);
         bool Delete(TEntity entity);
+        List<TEntity> AddBulk(List<TEntity> entities);
         #endregion
 
         #region Asyncronics

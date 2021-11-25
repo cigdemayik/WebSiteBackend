@@ -36,7 +36,6 @@ D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteB
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.AssemblyInfoInputs.cache
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.AssemblyInfo.cs
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csproj.CoreCompileInputs.cache
-D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.csproj.CopyComplete
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.dll
 D:\SideProjects\WebSite\WebSiteBackend.Entities\obj\Debug\netcoreapp3.1\WebSiteBackend.Entities.pdb
 C:\Users\ÇİĞDEM\Source\Repos\WebSiteBackend-main\WebSiteBackend.Entities\bin\Debug\netcoreapp3.1\WebSiteBackend.Entities.deps.json

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "z2RzrpoNiRzPqAs4Wi4FkUVMrGeZwSlxYEUzUqPfcESTrY8rdRp8Cohez1VsUlLsEj/cz8jJUzor+dWTOQhTsA==",
+  "dgSpecHash": "i0nGn7m51nZ+E02sqWVsv9ukuxK341WX6ZN5JGgT/YRh44AILuEI7gApKOhBrOgDkUczx1ZhGeCx64C9SvKmVA==",
   "success": true,
   "projectFilePath": "D:\\SideProjects\\WebSite\\WebSiteBackend.Entities\\WebSiteBackend.Entities.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,8 @@
     "C:\\Users\\alper\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\alper\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\alper\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\alper\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

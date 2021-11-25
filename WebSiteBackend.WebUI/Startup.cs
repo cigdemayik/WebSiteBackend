@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using WebSiteBackend.Business.Aspect;
 using WebSiteBackend.Business.DependecyResolver;
 using WebSiteBackend.Business.DependecyResolver.AutoFac;
 
@@ -83,9 +84,9 @@ namespace WebSiteBackend.WebUI
                 app.UseHsts();
             }
 
-            app.UseStatusCodePagesWithReExecute("/Home/NotFound", "?code{0}");
+            //app.UseStatusCodePagesWithReExecute("/Home/NotFound", "?code{0}");
 
-            app.UseExceptionHandler("/Error");
+            //app.UseExceptionHandler("/Error");
 
             app.UseStaticFiles();
 

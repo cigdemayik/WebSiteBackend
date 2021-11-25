@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using Autofac.Extras.DynamicProxy;
+using Mapster;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,6 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
-    [BusinessAspect]
     public class UserManager : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;

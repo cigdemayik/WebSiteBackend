@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using Autofac.Extras.DynamicProxy;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,6 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
-    [BusinessAspect]
     public class MissionManager : IMissionService
     {
         private readonly IUnitOfWork _unitOfWork;

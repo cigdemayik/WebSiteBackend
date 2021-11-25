@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebSiteBackend.Business.Abstracts.Interfaces;
 using WebSiteBackend.Business.Aspect;
+using WebSiteBackend.Business.Aspect.AspectMarker;
 using WebSiteBackend.Business.Dtos.CarouselDtos;
 using WebSiteBackend.DataAccess.Concrete.EFCore.Repositories.Generic;
 using WebSiteBackend.Entities.Concrete;
@@ -16,17 +17,17 @@ using WebSiteBackend.Helpers.ServiceHelpers.Concrete;
 
 namespace WebSiteBackend.Business.Concrete
 {
-    [BusinessAspect]
     public class CarouselManager : ICarouselService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private static IUnitOfWork _unitOfWork;
         private readonly IServiceResponseHelper _serviceResponseHelper;
+        
 
         public CarouselManager(IUnitOfWork unitOfWork, IServiceResponseHelper serviceResponseHelper)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _serviceResponseHelper = serviceResponseHelper ?? throw new ArgumentNullException(nameof(serviceResponseHelper));
-
+            
         }
         public async Task<ServiceResponse<bool>> Delete(int id)
         {

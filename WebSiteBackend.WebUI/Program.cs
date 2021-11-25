@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace WebSiteBackend.WebUI
 {
@@ -20,7 +21,8 @@ namespace WebSiteBackend.WebUI
 
 
         public static IHostBuilder CreateHostBuilder(string[] args)
-        => Host.CreateDefaultBuilder(args).UseServiceProviderFactory(new AutofacServiceProviderFactory())
+        => Host.CreateDefaultBuilder(args)
+            .UseServiceProviderFactory(new AutofacServiceProviderFactory())
             .ConfigureWebHostDefaults(
                 webBuilder => webBuilder
                 .UseContentRoot(Directory.GetCurrentDirectory())

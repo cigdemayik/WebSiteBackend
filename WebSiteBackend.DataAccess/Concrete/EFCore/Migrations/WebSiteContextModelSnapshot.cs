@@ -381,6 +381,62 @@ namespace WebSiteBackend.DataAccess.Concrete.EfCore.Migrations
                     b.ToTable("ExceptionLogs");
                 });
 
+            modelBuilder.Entity("WebSiteBackend.Entities.Concrete.LocalizationResource", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("1");
+
+                    b.Property<DateTime>("CreateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LocalizationResource");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = false,
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Key = "TestBaslik",
+                            Language = 1,
+                            Value = "English Header"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = false,
+                            CreateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Key = "TestBaslik",
+                            Language = 2,
+                            Value = "Türkçe Başlık"
+                        });
+                });
+
             modelBuilder.Entity("WebSiteBackend.Entities.Concrete.Mission", b =>
                 {
                     b.Property<int>("Id")
