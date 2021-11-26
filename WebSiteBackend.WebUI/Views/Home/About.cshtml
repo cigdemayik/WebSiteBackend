@@ -2,22 +2,25 @@
 @using Microsoft.AspNetCore.Mvc.ModelBinding;
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
+@inject WebSiteBackend.Business.Abstracts.Interfaces.ILocalizationResourceService localizationService
 @{
     Layout = "_Layout";
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var displayname = culture.RequestCulture.UICulture.Name;
+    var language = culture.RequestCulture.UICulture.Name == "en" ? 1 : 2;
 }
-
-
+@*@localizationService.GetByLanguage("TestBaslik",language).Result.Value*@
 
 <!-- Page Header Start -->
 <div class="page-header mb-0">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>About Us</h2>
+                <h2>@localizationService.GetByLanguage("AboutUs", language).Result.Value</h2>
             </div>
             <div class="col-12">
-                <a href="">Anasayfa</a>
-                <a href="">Hakkımızda</a>
+                @Html.ActionLink(@localizationService.GetByLanguage("Home", language).Result.Value, "Index", "Home", null, new { })
+                @Html.ActionLink(@localizationService.GetByLanguage("AboutUs", language).Result.Value, "About", "Home", null, new { })
             </div>
         </div>
     </div>
@@ -27,19 +30,19 @@
 <div class="food mt-0">
     <div class="container">
         <div class="row align-items-center">
-            @if(Model.Products!=null)
-            @foreach (var product in Model.Products)
-            {
-                <div class="col-md-4">
-                    <div class="food-item">
-                        <i class="flaticon-cooking"></i>
-                        <h2>@product.Name</h2>
-                        <p>
-                            @Html.Raw(product.Content)
-                        </p>
+            @if (Model.Products != null)
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-md-4">
+                        <div class="food-item">
+                            <i class="flaticon-cooking"></i>
+                            <h2>@product.Name</h2>
+                            <p>
+                                @Html.Raw(product.Content)
+                            </p>
+                        </div>
                     </div>
-                </div>
-            }
+                }
         </div>
     </div>
 </div>
@@ -59,11 +62,11 @@
             <div class="col-lg-6">
                 <div class="about-content">
                     <div class="section-header">
-                        <p>About Us</p>
+                        <p>@localizationService.GetByLanguage("AboutUs", language).Result.Value</p>
                     </div>
                     <div class="about-text">
                         @Html.Raw(Model.AboutUs.Content)
-                        
+
                     </div>
                 </div>
             </div>

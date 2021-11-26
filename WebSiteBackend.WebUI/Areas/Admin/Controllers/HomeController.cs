@@ -216,10 +216,17 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> BlogUpdate(BlogUpdateModel model)
         {
             if (ModelState.IsValid) 
-            { 
+            {
+                if (model.Image != null) 
+                { 
                 var savePath = "\\uploads\\blog";
                 var filePath = _webHostEnvironment.WebRootPath + savePath;
                 model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                }
+                else
+                {
+                    model.ImageUrl = _blogService.GetById(model.Id).Result.Result.ImageUrl;
+                }
                 var mappedData = model.Adapt<BlogUpdateDto>();
                 var response = await _blogService.Update(mappedData);
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -305,11 +312,18 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CarouselUpdate(CarouselUpdateModel model)
         {
-            if (ModelState.IsValid) 
-            { 
-                var savePath = "\\uploads\\carousel";
-                var filePath = _webHostEnvironment.WebRootPath + savePath;
-                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+            if (ModelState.IsValid)
+            {
+                if (model.Image != null)
+                {
+                    var savePath = "\\uploads\\carousel";
+                    var filePath = _webHostEnvironment.WebRootPath + savePath;
+                    model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                }
+                else
+                {
+                    model.ImageUrl = _carouselService.GetById(model.Id).Result.Result.ImageUrl;
+                }
                 var mappedData = model.Adapt<CarouselUpdateDto>();
                 var response = await _carouselService.Update(mappedData);
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -391,9 +405,16 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var savePath = "\\uploads\\product";
-                var filePath = _webHostEnvironment.WebRootPath + savePath;
-                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                if (model.Image != null)
+                {
+                    var savePath = "\\uploads\\product";
+                    var filePath = _webHostEnvironment.WebRootPath + savePath;
+                    model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                }
+                else
+                {
+                    model.ImageUrl = _productService.GetById(model.Id).Result.Result.ImageUrl;
+                }
 
                 var mappedData = model.Adapt<ProductUpdateDto>();
                 var response = await _productService.Update(mappedData);
@@ -454,9 +475,16 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
 
-                var savePath = "\\uploads\\aboutUs";
-                var filePath = _webHostEnvironment.WebRootPath + savePath;
-                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                if (model.Image != null)
+                {
+                    var savePath = "\\uploads\\aboutUs";
+                    var filePath = _webHostEnvironment.WebRootPath + savePath;
+                    model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                }
+                else
+                {
+                    model.ImageUrl = _aboutUsService.GetById(model.Id).Result.Result.ImageUrl;
+                }
 
                 var mappedData = model.Adapt<AboutUsUpdateDto>();
                 var response = await _aboutUsService.Update(mappedData);
@@ -676,10 +704,16 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var savePath = "\\uploads\\News";
-                var filePath = _webHostEnvironment.WebRootPath + savePath;
-
-                model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                if (model.Image != null)
+                {
+                    var savePath = "\\uploads\\news";
+                    var filePath = _webHostEnvironment.WebRootPath + savePath;
+                    model.ImageUrl = await this.UploadFileAsync(model.Image, filePath, savePath);
+                }
+                else
+                {
+                    model.ImageUrl = _newsService.GetById(model.Id).Result.Result.ImageUrl;
+                }
                 var mappedData = model.Adapt<NewsUpdateDto>();
                 var response = await _newsService.Update(mappedData);
                 if (response.StatusCode != System.Net.HttpStatusCode.OK)

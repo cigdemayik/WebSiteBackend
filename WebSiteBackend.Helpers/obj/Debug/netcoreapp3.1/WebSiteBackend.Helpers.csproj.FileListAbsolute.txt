@@ -55,3 +55,13 @@ C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Helpers\obj\De
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
 C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
 D:\SideProjects\WebSite\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.AssemblyReference.cache
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.deps.json
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\bin\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.AssemblyReference.cache
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfoInputs.cache
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.AssemblyInfo.cs
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.csproj.CoreCompileInputs.cache
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.dll
+C:\Users\ÇİĞDEM\Documents\GitHub\WebSiteBackend\cigdemayik\WebSiteBackend\WebSiteBackend.Helpers\obj\Debug\netcoreapp3.1\WebSiteBackend.Helpers.pdb

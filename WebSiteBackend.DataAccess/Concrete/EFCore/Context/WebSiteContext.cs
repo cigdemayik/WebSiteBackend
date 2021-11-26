@@ -10,6 +10,12 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
 {
     public class WebSiteContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-BBKEID4;Initial Catalog=WebSiteBackend;Persist Security Info=True;User ID=sa;Password=12811281;");
+        }
+
         public WebSiteContext(DbContextOptions<WebSiteContext> options) : base(options)
         {
 

@@ -1,4 +1,14 @@
 ﻿
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
+@inject WebSiteBackend.Business.Abstracts.Interfaces.ILocalizationResourceService localizationService
+@{
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var displayname = culture.RequestCulture.UICulture.Name;
+    var language = culture.RequestCulture.UICulture.Name == "en" ? 1 : 2;
+}
+@*@localizationService.GetByLanguage("TestBaslik",language).Result.Value*@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,10 +49,10 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    @Html.ActionLink("Anasayfa", "Index", "Home", null, new { @class = "nav-item nav-link active" })
-                    @Html.ActionLink("Hakkımızda", "About", "Home", null, new { @class = "nav-item nav-link " })
-                    @Html.ActionLink("Vizyon ve Misyon", "VisionMission", "Home", null, new { @class = "nav-item nav-link " })
-                    @Html.ActionLink("Bloglar", "Blog", "Home", null, new { @class = "nav-item nav-link " })
+                    @Html.ActionLink(@localizationService.GetByLanguage("Home", language).Result.Value, "Index", "Home", null, new { @class = "nav-item nav-link active" })
+                    @Html.ActionLink(@localizationService.GetByLanguage("AboutUs", language).Result.Value, "About", "Home", null, new { @class = "nav-item nav-link " })
+                    @Html.ActionLink(@localizationService.GetByLanguage("VisionMission", language).Result.Value, "VisionMission", "Home", null, new { @class = "nav-item nav-link " })
+                    @Html.ActionLink(@localizationService.GetByLanguage("Blog", language).Result.Value, "Blog", "Home", null, new { @class = "nav-item nav-link " })
                     <li class="nav-item">
                         <partial name="_Culture" />
                     </li>

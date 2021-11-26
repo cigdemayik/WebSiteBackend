@@ -19,7 +19,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.CarouselModels
         public string ImageUrl { get; set; }
         [DisplayName("Resim")]
         [NotMapped]
-        [Required(ErrorMessage = "Lütfen Bir Resim Seçiniz")]
         public IFormFile Image { get; set; }
         [DisplayName("Detay")]
         [Required(ErrorMessage = "Lütfen Bir İçerik Giriniz.")]

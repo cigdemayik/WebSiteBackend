@@ -9,7 +9,7 @@
     var displayname = culture.RequestCulture.UICulture.Name;
     var language = culture.RequestCulture.UICulture.Name=="en"?1:2;
 }
-@localizationService.GetByLanguage("TestBaslik",language).Result.Value
+@*@localizationService.GetByLanguage("TestBaslik",language).Result.Value*@
 <!-- Carousel Start -->
 <div class="carousel">
     <div class="container-fluid">
@@ -43,7 +43,7 @@
             <div class="col-lg-7">
                 <div class="booking-content">
                     <div class="section-header">
-                        <p>Bloglar</p>
+                        <p>@localizationService.GetByLanguage("Blogs", language).Result.Value</p>
                         <h2>@Model.Blog.Header</h2>
                     </div>
                     <div class="about-text">
@@ -69,8 +69,7 @@
             <div class="col-lg-6">
                 <div class="about-content">
                     <div class="section-header">
-                        <p>Hakkımızda</p>
-                        <h2>Künefe</h2>
+                        <p>@localizationService.GetByLanguage("AboutUs", language).Result.Value</p>
                     </div>
                     <div class="about-text">
 
@@ -78,7 +77,7 @@
                                 @Html.Raw(Model.AboutUs.Content)
                         </p>
 
-                        @Html.ActionLink("Devamını Gör", "About", "Home", null, new { @class = "btn custom-btn " })
+                        @Html.ActionLink(@localizationService.GetByLanguage("More", language).Result.Value, "About", "Home", null, new { @class = "btn custom-btn " })
                     </div>
                 </div>
             </div>
@@ -114,8 +113,8 @@
 <div class="contact">
     <div class="container">
         <div class="section-header text-center">
-            <p>İletişim</p>
-            <h2>Bize Ulaşın</h2>
+            <p>@localizationService.GetByLanguage("Contact", language).Result.Value</p>
+            <h2>@localizationService.GetByLanguage("ContactUs", language).Result.Value</h2>
         </div>
         <div class="row align-items-center contact-information">
             <div class="col-md-6 col-lg-3">
@@ -124,7 +123,7 @@
                         <i class="fa fa-map-marker-alt"></i>
                     </div>
                     <div class="contact-text">
-                        <h3>Adres</h3>
+                        <h3>@localizationService.GetByLanguage("Address", language).Result.Value</h3>
                         <p>@Html.Raw(Model.Address.Content)</p>
                     </div>
                 </div>
@@ -135,7 +134,7 @@
                         <i class="fa fa-phone-alt"></i>
                     </div>
                     <div class="contact-text">
-                        <h3>Telefon</h3>
+                        <h3>@localizationService.GetByLanguage("Phone", language).Result.Value</h3>
                         <p>+012 345 6789</p>
                     </div>
                 </div>
@@ -146,7 +145,7 @@
                         <i class="fa fa-envelope"></i>
                     </div>
                     <div class="contact-text">
-                        <h3>E-Mail</h3>
+                        <h3>@localizationService.GetByLanguage("EMail", language).Result.Value</h3>
                         <p>info@example.com</p>
                     </div>
                 </div>
@@ -157,7 +156,7 @@
                         <i class="fa fa-share"></i>
                     </div>
                     <div class="contact-text">
-                        <h3>Takip Et</h3>
+                        <h3>@localizationService.GetByLanguage("Follow", language).Result.Value</h3>
                         <div class="contact-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -176,8 +175,8 @@
 <div class="blog">
     <div class="container">
         <div class="section-header text-center">
-            <p>Blog</p>
-            <h2>Son Yayınlanan Bloglar</h2>
+            <p>@localizationService.GetByLanguage("Blog", language).Result.Value</p>
+            <h2>@localizationService.GetByLanguage("LastBlog", language).Result.Value</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -197,7 +196,7 @@
                             <p>
                                 @Html.Raw(Model.Blog.Content)
                             </p>
-                            <a class="btn custom-btn" href="">Daha Fazla</a>
+                            <a class="btn custom-btn" href="">@localizationService.GetByLanguage("More", language).Result.Value</a>
                         </div>
                     </div>
                 </div>
