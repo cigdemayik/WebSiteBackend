@@ -14,7 +14,6 @@ namespace WebSiteBackend.DataAccess.Concrete.EFCore.Context
         {
 
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BlogConfiguration());
