@@ -19,7 +19,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.BlogModels
         public string Content { get; set; }
         public string ImageUrl { get; set; }
         [DisplayName("Resim")]
-        [Required(ErrorMessage = "Lütfen Bir Resim Seçiniz.")]
         public IFormFile Image { get; set; }
         public int UserId { get; set; } = 1;
         [DisplayName("Kategori")]

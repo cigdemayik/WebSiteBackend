@@ -20,7 +20,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.ProductModels
         public string Content { get; set; }
         public string ImageUrl { get; set; }
         [DisplayName("Resim")]
-        [Required(ErrorMessage = "Lütfen Bir Resim Seçiniz.")]
         public IFormFile Image { get; set; }
         public DateTime UpdateTime { get; set; }
         [DisplayName("Dil")]

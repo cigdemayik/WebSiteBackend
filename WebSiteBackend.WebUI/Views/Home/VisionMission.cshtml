@@ -2,19 +2,24 @@
 @using Microsoft.AspNetCore.Mvc.ModelBinding;
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
+@inject WebSiteBackend.Business.Abstracts.Interfaces.ILocalizationResourceService localizationService
 @{
     Layout = "_Layout";
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var displayname = culture.RequestCulture.UICulture.Name;
+    var language = culture.RequestCulture.UICulture.Name == "en" ? 1 : 2;
 }
+@*@localizationService.GetByLanguage("TestBaslik",language).Result.Value*@
 <!-- Page Header Start -->
 <div class="page-header">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Vision & Mission</h2>
+                <h2>@localizationService.GetByLanguage("VisionMission", language).Result.Value</h2>
             </div>
             <div class="col-12">
-                <a href="">Home</a>
-                <a href="">Vision & Mission</a>
+                @Html.ActionLink(@localizationService.GetByLanguage("Home", language).Result.Value, "Index", "Home", null, new { })
+                @Html.ActionLink(@localizationService.GetByLanguage("VisionMission", language).Result.Value, "VisionMission", "Home", null, new { })
             </div>
         </div>
     </div>
@@ -26,7 +31,7 @@
             <div class="col-lg-6">
                 <div class="about-content text-center">
                     <div class="section-header">
-                        <h2>Vizyon</h2>
+                        <h2>@localizationService.GetByLanguage("Vision", language).Result.Value</h2>
                     </div>
                     <div class="about-text">
                         @Html.Raw(Model.Vision.Content)
@@ -37,7 +42,7 @@
             <div class="col-lg-6">
                 <div class="about-content text-center">
                     <div class="section-header">
-                        <h2>Misyon</h2>
+                        <h2>@localizationService.GetByLanguage("Mission", language).Result.Value</h2>
                     </div>
                     <div class="about-text">
                         @Html.Raw(Model.Mission.Content)
@@ -46,6 +51,6 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>

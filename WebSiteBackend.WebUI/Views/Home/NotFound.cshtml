@@ -1,4 +1,13 @@
 ﻿
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> locOptions
+@inject WebSiteBackend.Business.Abstracts.Interfaces.ILocalizationResourceService localizationService
+@{
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var displayname = culture.RequestCulture.UICulture.Name;
+    var language = culture.RequestCulture.UICulture.Name == "en" ? 1 : 2;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +40,7 @@
         <div class="notfound">
             <div class="notfound-404">
                 <h1>Oops!</h1>
-                <h2>@ViewBag.Code - Sayfa Bulunamadı</h2>
+                <h2>404 - NotFound</h2>
             </div>
             @Html.ActionLink("Anasayfa", "Index", "Home", null, new { @class = "btn custom-btn " })
         </div>

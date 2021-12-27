@@ -17,7 +17,6 @@ namespace WebSiteBackend.WebUI.Areas.Admin.Models.NewsModels
         public string Content { get; set; }
         public string ImageUrl { get; set; }
         [DisplayName("Resim")]
-        [Required(ErrorMessage = "Lütfen Bir Resim Seçiniz.")]
         public IFormFile Image { get; set; }
         [DisplayName("Kategori")]
         [Required(ErrorMessage = "Lütfen Bir Kategori Seçiniz.")]
