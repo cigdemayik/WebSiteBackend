@@ -11,6 +11,6 @@ namespace WebSiteBackend.Business.Dtos.CategoryDtos
         public bool Active { get; set; }
         public string Name { get; set; }
         public DateTime UpdateTime { get; set; }
-        public LanguageEnum Language { get; set; }
+        public int Language { get; set; }
     }
 }
